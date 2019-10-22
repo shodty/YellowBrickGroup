@@ -1,4 +1,4 @@
-# ybgsite
+# vuecourse
 
 ## Project setup
 ```

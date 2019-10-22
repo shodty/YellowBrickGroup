@@ -1,0 +1,49 @@
+Cube(project='OurStreet', letter="letter-o", color1="#2a276c", color2="#e5b4c8", image="../assets/img/ourstreet.png" )
+Cube(project='AllCityRiders', letter="letter-a", color1="#67a844", color2="#006bb6", image="../assets/img/allcityriders.png"  )
+Cube(project='Bottomless', letter="letter-b", color1="#f2bcb9", color2="#e96c59" image="../assets/img/bottomless.png" )
+Cube(project='AlienLabs', letter="letter-a", color1="#faa72a", color2="#e64783" image="../assets/img/alienlabs.png")
+Cube(project='Notorious', letter="letter-n", color1="#e43e30", color2="#f1f2f2" image="../assets/img/notorious.png")
+Cube(project='ShangriLa', letter="letter-s", color1="#d6693f", color2="#405472"  image="../assets/img/shangrila.png")
+Cube(project='BardisMiry', letter="letter-b", color1="#85ba9b", color2="#feede5" image="../assets/img/bardismiry.png")
+Cube(project='TheCabin', letter="letter-c", color1="#34442c", color2="#fbcc53" image="../assets/img/cabin.png")
+Cube(project='TourDeAwesome', letter="letter-t", color1="#e03b26", color2="#f3ae44" image="../assets/img/tourdeawesome.png")
+Cube(project='ArtLifeTour', letter="letter-a", color1="#8667ad", color2="#61cbea" image="../assets/img/artlife.png")
+Cube(project='MasTaco', letter="letter-m", color1="#00adbb", color2="#c6d655" image="../assets/img/mastaco.png")
+Cube(project='Connected', letter="letter-c", color1="#000000", color2="#0198ce" image="../assets/img/connected.png")     
+
+
+Cube(project=project.name Cube(project=project.name letter=project.letter color1=project.color1 color2=project.color2 image=project.image))
+
+
+import LetterA from './letters/LetterA.vue'
+import LetterB from './letters/LetterB.vue'
+import LetterC from './letters/LetterC.vue'
+import LetterD from './letters/LetterD.vue'
+import LetterE from './letters/LetterE.vue'
+import LetterF from './letters/LetterF.vue'
+import LetterG from './letters/LetterG.vue'
+import LetterH from './letters/LetterH.vue'
+import LetterI from './letters/LetterI.vue'
+import LetterJ from './letters/LetterJ.vue'
+import LetterK from './letters/LetterK.vue'
+import LetterL from './letters/LetterL.vue'
+import LetterM from './letters/LetterM.vue'
+import LetterN from './letters/LetterN.vue'
+import LetterO from './letters/LetterO.vue'
+import LetterP from './letters/LetterP.vue'
+import LetterQ from './letters/LetterQ.vue'
+import LetterR from './letters/LetterR.vue'
+import LetterS from './letters/LetterS.vue'
+import LetterT from './letters/LetterT.vue'
+import LetterU from './letters/LetterU.vue'
+import LetterV from './letters/LetterV.vue'
+import LetterW from './letters/LetterW.vue'
+import LetterX from './letters/LetterX.vue'
+import LetterY from './letters/LetterY.vue'
+import LetterZ from './letters/LetterZ.vue'
+
+
+components:{
+    IconBase, LetterA, LetterB, LetterC, LetterD, LetterE, LetterF, LetterG, LetterH, LetterI, LetterJ, LetterK, LetterL, LetterM, LetterN, 
+    LetterO, LetterP, LetterQ, LetterR, LetterS, LetterT, LetterU, LetterV, LetterW, LetterX, LetterY, LetterZ
+  }
