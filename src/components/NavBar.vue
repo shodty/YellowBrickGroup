@@ -4,7 +4,7 @@
         transition(name='slide-fade')
             .nav-icons(v-if='activeLink =="welcome"') 
                 .welcome-image
-                    img(alt='welcome' src='../assets/welcome3.png' height='76px' id='welcome')
+                    img(alt='welcome' src='../assets/welcome3.png' height='66px' id='welcome')
 
         transition(name='slide-fade')
             .nav-icons(v-if='activeLink =="categories"') 
@@ -69,7 +69,7 @@
                         component(is="letter-a")
 
         transition(name='slide-fade')
-            .nav-icons(v-if='activeLink =="projects"') 
+            .nav-icons(v-if='activeLink =="something"') 
                 .nav-button
                     img(alt='left' src='../assets/img/icons/L.png' width='50px' id='left' @click='rightShow')
                 .nav-button
@@ -80,9 +80,9 @@
                     img(alt='right' src='../assets/img/icons/R.png' width='50px' id='right' @click='leftShow')
 
     .buttons
-        .nav.nav-text(href='#' ref="welcome"    @click='onClick("welcome")'     :class="[{ active: clicked5 }, { lightclass: light }, { darkclass: !light }]") WELCOME
+        .nav.nav-text(href='#' ref="welcome"    @click='onClick("welcome")'     :class="[{ active: clicked5 }, { lightclass: light }, { darkclass: !light }]") START
         .nav.nav-text(href='#' ref="projects"   @click='onClick("projects")'    :class="[{ active: clicked1 }, { lightclass: light }, { darkclass: !light }]") PROJECTS
-        .nav.nav-text(href='#' ref="categories" @click='onClick("categories")'  :class="[{ active: clicked2 }, { lightclass: light }, { darkclass: !light }]") CATEGORIES
+        .nav.nav-text(href='#' ref="categories" @click='onClick("categories")'  :class="[{ active: clicked2 }, { lightclass: light }, { darkclass: !light }]") SORT
         .nav.nav-text(href='#' ref="videos"     @click='onClick("videos")'      :class="[{ active: clicked3 }, { lightclass: light }, { darkclass: !light }]") VIDEOS
         //.nav.nav-text(href='#' ref="colors"     @click='onClick("colors")'      :class="[{ active: clicked4 }, { lightclass: light }, { darkclass: !light }]") COLORS
 </template>
@@ -110,19 +110,19 @@ export default {
             bottomShower : true,
             frontShower : true,
             iconsObject : {
-              names : [        
-                'id',
-                'vid',
-                'gather',
-                'print',
-                'concept',
-                'photo',
-                'social',
-                'web',
-                'collab',
+                names : [        
+                    'id',
+                    'vid',
+                    'gather',
+                    'print',
+                    'concept',
+                    'photo',
+                    'social',
+                    'web',
+                    'collab',
                 ],
-              id : {
-                name : 'id',
+                id : {
+                    name : 'id',
                 color : 'black',
                 clicked : false
               },
