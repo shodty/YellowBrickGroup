@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+#header-div
     .headerimages
       .imagediv
           .icon-div( @click='onClick')
@@ -69,6 +69,10 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+
+#header-div
+  position: relative
+  z-index : 900
 
 .headerimages
   padding-bottom: 35px

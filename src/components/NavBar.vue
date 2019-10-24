@@ -2,7 +2,7 @@
 .navdiv
     .icons
         transition(name='slide-fade')
-            .nav-icons(v-if='activeLink =="welcome"') 
+            .nav-image(v-if='activeLink =="welcome"') 
                 .welcome-image
                     img(alt='welcome' src='../assets/welcome3.png' height='66px' id='welcome')
 
@@ -278,6 +278,7 @@ export default {
         this.rightShower = true
         this.topShower = true
         this.leftShower = true
+        this.frontShower = true
         EventBus.$emit('bottomall', this.bottomShower)
     },
     frontShow(){
@@ -333,6 +334,9 @@ a
     justify-content: center
     height: 50px
     padding-bottom: 30px
+
+.nav-image
+    position: relative
 
 .nav-icons
     position: absolute

@@ -108,7 +108,7 @@ export default {
             }
         }),
         EventBus.$on('bottomall', bottomShower => {
-            console.log(bottomShower)
+            this.projectclicked = false
             if(bottomShower == false) {
                 this.showTop = false
                 this.showRight = false

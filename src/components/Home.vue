@@ -2,9 +2,9 @@
 #home(:style="bgc" v-cloak)
   video(v-if="videoplay" class="video-bottom" :src="getImgUrl(videosource, '.mp4')" autoplay muted loop)
   DarkLight(class="footerclass")
-  SideBar(class="sidebarclass")
+  SideBar
   // header, which contains header image & navbar
-  Header(class="footerclass")
+  Header
   //grid of projects inside container div
   .container
     .grid
@@ -223,7 +223,7 @@ export default {
   align-items: center
   justify-content: center
   z-index : 25
-
+  
 .grid
   margin: 0 auto
   width: 100%
@@ -231,6 +231,7 @@ export default {
   flex-wrap: wrap;
   align-items: center
   justify-content: center
+ 
 
 #ybg
   padding-bottom: 30px
@@ -256,9 +257,6 @@ export default {
     min-height: 100% 
     z-index: 1 
     overflow: hidden
-
-.sidebarclass
-    z-index : 1000
 
 .footerclass
     position: relative

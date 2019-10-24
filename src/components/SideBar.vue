@@ -64,7 +64,7 @@ export default {
     height: 100%
     width: 65px
     position: fixed
-    z-index: 1
+    z-index: 1000
     top: 0
     right: 0
     color: black
