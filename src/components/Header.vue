@@ -27,7 +27,7 @@ export default {
       },
       light : true,
       headerColor : 'black',
-      componentName : ['yellow-brick-group', 'ybg-logo', 'ybg-bricked', 'ybg-hollow']
+      componentName : ['yellow-brick-group', 'ybg-solid', 'ybg-bricked', 'ybg-hollow']
 
     }
   },
@@ -45,7 +45,8 @@ export default {
 
     }),
     EventBus.$on('moviechange', (movie, play) => {
-      return this.count = 3
+      if(play)
+        return this.count = 3
     })
   },
   destroyed() {

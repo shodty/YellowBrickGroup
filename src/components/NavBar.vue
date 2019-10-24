@@ -49,8 +49,8 @@
         transition(name='slide-fade')
             .nav-icons(v-if='activeLink =="videos"') 
                 .icon-wrapper
-                    .movie-button(@click="movieChange('cases/alt/2', true)")
-                        IconBase(class="iconbases" icon-name="our people" width="50" height="50" icon-color='#235d39')
+                    .movie-button(@click="movieChange('cases/alt/2', true)" @mouseenter="highlightMovie(true)" @mouseleave="highlightMovie(false)")
+                        IconBase(class="iconbases" icon-name="our people" width="50" height="50" icon-color='#235d39' icon-stroke="white" stroke-weight=0 )
                             component(is="letter-o")
                     .movie-button(@click="movieChange('cases/btm/2', true)")
                         IconBase(class="iconbases" icon-name="jump" width="50" height="50" icon-color='#0076bb')
@@ -200,6 +200,9 @@ export default {
     })
   },
   methods: {
+    highlightMovie(highlight){
+
+    },
     movieChange(movie, play){
         EventBus.$emit('moviechange', movie, play)
     },

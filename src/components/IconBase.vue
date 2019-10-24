@@ -2,7 +2,7 @@
 .svgContainer
   svg(xmlns='http://www.w3.org/2000/svg' :width='width' :height='height' viewBox='0 0 400 400' :aria-labelledby='iconName' role='presentation')
     //title(:id='iconName' lang='en') {{iconName}}
-    g(:fill='iconColor' class='transitional')
+    g(:fill='iconColor' class='transitional' :stroke='iconStroke' :stroke-width='strokeWeight')
       slot
 </template>
 
@@ -24,6 +24,14 @@ export default {
     iconColor: {
       type: String,
       default: 'currentColor'
+    },
+    iconStroke: {
+      type: String,
+      default: 'rgb(0,0,0,0)'
+    },
+    strokeWeight: {
+      type: Number,
+      default: 0
     }
   }
 }
