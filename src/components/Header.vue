@@ -27,7 +27,7 @@ export default {
       },
       light : true,
       headerColor : 'black',
-      componentName : ['yellow-brick-group', 'ybg-logo', 'ybg-bricked']
+      componentName : ['yellow-brick-group', 'ybg-logo', 'ybg-bricked', 'ybg-hollow']
 
     }
   },
@@ -43,6 +43,9 @@ export default {
         else
           this.headerColor = 'black'
 
+    }),
+    EventBus.$on('moviechange', (movie, play) => {
+      return this.count = 3
     })
   },
   destroyed() {
@@ -51,7 +54,7 @@ export default {
   methods: {
     onClick() {
       this.count++
-      if(this.count > 2) this.count = 0
+      if(this.count > 3) this.count = 0
     },
     handleResize() {
       this.window.width = window.innerWidth*.8;

@@ -1,9 +1,10 @@
 <template lang="pug">
 #home(:style="bgc" v-cloak)
-  DarkLight
-  SideBar
+  video(v-if="videoplay" class="video-bottom" :src="getImgUrl(videosource, '.mp4')" autoplay muted loop)
+  DarkLight(class="footerclass")
+  SideBar(class="sidebarclass")
   // header, which contains header image & navbar
-  Header
+  Header(class="footerclass")
   //grid of projects inside container div
   .container
     .grid
@@ -25,7 +26,7 @@
       Cube(project='The Cabin'        letter='letter-c' :color1='iconfronts.cabin[0]'      color2='#fbcc53' image='cabin' :pattern='patterns.cabin'       :bgColor='bgc' :iconsObject='iconsObject' @hovered="onHoverChild")
       Cube(project='Art Life Tour'    letter='letter-a' :color1='iconfronts.artlife[0]'    color2='#61cbea' image='alt'   :pattern='patterns.artlife'     :bgColor='bgc' :iconsObject='iconsObject' @hovered="onHoverChild")
       Cube(project='Bardis Miry'      letter='letter-b' :color1='iconfronts.bardismiry[0]' color2='#feede5' image='bm'    :pattern='patterns.bardismiry'  :bgColor='bgc' :iconsObject='iconsObject' @hovered="onHoverChild")
-  Footer
+  Footer(class="footerclass")
 </template>
 
 <script>
@@ -45,6 +46,8 @@ export default {
         backgroundColor : 'white'
       },
       light : true,
+      videoplay :false,
+      videosource : "cases/acr/2",
       patterns : { 
         ourstreet :   [1,1,1,1,1,1,1,1,1],
         acr :         [1,1,0,1,0,1,1,1,0],
@@ -139,6 +142,16 @@ export default {
     }
   },
   mounted(){
+        EventBus.$on('moviechange', (movie, play) => {
+          if(play){
+            this.videosource = movie
+            this.videoplay = true
+          }
+          else if(!play){
+            this.videosource = null
+            this.videoplay = false
+          }
+        }),
         EventBus.$on('colorall', (name, color, clicked) => {
           for(var icon in this.iconsObject.names){
             if( (name == this.iconsObject.names[icon]) && !clicked ) 
@@ -181,7 +194,10 @@ export default {
           for(project in this.projects)  
             this.iconfronts[this.projects[project]].unshift(value2)
       }
-    }
+    },
+    getImgUrl(pic, ext){
+      return require('../assets/img/' + pic + ext)
+    },
   }
 }
 </script>
@@ -206,6 +222,7 @@ export default {
   display: flex
   align-items: center
   justify-content: center
+  z-index : 25
 
 .grid
   margin: 0 auto
@@ -228,4 +245,22 @@ export default {
   background: url('../assets/loader.gif') no-repeat
 }
 
+.video-bottom
+    position: fixed
+    width: 100%
+    top: 50% 
+    left: 50%
+    -webkit-transform: translateX(-50%) translateY(-50%)   
+    transform: translateX(-50%) translateY(-50%)
+    min-width: 100% 
+    min-height: 100% 
+    z-index: 1 
+    overflow: hidden
+
+.sidebarclass
+    z-index : 1000
+
+.footerclass
+    position: relative
+    z-index : 900
 </style>

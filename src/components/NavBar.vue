@@ -49,24 +49,33 @@
         transition(name='slide-fade')
             .nav-icons(v-if='activeLink =="videos"') 
                 .icon-wrapper
-                    IconBase(class="iconbases" icon-name="our people" width="50" height="50" icon-color='#235d39')
-                        component(is="letter-o")
-                    IconBase(class="iconbases" icon-name="jump" width="50" height="50" icon-color='#0076bb')
-                        component(is="letter-j")
-                    IconBase(class="iconbases" icon-name="connected" width="50" height="50" icon-color='#e2a0c7')
-                        component(is="letter-c")   
-                    IconBase(class="iconbases" icon-name="yellow" width="50" height="50" icon-color='#000')
-                        component(is="letter-y")
-                    IconBase(class="iconbases" icon-name="brick" width="50" height="50" icon-color='#000')
-                        component(is="letter-b")
-                    IconBase(class="iconbases" icon-name="group" width="50" height="50" icon-color='#000')
-                        component(is="letter-g")     
-                    IconBase(class="iconbases" icon-name="mexico" width="50" height="50" icon-color='#f3b120')
-                        component(is="letter-m")
-                    IconBase(class="iconbases" icon-name="barcelona" width="50" height="50" icon-color='#e43d30')
-                        component(is="letter-b")
-                    IconBase(class="iconbases" icon-name="all city riders" width="50" height="50" icon-color='#ed7625')
-                        component(is="letter-a")
+                    .movie-button(@click="movieChange('cases/alt/2', true)")
+                        IconBase(class="iconbases" icon-name="our people" width="50" height="50" icon-color='#235d39')
+                            component(is="letter-o")
+                    .movie-button(@click="movieChange('cases/btm/2', true)")
+                        IconBase(class="iconbases" icon-name="jump" width="50" height="50" icon-color='#0076bb')
+                            component(is="letter-j")
+                    .movie-button(@click="movieChange('cases/jump/2', true)")
+                        IconBase(class="iconbases" icon-name="connected" width="50" height="50" icon-color='#e2a0c7')
+                            component(is="letter-c")   
+                    .movie-button(@click="movieChange('cases/jump/3', true)")
+                        IconBase(class="iconbases" icon-name="yellow" width="50" height="50" icon-color='#000')
+                            component(is="letter-y")
+                    .movie-button(@click="movieChange('cases/jump/4', true)")
+                        IconBase(class="iconbases" icon-name="brick" width="50" height="50" icon-color='#000')
+                            component(is="letter-b")
+                    .movie-button(@click="movieChange('cases/mas/1', true)")
+                        IconBase(class="iconbases" icon-name="group" width="50" height="50" icon-color='#000')
+                            component(is="letter-g")     
+                    .movie-button(@click="movieChange('cases/ourstreet/2', true)")
+                        IconBase(class="iconbases" icon-name="mexico" width="50" height="50" icon-color='#f3b120')
+                            component(is="letter-m")
+                    .movie-button(@click="movieChange('cases/ourstreet/5.5', true)")
+                        IconBase(class="iconbases" icon-name="barcelona" width="50" height="50" icon-color='#e43d30')
+                            component(is="letter-b")
+                    .movie-button(@click="movieChange('cases/acr/2', true)")
+                        IconBase(class="iconbases" icon-name="all city riders" width="50" height="50" icon-color='#ed7625')
+                            component(is="letter-a")
 
         transition(name='slide-fade')
             .nav-icons(v-if='activeLink =="something"') 
@@ -191,6 +200,9 @@ export default {
     })
   },
   methods: {
+    movieChange(movie, play){
+        EventBus.$emit('moviechange', movie, play)
+    },
     onClick(entry) {
         this.activeLink = entry
         if(entry == 'welcome'){
@@ -199,6 +211,7 @@ export default {
             this.clicked3 = false
             this.clicked4 = false
             this.clicked5 = true
+            EventBus.$emit('moviechange', 'null', false)
             this.frontShow()
         }
         if(entry == 'projects'){
@@ -207,6 +220,7 @@ export default {
             this.clicked3 = false
             this.clicked4 = false
             this.clicked5 = false
+            EventBus.$emit('moviechange', 'null', false)
             this.rightShow()
         }
         else if(entry == 'categories'){
@@ -215,6 +229,7 @@ export default {
             this.clicked3 = false
             this.clicked4 = false
             this.clicked5 = false
+            EventBus.$emit('moviechange', 'null', false)
             this.topShow()
         }
         else if(entry == 'videos'){
@@ -223,6 +238,7 @@ export default {
             this.clicked3 = true
             this.clicked4 = false
             this.clicked5 = false
+            EventBus.$emit('moviechange', 'cases/ourstreet/8', true)
             this.bottomShow()
         }
         else if(entry == 'colors'){
@@ -231,6 +247,7 @@ export default {
             this.clicked3 = false
             this.clicked4 = true
             this.clicked5 = false
+            EventBus.$emit('moviechange', 'null', false)
             this.leftShow()
         }
         
@@ -267,6 +284,7 @@ export default {
         this.rightShower = true
         this.topShower = true
         this.leftShower = true
+        this.bottomShower = true
         EventBus.$emit('frontall', this.frontShower)
     },    
     colorChanger(name, color, clicked){ //(iconsObject.names[4], '#625e9d', iconsObject.concept.clicked)") 'id', 'black', false
@@ -331,6 +349,7 @@ a
     padding-right: 20px
     
 .iconbases
+    padding-right: 4px
 
 .lightclass
     color: black
@@ -389,4 +408,6 @@ a
   opacity: 0;
 }
 
+.movie-button
+    cursor: url('../assets/hand.png'), auto
 </style>

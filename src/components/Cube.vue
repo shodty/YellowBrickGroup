@@ -6,8 +6,8 @@
                 component(:is="letter")
         .cube__face.cube__face--back(:style="bgColor") back
         .cube__face.cube__face--right(:style="bgColor" @click="goToCaseStudy")
-            img(:alt='project' :src='getImgUrl(image)')
-            .picture-overlay
+            img(:alt='project' :src='getImgUrl(image, ".png")')
+            .picture-overlay( :class="pictureclass")
                 img(:src='getLogoUrl(image)' width="400px" height="400px")  
         .cube__face.cube__face--left(:style="bgColor")
             IconBase(width="400" height="400" :icon-name="project" :icon-color="color2")
@@ -48,7 +48,7 @@
                     .icon-cell(@click="colorChanger(iconsObject.names[8], '#8dc63f', iconsObject.collab.clicked)")
                         IconBase(v-if="pattern[8] == '1'" class="iconbases" icon-name="collaboration" width="65" height="65" :icon-color='iconsObject.collab.color' )
                             component(is="collaboration")                        
-        .cube__face.cube__face--bottom bottom
+        .cube__face.cube__face--bottom
 
 
 </template>
@@ -81,6 +81,7 @@ export default {
             showBottom: false,
             showLogo: false,
             projectclicked: false,
+            pictureclass: 'null',
             light : true,
         }
     },
@@ -102,10 +103,12 @@ export default {
                 this.showFront = false
                 this.showBottom = false
                 this.showLeft = false
+                this.pictureclass = 'show-picture'
                 this.projectclicked = !this.projectclicked
             }
         }),
         EventBus.$on('bottomall', bottomShower => {
+            console.log(bottomShower)
             if(bottomShower == false) {
                 this.showTop = false
                 this.showRight = false
@@ -124,6 +127,8 @@ export default {
             }
         }),
         EventBus.$on('frontall', frontShower => {
+            this.projectclicked = false
+            this.pictureclass = 'null'
             this.frontShowMethod()
 
         }),        
@@ -132,11 +137,11 @@ export default {
       })
     },
     methods: {
-        getImgUrl(pic){
-            return require('../assets/img/' + pic + '.png')
+        getImgUrl(pic, ext){
+            return require('../assets/img/' + pic + ext)
         },
         getLogoUrl(pic){
-            return require('../assets/img//cases/overlay/' + pic + '.png')
+            return require('../assets/img/cases/overlay/' + pic + '.png')
         },
         changeBgc(color, color2){
             this.showLogo = !this.showlogo
@@ -168,14 +173,16 @@ export default {
 
         },
         shiftCube(entered){
-
             if(entered && this.showFront){
+                this.pictureclass = 'show-picture'
                 this.showFront= false
                 this.showRight= true
+
             }
             else if ( !entered && !this.showFront && !this.projectclicked){
                 this.showFront= true
-                this.showRight= false    
+                this.showRight= false
+                this.pictureclass = 'null'
             }
         }
     },
@@ -209,7 +216,7 @@ body
     height: 400px
     perspective: 800px 
     float: left
-    margin: 12px
+    margin: 10px
     transform-style: preserve-3d
 
 
@@ -243,6 +250,7 @@ body
     color: white
     text-align: center
     transition: 1s
+    overflow: hidden
 
 .cube__face--front
     background: hsla(  0, 0%, 100%, 1)
@@ -295,9 +303,9 @@ label
     top: 0
     left: 0
     opacity: 0
-    transition: .5s
+    transition: 2s
 
-.picture-overlay:hover
+.picture-overlay.show-picture
     opacity: 1
 
 .project-name
@@ -308,6 +316,5 @@ label
     color: white
     text-transform: uppercase
     letter-spacing: 3px
-
 
 </style>
