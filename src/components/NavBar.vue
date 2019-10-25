@@ -9,40 +9,40 @@
         transition(name='slide-fade')
             .nav-icons(v-if='activeLink =="categories"') 
                 .icon-wrapper(:class="[{ lightclass: light }, { darkclass: !light }]")
-                    .icon-text(@click="colorChanger(iconsObject.names[4], '#625e9d', iconsObject.concept.clicked)")    
-                        IconBase(class="iconbases" icon-name="concept" width="50" height="50"  :icon-color='iconsObject.concept.color')
+                    .icon-text(@click="colorChanger(iconsObject.names[4], iconsObject.concept.clicked)")    
+                        IconBase(class="iconbases" icon-name="concept" width="50" height="50"  :icon-color='iconsObject.concept.clicked? iconsObject.concept.color : iconsObject.color')
                             component(is="concept")
                         p concept                  
-                    .icon-text(@click="colorChanger(iconsObject.names[1], '#f3b120', iconsObject.vid.clicked)")      
-                        IconBase(class="iconbases" icon-name="videos" width="50" height="50" :icon-color='iconsObject.vid.color')
+                    .icon-text(@click="colorChanger(iconsObject.names[1], iconsObject.vid.clicked)")      
+                        IconBase(class="iconbases" icon-name="videos" width="50" height="50" :icon-color='iconsObject.vid.clicked? iconsObject.vid.color : iconsObject.color')
                             component(is="videos")
                         p video
-                    .icon-text(@click="colorChanger(iconsObject.names[2], '#ed7625', iconsObject.gather.clicked)")      
-                        IconBase(class="iconbases" icon-name="gathering" width="50" height="50"  :icon-color='iconsObject.gather.color')
+                    .icon-text(@click="colorChanger(iconsObject.names[2], iconsObject.gather.clicked)")      
+                        IconBase(class="iconbases" icon-name="gathering" width="50" height="50"  :icon-color='iconsObject.gather.clicked? iconsObject.gather.color : iconsObject.color')
                             component(is="gathering")
                         p gather                        
-                    .icon-text(@click="colorChanger(iconsObject.names[3], '#235d39', iconsObject.print.clicked)")       
-                        IconBase(class="iconbases" icon-name="print" width="50" height="50"  :icon-color='iconsObject.print.color')
+                    .icon-text(@click="colorChanger(iconsObject.names[3], iconsObject.print.clicked)")       
+                        IconBase(class="iconbases" icon-name="print" width="50" height="50"  :icon-color='iconsObject.print.clicked? iconsObject.print.color : iconsObject.color')
                             component(is="print")
                         p print  
-                    .icon-text(@click="colorChanger(iconsObject.names[0], '#edb1ca', iconsObject.id.clicked)")      
-                        IconBase(class="iconbases" icon-name="identity" width="50" height="50" :icon-color='iconsObject.id.color')
+                    .icon-text(@click="colorChanger(iconsObject.names[0], iconsObject.id.clicked)")      
+                        IconBase(class="iconbases" icon-name="identity" width="50" height="50" :icon-color='iconsObject.id.clicked? iconsObject.id.color : iconsObject.color')
                             component(is="identity")
                         p identity
-                    .icon-text(@click="colorChanger(iconsObject.names[5], '#0076bb', iconsObject.photo.clicked)")       
-                        IconBase(class="iconbases" icon-name="photo & video" width="50" height="50"  :icon-color='iconsObject.photo.color')
+                    .icon-text(@click="colorChanger(iconsObject.names[5], iconsObject.photo.clicked)")       
+                        IconBase(class="iconbases" icon-name="photo & video" width="50" height="50"  :icon-color='iconsObject.photo.clicked? iconsObject.photo.color : iconsObject.color')
                             component(is="photovideo")
                         p photo       
-                    .icon-text(@click="colorChanger(iconsObject.names[6], '#e43e30', iconsObject.social.clicked)")       
-                        IconBase(class="iconbases" icon-name="social" width="50" height="50"  :icon-color='iconsObject.social.color')
+                    .icon-text(@click="colorChanger(iconsObject.names[6], iconsObject.social.clicked)")       
+                        IconBase(class="iconbases" icon-name="social" width="50" height="50"  :icon-color='iconsObject.social.clicked? iconsObject.social.color : iconsObject.color')
                             component(is="social")
                         p social
-                    .icon-text(@click="colorChanger(iconsObject.names[7], '#244c5a', iconsObject.web.clicked)")                          
-                        IconBase(class="iconbases" icon-name="web" width="50" height="50"  :icon-color='iconsObject.web.color')
+                    .icon-text(@click="colorChanger(iconsObject.names[7], iconsObject.web.clicked)")                          
+                        IconBase(class="iconbases" icon-name="web" width="50" height="50"  :icon-color='iconsObject.web.clicked? iconsObject.web.color : iconsObject.color')
                             component(is="web")   
                         p web                                                                                                                                        
-                    .icon-text(@click="colorChanger(iconsObject.names[8], '#8dc63f', iconsObject.collab.clicked)") 
-                        IconBase(class="iconbases" icon-name="collaboration" width="50" height="50" :icon-color='iconsObject.collab.color')
+                    .icon-text(@click="colorChanger(iconsObject.names[8], iconsObject.collab.clicked)") 
+                        IconBase(class="iconbases" icon-name="collaboration" width="50" height="50" :icon-color='iconsObject.collab.clicked? iconsObject.collab.color : iconsObject.color')
                             component(is="collaboration")
                         p collab
 
@@ -107,7 +107,6 @@ export default {
     data() {
         return{
             activeLink : 'welcome',
-            light : true,
             clicked1 : false,
             clicked2 : false,
             clicked3 : false,
@@ -118,86 +117,15 @@ export default {
             leftShower : true,
             bottomShower : true,
             frontShower : true,
-            iconsObject : {
-                names : [        
-                    'id',
-                    'vid',
-                    'gather',
-                    'print',
-                    'concept',
-                    'photo',
-                    'social',
-                    'web',
-                    'collab',
-                ],
-                id : {
-                    name : 'id',
-                color : 'black',
-                clicked : false
-              },
-              vid : {
-                name : 'vid',
-                color : 'black', 
-                clicked : false
-              },
-              gather : {
-                name : 'gather',
-                color : 'black', 
-                clicked : false
-              },
-              print : {
-                name : 'print',
-                color : 'black', 
-                clicked : false
-              },
-              concept : {
-                name : 'concept',
-                color : 'black', 
-                clicked : false
-              },
-              photo : {
-                name : 'photo',
-                color : 'black',
-                clicked : false
-              },
-              social : {
-                name : 'social',
-                color : 'black', 
-                clicked : false
-              },
-              web : {
-                name : 'web',
-                color : 'black', 
-                clicked : false
-              },
-              collab : {
-                name : 'collab',
-                color : 'black', 
-                clicked : false
-              },            
-            }   
         }
   },
-  mounted(){
-    EventBus.$on('darklight', lightness => {
-        for(var icon in this.iconsObject.names){
-            if((this.iconsObject[this.iconsObject.names[icon]].color == 'white') && !this.light) 
-                this.$set(this.iconsObject[this.iconsObject.names[icon]], 'color', 'black')
-            else if((this.iconsObject[this.iconsObject.names[icon]].color == 'black') && this.light) 
-                this.$set(this.iconsObject[this.iconsObject.names[icon]], 'color', 'white')
-            } 
-        this.light = !this.light
-      }),
-    EventBus.$on('colorall', (name, color, clicked) => {
-        for(var icon in this.iconsObject.names){
-            if( (name == this.iconsObject.names[icon]) && !clicked ) 
-                this.iconsObject[this.iconsObject.names[icon]].color = color
-            else if( (name == this.iconsObject.names[icon]) && clicked && !this.light)
-                this.iconsObject[this.iconsObject.names[icon]].color = 'white'
-            else if( (name == this.iconsObject.names[icon]) && clicked && this.light)
-                this.iconsObject[this.iconsObject.names[icon]].color = 'black'
-        }
-    })
+  computed: {
+      iconsObject(){
+          return this.$store.state.iconsObject
+      },
+      light(){
+          return this.$store.state.light
+      }
   },
   methods: {
     highlightMovie(highlight){
@@ -291,19 +219,8 @@ export default {
         this.bottomShower = true
         EventBus.$emit('frontall', this.frontShower)
     },    
-    colorChanger(name, color, clicked){ //(iconsObject.names[4], '#625e9d', iconsObject.concept.clicked)") 'id', 'black', false
-        EventBus.$emit('colorall', name, color, clicked)
-        if(clicked == false){
-            this.$set(this.iconsObject[name], 'color', color)
-            this.$set(this.iconsObject[name], 'clicked', true)
-        }
-        else{
-            if(this.light == true)
-                this.$set(this.iconsObject[name], 'color', 'black')
-            else
-                this.$set(this.iconsObject[name], 'color', 'white')
-            this.$set(this.iconsObject[name], 'clicked', false)     
-        }   
+    colorChanger(name, clicked){ //(iconsObject.names[4], '#625e9d', iconsObject.concept.clicked)") 'id', 'black', false
+        this.$store.dispatch('colorChange', {name, clicked})
     }
   },
    components:{

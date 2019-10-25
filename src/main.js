@@ -5,6 +5,7 @@ import commonCategories from './components/categories'
 import commonIcons from './components/icons'
 import VueRouter from 'vue-router'
 import Routes from './routes'
+import { store } from './store/store'
 
 Vue.use(VueRouter);
 
@@ -28,6 +29,7 @@ commonIcons.forEach(component => {
 Vue.config.productionTip = false
 
 new Vue({
+  store: store,
   render: h => h(App),
   router: router
 }).$mount('#app')

@@ -1,7 +1,7 @@
 <template lang="pug">
 #dark-light(@click='flip')
-    .icon-holder(:class='flipped')
-        IconBase(icon-name="dark light" width="55" height="55" :icon-color='faceColor')
+    .icon-holder(:class="[{ lightmode: light }, { darkmode: !light }]")
+        IconBase(icon-name="dark light" width="55" height="55" :icon-color=' light? "black" : "white" ')
             component(is="smile")
 
 </template>
@@ -15,32 +15,27 @@ export default {
   name: 'dark-light',
   data(){
     return {
-        flipped: 'light',
         faceColor: 'black'
     }
+  },
+ computed: {
+      light(){
+          return this.$store.state.light
+      }
   },
   components: {
       IconBase
   },
   methods: {
-      flip(){
-        if(this.flipped == 'light'){
-            EventBus.$emit('darklight', 'black')
-            this.faceColor = 'white'
-            return this.flipped = 'dark'
-        }
-        else
-            EventBus.$emit('darklight', 'white')
-            this.faceColor = 'black'
-            this.flipped = 'light'
-      }
-    },
+    flip(){
+        this.$store.commit('darkLight')
+    }
+  }
 }
 
 </script>
 
 <style scoped lang="stylus">
-
 
 *
   margin: 0px
@@ -55,16 +50,16 @@ export default {
 .icon-holder
     transition: all 3s
 
-.icon-holder.light
+.icon-holder.lightmode
     cursor: url("../assets/dark.png"), auto
 
-.icon-holder.dark
+.icon-holder.darkmode
     cursor: url("../assets/light.png"), auto
 
-.dark
+.darkmode
     transform: rotate(180deg)
 
-.light
+.lightmode
     transform: rotate(0deg)
 
 </style>

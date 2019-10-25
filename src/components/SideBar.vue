@@ -20,20 +20,13 @@ export default {
       activeLink : null,
       clicked1 : true,
       clicked2 : false,
-      clicked3 : false,
-      light: true
+      clicked3 : false
     }
   },
-  mounted(){
-      EventBus.$on('darklight', lightness => {  
-          this.light = !this.light
-      })
-  },
-  methods: {
-    
-  },
-   components:{
-
+  computed: {
+      light(){
+          return this.$store.state.light
+      }
   }
 }
 

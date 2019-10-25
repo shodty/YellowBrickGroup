@@ -3,7 +3,7 @@
     .headerimages
       .imagediv
           .icon-div( @click='onClick')
-            IconTwo(icon-name="yellow brick group" :width="window.width" :height="window.height" :icon-color='headerColor')
+            IconTwo(icon-name="yellow brick group" :width="window.width" :height="window.height" :icon-color=' light? "black" : "white" ')
               component(:is="componentName[this.count]")
     NavBar
 </template>
@@ -25,7 +25,6 @@ export default {
         width: 0,
         height: 0
       },
-      light : true,
       headerColor : 'black',
       componentName : ['yellow-brick-group', 'ybg-solid', 'ybg-bricked', 'ybg-hollow']
 
@@ -36,14 +35,6 @@ export default {
     this.handleResize();
   },
   mounted(){
-    EventBus.$on('darklight', lightness => {
-        this.light = !this.light
-        if(lightness == 'black')
-          this.headerColor = 'white'
-        else
-          this.headerColor = 'black'
-
-    }),
     EventBus.$on('moviechange', (movie, play) => {
       if(play)
         return this.count = 3
@@ -51,6 +42,11 @@ export default {
   },
   destroyed() {
     window.removeEventListener('resize', this.handleResize)
+  },
+  computed: {
+      light(){
+          return this.$store.state.light
+      }
   },
   methods: {
     onClick() {

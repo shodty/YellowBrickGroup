@@ -1,5 +1,5 @@
 <template lang="pug">
-#home(:style="bgc" v-cloak)
+#home(:style='[ light? bgc : {"background" : "black"} ]' v-cloak)
   video(v-if="videoplay" class="video-bottom" :src="getImgUrl(videosource, '.mp4')" autoplay muted loop)
   DarkLight(class="footerclass")
   SideBar
@@ -17,15 +17,15 @@
       // iconfill = when categories are clicked in the navbar, iconfill colors all of those icons on the tops of cubes. this is done via the event bus, which picks up the click events emitted from the Navbar.vue
       // @hovered = picks up emits from the Cube.vue so bgc:{backgroundColor : } is updated and then passed to page background and cube face backgrounds
 
-      Cube(project='Our Street'       letter='letter-o' :color1='iconfronts.ourstreet[0]'  color2='#e5b4c8' image='os'    :pattern='patterns.ourstreet'   :bgColor='bgc' :iconsObject='iconsObject' @hovered="onHoverChild")
-      Cube(project='All City Riders'  letter='letter-a' :color1='iconfronts.acr[0]'        color2='#006bb6' image='acr'   :pattern='patterns.acr'         :bgColor='bgc' :iconsObject='iconsObject' @hovered="onHoverChild")
-      Cube(project='Jump'             letter='letter-j' :color1='iconfronts.jump[0]'       color2='#ffffff' image='jump'  :pattern='patterns.jump'        :bgColor='bgc' :iconsObject='iconsObject' @hovered="onHoverChild")
-      Cube(project='Mas Taco'         letter='letter-m' :color1='iconfronts.mastaco[0]'    color2='#c6d655' image='mas'   :pattern='patterns.mastaco'     :bgColor='bgc' :iconsObject='iconsObject' @hovered="onHoverChild")
-      Cube(project='Bottomless'       letter='letter-b' :color1='iconfronts.bottomless[0]' color2='#f26351' image='btm'   :pattern='patterns.bottomless'  :bgColor='bgc' :iconsObject='iconsObject' @hovered="onHoverChild")
-      Cube(project='ShangriLa'        letter='letter-s' :color1='iconfronts.shangrila[0]'  color2='#f4e6c1' image='shang' :pattern='patterns.shangrila'   :bgColor='bgc' :iconsObject='iconsObject' @hovered="onHoverChild")
-      Cube(project='The Cabin'        letter='letter-c' :color1='iconfronts.cabin[0]'      color2='#fbcc53' image='cabin' :pattern='patterns.cabin'       :bgColor='bgc' :iconsObject='iconsObject' @hovered="onHoverChild")
-      Cube(project='Art Life Tour'    letter='letter-a' :color1='iconfronts.artlife[0]'    color2='#61cbea' image='alt'   :pattern='patterns.artlife'     :bgColor='bgc' :iconsObject='iconsObject' @hovered="onHoverChild")
-      Cube(project='Bardis Miry'      letter='letter-b' :color1='iconfronts.bardismiry[0]' color2='#feede5' image='bm'    :pattern='patterns.bardismiry'  :bgColor='bgc' :iconsObject='iconsObject' @hovered="onHoverChild")
+      Cube(project='Our Street'       letter='letter-o' :color1='iconfronts.ourstreet[0]'  color2='#e5b4c8' image='os'    :pattern='patterns.ourstreet'   :bgColor='[ light? bgc : {"background" : "black"} ]' :iconsObject='iconsObject' @hovered="onHoverChild")
+      Cube(project='All City Riders'  letter='letter-a' :color1='iconfronts.acr[0]'        color2='#006bb6' image='acr'   :pattern='patterns.acr'         :bgColor='[ light? bgc : {"background" : "black"} ]' :iconsObject='iconsObject' @hovered="onHoverChild")
+      Cube(project='Jump'             letter='letter-j' :color1='iconfronts.jump[0]'       color2='#ffffff' image='jump'  :pattern='patterns.jump'        :bgColor='[ light? bgc : {"background" : "black"} ]' :iconsObject='iconsObject' @hovered="onHoverChild")
+      Cube(project='Mas Taco'         letter='letter-m' :color1='iconfronts.mastaco[0]'    color2='#c6d655' image='mas'   :pattern='patterns.mastaco'     :bgColor='[ light? bgc : {"background" : "black"} ]' :iconsObject='iconsObject' @hovered="onHoverChild")
+      Cube(project='Bottomless'       letter='letter-b' :color1='iconfronts.bottomless[0]' color2='#f26351' image='btm'   :pattern='patterns.bottomless'  :bgColor='[ light? bgc : {"background" : "black"} ]' :iconsObject='iconsObject' @hovered="onHoverChild")
+      Cube(project='ShangriLa'        letter='letter-s' :color1='iconfronts.shangrila[0]'  color2='#f4e6c1' image='shang' :pattern='patterns.shangrila'   :bgColor='[ light? bgc : {"background" : "black"} ]' :iconsObject='iconsObject' @hovered="onHoverChild")
+      Cube(project='The Cabin'        letter='letter-c' :color1='iconfronts.cabin[0]'      color2='#fbcc53' image='cabin' :pattern='patterns.cabin'       :bgColor='[ light? bgc : {"background" : "black"} ]' :iconsObject='iconsObject' @hovered="onHoverChild")
+      Cube(project='Art Life Tour'    letter='letter-a' :color1='iconfronts.artlife[0]'    color2='#61cbea' image='alt'   :pattern='patterns.artlife'     :bgColor='[ light? bgc : {"background" : "black"} ]' :iconsObject='iconsObject' @hovered="onHoverChild")
+      Cube(project='Bardis Miry'      letter='letter-b' :color1='iconfronts.bardismiry[0]' color2='#feede5' image='bm'    :pattern='patterns.bardismiry'  :bgColor='[ light? bgc : {"background" : "black"} ]' :iconsObject='iconsObject' @hovered="onHoverChild")
   Footer(class="footerclass")
 </template>
 
@@ -45,7 +45,6 @@ export default {
       bgc : {
         backgroundColor : 'white'
       },
-      light : true,
       videoplay :false,
       videosource : "cases/acr/2",
       patterns : { 
@@ -70,64 +69,6 @@ export default {
         'artlife',
         'mastaco'
       ],
-      iconsObject : {
-        names : [        
-          'id',
-          'vid',
-          'gather',
-          'print',
-          'concept',
-          'photo',
-          'social',
-          'web',
-          'collab',
-          ],
-        id : {
-          name : 'id',
-          color : 'white',
-          clicked : false
-        },
-        vid : {
-          name : 'vid',
-          color : 'white', 
-          clicked : false
-        },
-        gather : {
-          name : 'gather',
-          color : 'white', 
-          clicked : false
-        },
-        print : {
-          name : 'print',
-          color : 'white', 
-          clicked : false
-        },
-        concept : {
-          name : 'concept',
-          color : 'white', 
-          clicked : false
-        },
-        photo : {
-          name : 'photo',
-          color : 'white',
-          clicked : false
-        },
-        social : {
-          name : 'social',
-          color : 'white', 
-          clicked : false
-        },
-        web : {
-          name : 'web',
-          color : 'white', 
-          clicked : false
-        },
-        collab : {
-          name : 'collab',
-          color : 'white', 
-          clicked : false
-        },            
-      },
       iconfronts:{
         ourstreet :   ['#2a276c'],
         acr :         ['#67a844'],
@@ -140,6 +81,14 @@ export default {
         mastaco :     ['#00adbb'],
       }
     }
+  },
+  computed: {
+      iconsObject(){
+          return this.$store.state.iconsObject
+      },
+      light(){
+          return this.$store.state.light
+      }
   },
   mounted(){
         EventBus.$on('moviechange', (movie, play) => {
