@@ -47,6 +47,15 @@ export default {
       },
       videoplay :false,
       videosource : "cases/acr/2",
+      cubeObject : {
+        ourstreet : {
+          letter: 'letter-a',
+          color1: ['#2a276c'],
+          color2: '#e5b4c8',
+          image: 'os',
+          pattern: [1,1,1,1,1,1,1,1,1],
+        }
+      },
       patterns : { 
         ourstreet :   [1,1,1,1,1,1,1,1,1],
         acr :         [1,1,0,1,0,1,1,1,0],
@@ -108,11 +117,7 @@ export default {
             else if( (name == this.iconsObject.names[icon]) && clicked )
                 this.iconsObject[this.iconsObject.names[icon]].color = 'white'
           }
-        }),
-      EventBus.$on('darklight', lightness => {  
-          this.light = !this.light
-          return this.bgc.backgroundColor = lightness
-      })
+        })
   },
   components: {
     Cube,

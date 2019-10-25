@@ -15,6 +15,6 @@
 <script>
 
 export default {
-    name: 'collaboration'
+    name: 'collab'
 }
 </script>

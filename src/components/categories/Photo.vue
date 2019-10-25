@@ -12,6 +12,6 @@
 <script>
 
 export default {
-    name: 'photovideo',
+    name: 'photo',
 }
 </script>

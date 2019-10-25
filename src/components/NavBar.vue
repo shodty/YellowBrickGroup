@@ -9,48 +9,15 @@
         transition(name='slide-fade')
             .nav-icons(v-if='activeLink =="categories"') 
                 .icon-wrapper(:class="[{ lightclass: light }, { darkclass: !light }]")
-                    .icon-text(@click="colorChanger(iconsObject.names[4], iconsObject.concept.clicked)")    
-                        IconBase(class="iconbases" icon-name="concept" width="50" height="50"  :icon-color='iconsObject.concept.clicked? iconsObject.concept.color : iconsObject.color')
-                            component(is="concept")
-                        p concept                  
-                    .icon-text(@click="colorChanger(iconsObject.names[1], iconsObject.vid.clicked)")      
-                        IconBase(class="iconbases" icon-name="videos" width="50" height="50" :icon-color='iconsObject.vid.clicked? iconsObject.vid.color : iconsObject.color')
-                            component(is="videos")
-                        p video
-                    .icon-text(@click="colorChanger(iconsObject.names[2], iconsObject.gather.clicked)")      
-                        IconBase(class="iconbases" icon-name="gathering" width="50" height="50"  :icon-color='iconsObject.gather.clicked? iconsObject.gather.color : iconsObject.color')
-                            component(is="gathering")
-                        p gather                        
-                    .icon-text(@click="colorChanger(iconsObject.names[3], iconsObject.print.clicked)")       
-                        IconBase(class="iconbases" icon-name="print" width="50" height="50"  :icon-color='iconsObject.print.clicked? iconsObject.print.color : iconsObject.color')
-                            component(is="print")
-                        p print  
-                    .icon-text(@click="colorChanger(iconsObject.names[0], iconsObject.id.clicked)")      
-                        IconBase(class="iconbases" icon-name="identity" width="50" height="50" :icon-color='iconsObject.id.clicked? iconsObject.id.color : iconsObject.color')
-                            component(is="identity")
-                        p identity
-                    .icon-text(@click="colorChanger(iconsObject.names[5], iconsObject.photo.clicked)")       
-                        IconBase(class="iconbases" icon-name="photo & video" width="50" height="50"  :icon-color='iconsObject.photo.clicked? iconsObject.photo.color : iconsObject.color')
-                            component(is="photovideo")
-                        p photo       
-                    .icon-text(@click="colorChanger(iconsObject.names[6], iconsObject.social.clicked)")       
-                        IconBase(class="iconbases" icon-name="social" width="50" height="50"  :icon-color='iconsObject.social.clicked? iconsObject.social.color : iconsObject.color')
-                            component(is="social")
-                        p social
-                    .icon-text(@click="colorChanger(iconsObject.names[7], iconsObject.web.clicked)")                          
-                        IconBase(class="iconbases" icon-name="web" width="50" height="50"  :icon-color='iconsObject.web.clicked? iconsObject.web.color : iconsObject.color')
-                            component(is="web")   
-                        p web                                                                                                                                        
-                    .icon-text(@click="colorChanger(iconsObject.names[8], iconsObject.collab.clicked)") 
-                        IconBase(class="iconbases" icon-name="collaboration" width="50" height="50" :icon-color='iconsObject.collab.clicked? iconsObject.collab.color : iconsObject.color')
-                            component(is="collaboration")
-                        p collab
-
+                    .icon-text(v-for="icon in iconsObject" @click="colorChanger(icon.name, icon.clicked)")
+                        IconBase(class="iconbases" :icon-name="icon.name" width="50" height="50"  :icon-color='icon.clicked? icon.color : baseColor')
+                            component(:is="icon.name")
+                        p {{icon.text}}
         transition(name='slide-fade')
             .nav-icons(v-if='activeLink =="videos"') 
                 .icon-wrapper
                     .movie-button(@click="movieChange('cases/alt/2', true)" @mouseenter="highlightMovie(true)" @mouseleave="highlightMovie(false)")
-                        IconBase(class="iconbases" icon-name="our people" width="50" height="50" icon-color='#235d39' icon-stroke="white" stroke-weight=0 )
+                        IconBase(class="iconbases" icon-name="our people" width="50" height="50" icon-color='#235d39' icon-stroke="white")
                             component(is="letter-o")
                     .movie-button(@click="movieChange('cases/btm/2', true)")
                         IconBase(class="iconbases" icon-name="jump" width="50" height="50" icon-color='#0076bb')
@@ -125,6 +92,9 @@ export default {
       },
       light(){
           return this.$store.state.light
+      },
+      baseColor(){
+          return this.$store.state.baseColor
       }
   },
   methods: {

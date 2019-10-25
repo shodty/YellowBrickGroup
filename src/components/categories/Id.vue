@@ -8,6 +8,6 @@
 <script>
 
 export default {
-    name: 'identity',
+    name: 'id',
 }
 </script>

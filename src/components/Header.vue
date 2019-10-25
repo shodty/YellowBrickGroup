@@ -1,10 +1,9 @@
 <template lang="pug">
 #header-div
     .headerimages
-      .imagediv
-          .icon-div( @click='onClick')
-            IconTwo(icon-name="yellow brick group" :width="window.width" :height="window.height" :icon-color=' light? "black" : "white" ')
-              component(:is="componentName[this.count]")
+        .icon-container(@click='onClick')
+          IconTwo(icon-name="yellow brick group" :width="window.width" :height="window.height" :icon-color=' light? "black" : "white" ')
+            component(:is="componentName[this.count]")
     NavBar
 </template>
 
@@ -66,7 +65,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-
 #header-div
   position: relative
   z-index : 900
@@ -74,7 +72,9 @@ export default {
 .headerimages
   padding-bottom: 35px
 
-.imagediv
+.icon-container
+  position: relative
+  width: 100%
   cursor: url("../assets/eye.png"), auto
 
 </style>

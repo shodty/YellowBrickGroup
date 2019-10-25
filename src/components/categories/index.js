@@ -1,29 +1,21 @@
-import Activation from './Activation.vue'
-import Collaboration from './Collaboration.vue'
+import Collab from './Collab.vue'
 import Concept from './Concept.vue'
-import Gathering from './Gathering.vue'
-import Identity from './Identity.vue'
-import Installation from './Installation.vue'
-import Photovideo from './Photovideo.vue'
+import Gather from './Gather.vue'
+import Id from './Id.vue'
+import Photo from './Photo.vue'
 import Print from './Print.vue'
 import Social from './Social.vue'
-import Sound from './Sound.vue'
-import Travel from './Travel.vue'
 import Web from './Web.vue'
-import Videos from './Videos.vue'
+import Vid from './Vid.vue'
 
 export default [
-    Activation,
-    Collaboration, 
+    Collab, 
     Concept, 
-    Gathering, 
-    Identity, 
-    Installation, 
-    Photovideo, 
+    Gather, 
+    Id, 
+    Photo, 
     Print, 
     Social, 
-    Sound, 
-    Travel,
-    Videos, 
+    Vid, 
     Web
 ]

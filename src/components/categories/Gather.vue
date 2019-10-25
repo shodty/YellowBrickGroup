@@ -5,6 +5,6 @@
 <script>
 
 export default {
-    name: 'gathering',
+    name: 'gather',
 }
 </script>

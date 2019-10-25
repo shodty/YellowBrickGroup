@@ -6,63 +6,61 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
     state: {
         light : true,
+        baseColor: '#000',
         iconsObject : {
-            names : [        
-                'id',
-                'vid',
-                'gather',
-                'print',
-                'concept',
-                'photo',
-                'social',
-                'web',
-                'collab',
-            ],
-            color: '#000',
-          id : {
-            name : 'id',
-            color: '#edb1ca',
-            clicked : false
+          concept : {
+            name : 'concept',
+            color: '#625e9d',
+            clicked : false,
+            text: 'concept'
           },
           vid : {
             name : 'vid',
             color: '#f3b120', 
-            clicked : false
+            clicked : false,
+            text: 'video'
           },
           gather : {
             name : 'gather',
             color: '#ed7625', 
-            clicked : false
+            clicked : false,
+            text: 'gathering'
           },
           print : {
             name : 'print',
             color: '#235d39', 
-            clicked : false
+            clicked : false,
+            text: 'print'
           },
-          concept : {
-            name : 'concept',
-            color: '#625e9d',
-            clicked : false
+          id : {
+            name : 'id',
+            color: '#edb1ca',
+            clicked : false,
+            text: 'identity'
           },
           photo : {
             name : 'photo',
             color : '#0076bb',
-            clicked : false
+            clicked : false,
+            text: 'photo'
           },
           social : {
             name : 'social',
             color: '#e43e30', 
-            clicked : false
+            clicked : false,
+            text: 'social'
           },
           web : {
             name : 'web',
             color: '#244c5a', 
-            clicked : false
+            clicked : false,
+            text: 'web'
           },
           collab : {
             name : 'collab',
             color: '#8dc63f', 
-            clicked : false
+            clicked : false,
+            text: 'collab'
           },            
         }
     },
@@ -70,16 +68,15 @@ export const store = new Vuex.Store({
         darkLight: state => {
             state.light = !state.light
             if(state.light)
-                state.iconsObject.color = '#000'
+                state.baseColor = '#000'
             else
-                state.iconsObject.color = '#FFF'
+                state.baseColor = '#FFF'
         },
         colorChange: (state, {name, clicked}) => {
             if(clicked == false){
                 state.iconsObject[name].clicked = true
             }
             else{
-                state.iconsObject[name].color = state.iconsObject.color
                 state.iconsObject[name].clicked = false   
             }   
         }
@@ -87,6 +84,9 @@ export const store = new Vuex.Store({
     actions: {
         colorChange: (context, {name, clicked}) => {
             context.commit('colorChange', {name, clicked})
+        },
+        darkLight: context => {
+          context.commit('darkLight')
         }
     }
 })

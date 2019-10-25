@@ -17,37 +17,37 @@
                 p {{ project }}       
             .icon-table
                 .icon-row
-                    .icon-cell(@click="colorChanger(iconsObject.names[4], '#625e9d', iconsObject.concept.clicked)")
+                    .icon-cell(@click="colorChanger('concept', '#625e9d', iconsObject.concept.clicked)")
                         IconBase(v-if="pattern[4]== '1'" class="iconbases" icon-name="concept" width="65" height="65" :icon-color='iconsObject.concept.clicked? iconsObject.concept.color : "#FFF"')   
                             component(is="concept")
                         IconBase(v-else="pattern[4]== '1'" class="iconbases" icon-name="concept" width="65" height="65" icon-color='black')
                             component(is="concept")
-                    .icon-cell(@click="colorChanger(iconsObject.names[1], '#f3b120', iconsObject.vid.clicked)")
+                    .icon-cell(@click="colorChanger('vid', '#f3b120', iconsObject.vid.clicked)")
                         IconBase(v-if="pattern[1] == '1'" class="iconbases" icon-name="videos" width="65" height="65" :icon-color='iconsObject.vid.clicked? iconsObject.vid.color : "#FFF"')
-                            component(is="videos")
-                    .icon-cell(@click="colorChanger(iconsObject.names[2], '#ed7625', iconsObject.gather.clicked)")
+                            component(is="vid")
+                    .icon-cell(@click="colorChanger('gather', '#ed7625', iconsObject.gather.clicked)")
                         IconBase(v-if="pattern[2] == '1'" class="iconbases" icon-name="gathering" width="65" height="65" :icon-color='iconsObject.gather.clicked? iconsObject.gather.color : "#FFF"')
-                            component(is="gathering")
+                            component(is="gather")
                 .icon-row
-                    .icon-cell(@click="colorChanger(iconsObject.names[3], '#235d39', iconsObject.print.clicked)")
+                    .icon-cell(@click="colorChanger('print', '#235d39', iconsObject.print.clicked)")
                         IconBase(v-if="pattern[3] == '1'" class="iconbases" icon-name="print" width="65" height="65" :icon-color='iconsObject.print.clicked? iconsObject.print.color : "#FFF"' )
                             component(is="print")
-                    .icon-cell(@click="colorChanger(iconsObject.names[0], '#edb1ca', iconsObject.id.clicked)")
+                    .icon-cell(@click="colorChanger('id', '#edb1ca', iconsObject.id.clicked)")
                         IconBase(v-if="pattern[0] == '1'" class="iconbases" icon-name="identity" width="65" height="65" :icon-color='iconsObject.id.clicked? iconsObject.id.color : "#FFF"' )
-                            component(is="identity")
-                    .icon-cell(@click="colorChanger(iconsObject.names[5], '#0076bb', iconsObject.photo.clicked)")
+                            component(is="id")
+                    .icon-cell(@click="colorChanger('photo', '#0076bb', iconsObject.photo.clicked)")
                         IconBase(v-if="pattern[5] == '1'" class="iconbases" icon-name="photo & video" width="65" height="65" :icon-color='iconsObject.photo.clicked? iconsObject.photo.color : "#FFF"' )
-                            component(is="photovideo")
+                            component(is="photo")
                 .icon-row
-                    .icon-cell(@click="colorChanger(iconsObject.names[6], '#e43e30', iconsObject.social.clicked)")
+                    .icon-cell(@click="colorChanger('social', '#e43e30', iconsObject.social.clicked)")
                         IconBase(v-if="pattern[6] == '1'" class="iconbases" icon-name="social" width="65" height="65" :icon-color='iconsObject.social.clicked? iconsObject.social.color : "#FFF"' )
                             component(is="social")
-                    .icon-cell(@click="colorChanger(iconsObject.names[7], '#244c5a', iconsObject.web.clicked)")
+                    .icon-cell(@click="colorChanger('web', '#244c5a', iconsObject.web.clicked)")
                         IconBase(v-if="pattern[7] == '1'" class="iconbases" icon-name="web" width="65" height="65" :icon-color='iconsObject.web.clicked? iconsObject.web.color : "#FFF"' )
                             component(is="web")   
-                    .icon-cell(@click="colorChanger(iconsObject.names[8], '#8dc63f', iconsObject.collab.clicked)")
+                    .icon-cell(@click="colorChanger('collab', '#8dc63f', iconsObject.collab.clicked)")
                         IconBase(v-if="pattern[8] == '1'" class="iconbases" icon-name="collaboration" width="65" height="65" :icon-color='iconsObject.collab.clicked? iconsObject.collab.color : "#FFF"' )
-                            component(is="collaboration")                        
+                            component(is="collab")                        
         .cube__face.cube__face--bottom
 
 
@@ -87,8 +87,17 @@ export default {
     computed: {
       light(){
           return !this.$store.state.light
+      },
+      showClass(){
+            return {
+                showFront: this.showFront,
+                showRight: this.showRight,
+                showTop: this.showTop,
+                showLeft: this.showLeft,
+                showBottom: this.showBottom
+            }
       }
-  },
+    },
     mounted(){
         EventBus.$on('topall', topShower => {
             if(topShower == false) {
@@ -172,17 +181,6 @@ export default {
                 this.showFront= true
                 this.showRight= false
                 this.pictureclass = 'null'
-            }
-        }
-    },
-    computed: {
-        showClass(){
-            return {
-                showFront: this.showFront,
-                showRight: this.showRight,
-                showTop: this.showTop,
-                showLeft: this.showLeft,
-                showBottom: this.showBottom
             }
         }
     },

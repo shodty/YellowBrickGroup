@@ -16,6 +16,6 @@
 <script>
 
 export default {
-    name: 'videos',
+    name: 'vid',
 }
 </script>

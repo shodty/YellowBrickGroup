@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     flip(){
-        this.$store.commit('darkLight')
+        this.$store.dispatch('darkLight')
     }
   }
 }
@@ -40,7 +40,6 @@ export default {
 *
   margin: 0px
   
-
 #dark-light
     position: fixed
     top: 0
