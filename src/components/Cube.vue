@@ -1,55 +1,24 @@
 <template lang="pug">
-.scene(class="project" @mouseenter="changeBgc(color2, color1), shiftCube(true)" @mouseleave="changeBgc('white', 'white'), shiftCube(false)" :showTop='showTop' :showFront='showFront' :showRight='showRight')
-    .cube(v-bind:class="showClass")
+.scene(class="project" @mouseenter="shiftCube(true)" @mouseleave="shiftCube(false)" )
+    .cube(:class="hovered? 'showRight' : cubeFace")
         .cube__face.cube__face--front(:style="bgColor")
             IconBase(width="400" height="400" :icon-name="project" :icon-color="color1")
                 component(:is="letter")
         .cube__face.cube__face--back(:style="bgColor") back
         .cube__face.cube__face--right(:style="bgColor" @click="goToCaseStudy")
             img(:alt='project' :src='getImgUrl(image, ".png")')
-            .picture-overlay( :class="pictureclass")
+            .picture-overlay( :class="cubeFace == 'showRight'? 'show-picture' : pictureclass")
                 img(:src='getLogoUrl(image)' width="400px" height="400px")  
         .cube__face.cube__face--left(:style="bgColor")
             IconBase(width="400" height="400" :icon-name="project" :icon-color="color2")
                 component(:is="letter")
         .cube__face.cube__face--top(style="backgroundColor : black")
             .project-name
-                p {{ project }}       
-            .icon-table
-                .icon-row
-                    .icon-cell(@click="colorChanger('concept', '#625e9d', iconsObject.concept.clicked)")
-                        IconBase(v-if="pattern[4]== '1'" class="iconbases" icon-name="concept" width="65" height="65" :icon-color='iconsObject.concept.clicked? iconsObject.concept.color : "#FFF"')   
-                            component(is="concept")
-                        IconBase(v-else="pattern[4]== '1'" class="iconbases" icon-name="concept" width="65" height="65" icon-color='black')
-                            component(is="concept")
-                    .icon-cell(@click="colorChanger('vid', '#f3b120', iconsObject.vid.clicked)")
-                        IconBase(v-if="pattern[1] == '1'" class="iconbases" icon-name="videos" width="65" height="65" :icon-color='iconsObject.vid.clicked? iconsObject.vid.color : "#FFF"')
-                            component(is="vid")
-                    .icon-cell(@click="colorChanger('gather', '#ed7625', iconsObject.gather.clicked)")
-                        IconBase(v-if="pattern[2] == '1'" class="iconbases" icon-name="gathering" width="65" height="65" :icon-color='iconsObject.gather.clicked? iconsObject.gather.color : "#FFF"')
-                            component(is="gather")
-                .icon-row
-                    .icon-cell(@click="colorChanger('print', '#235d39', iconsObject.print.clicked)")
-                        IconBase(v-if="pattern[3] == '1'" class="iconbases" icon-name="print" width="65" height="65" :icon-color='iconsObject.print.clicked? iconsObject.print.color : "#FFF"' )
-                            component(is="print")
-                    .icon-cell(@click="colorChanger('id', '#edb1ca', iconsObject.id.clicked)")
-                        IconBase(v-if="pattern[0] == '1'" class="iconbases" icon-name="identity" width="65" height="65" :icon-color='iconsObject.id.clicked? iconsObject.id.color : "#FFF"' )
-                            component(is="id")
-                    .icon-cell(@click="colorChanger('photo', '#0076bb', iconsObject.photo.clicked)")
-                        IconBase(v-if="pattern[5] == '1'" class="iconbases" icon-name="photo & video" width="65" height="65" :icon-color='iconsObject.photo.clicked? iconsObject.photo.color : "#FFF"' )
-                            component(is="photo")
-                .icon-row
-                    .icon-cell(@click="colorChanger('social', '#e43e30', iconsObject.social.clicked)")
-                        IconBase(v-if="pattern[6] == '1'" class="iconbases" icon-name="social" width="65" height="65" :icon-color='iconsObject.social.clicked? iconsObject.social.color : "#FFF"' )
-                            component(is="social")
-                    .icon-cell(@click="colorChanger('web', '#244c5a', iconsObject.web.clicked)")
-                        IconBase(v-if="pattern[7] == '1'" class="iconbases" icon-name="web" width="65" height="65" :icon-color='iconsObject.web.clicked? iconsObject.web.color : "#FFF"' )
-                            component(is="web")   
-                    .icon-cell(@click="colorChanger('collab', '#8dc63f', iconsObject.collab.clicked)")
-                        IconBase(v-if="pattern[8] == '1'" class="iconbases" icon-name="collaboration" width="65" height="65" :icon-color='iconsObject.collab.clicked? iconsObject.collab.color : "#FFF"' )
-                            component(is="collab")                        
+                p {{ project }}
+            .icon-container(v-for="icon in iconsObject" @click="colorChanger(icon.name, icon.clicked)")
+                IconBase(class="iconbases" :icon-name="icon.name" width="65" height="65"  :icon-color='icon.clicked? icon.color : baseColor')
+                    component(:is="icon.name")
         .cube__face.cube__face--bottom
-
 
 </template>
 
@@ -57,7 +26,6 @@
 
 import IconBase from './IconBase.vue'
 import NavBar from './NavBar.vue'
-import { EventBus } from '../event-bus.js'
 
 export default {
     name: 'Cube',
@@ -68,19 +36,13 @@ export default {
         color2: String,
         image: String,
         bgColor: Array,
-        pattern: Array,
-        iconsObject: Object
+        pattern: Array
     },
     data() {
         return {
-            showFront:  true,
-            showRight:  false,
-            showBack:   false,
-            showLeft:   false,
-            showTop:    false,
-            showBottom: false,
             showLogo: false,
-            projectclicked: false,
+            hovered: false,
+            baseColor: 'white',
             pictureclass: 'null'
         }
     },
@@ -88,63 +50,12 @@ export default {
       light(){
           return !this.$store.state.light
       },
-      showClass(){
-            return {
-                showFront: this.showFront,
-                showRight: this.showRight,
-                showTop: this.showTop,
-                showLeft: this.showLeft,
-                showBottom: this.showBottom
-            }
+      iconsObject(){
+          return this.$store.state.iconsObject
+      },
+      cubeFace(){
+          return this.$store.state.cubeFace
       }
-    },
-    mounted(){
-        EventBus.$on('topall', topShower => {
-            if(topShower == false) {
-                this.showTop = true
-                this.showRight = false
-                this.showFront = false
-                this.showBottom = false
-                this.showLeft = false
-            }
-            
-        }),
-        EventBus.$on('rightall', rightShower => {
-            if(rightShower == false) {
-                this.showTop = false
-                this.showRight = true
-                this.showFront = false
-                this.showBottom = false
-                this.showLeft = false
-                this.pictureclass = 'show-picture'
-                this.projectclicked = !this.projectclicked
-            }
-        }),
-        EventBus.$on('bottomall', bottomShower => {
-            this.projectclicked = false
-            if(bottomShower == false) {
-                this.showTop = false
-                this.showRight = false
-                this.showFront = false
-                this.showBottom = true
-                this.showLeft = false
-            }
-        }),
-        EventBus.$on('leftall', leftShower => {
-            if(leftShower == false) {
-                this.showTop = false
-                this.showRight = false
-                this.showFront = false
-                this.showLeft = true
-                this.showBottom = false
-            }
-        }),
-        EventBus.$on('frontall', frontShower => {
-            this.projectclicked = false
-            this.pictureclass = 'null'
-            this.frontShowMethod()
-
-        })       
     },
     methods: {
         getImgUrl(pic, ext){
@@ -157,29 +68,19 @@ export default {
             this.showLogo = !this.showlogo
             this.$emit('hovered', color, color2)
         },
-        frontShowMethod(){
-            this.showFront = true
-            this.showTop = false
-            this.showRight = false
-            this.showLeft = false
-            this.showBottom = false
-        },
         goToCaseStudy(){
             this.$router.push(this.image)
         },
-        colorChanger(name, color, clicked){
-            this.$store.dispatch('colorChange', {name, color, clicked})
+        colorChanger(name, clicked){
+            this.$store.dispatch('colorChange', {name, clicked})
         },
         shiftCube(entered){
-            if(entered && this.showFront){
+            if(this.cubeFace == 'showFront' && entered){
+                this.hovered = true
                 this.pictureclass = 'show-picture'
-                this.showFront= false
-                this.showRight= true
-
             }
-            else if ( !entered && !this.showFront && !this.projectclicked){
-                this.showFront= true
-                this.showRight= false
+            else if (this.cubeFace == 'showFront' && !entered){
+                this.hovered = false
                 this.pictureclass = 'null'
             }
         }
@@ -215,7 +116,6 @@ body
     transform: translateZ(-200px)
     transition: transform 1s
     float: left
-
 
 .cube.showFront
     transform: translateZ(-200px) rotateY(   0deg)
@@ -270,20 +170,13 @@ body
 label
     margin-right: 10px
 
-.icon-cell
-    padding-top: 35px
-    display: table-cell
-
-.icon-row
-    display: table-row
-
-.icon-table
-    display:table;
-    table-layout:fixed;
-    border-collapse: collapse;
-    background:#000;
-    width:100%;
-    height:100%;
+.icon-container
+    padding-left: 6px
+    display: inline-block
+    float: left 
+    height: 33%
+    width: 33%
+    cursor: url('../assets/hand.png'), auto
 
 .picture-overlay
     position: fixed
@@ -303,5 +196,10 @@ label
     color: white
     text-transform: uppercase
     letter-spacing: 3px
+
+.iconbases
+    width: 100%
+    padding-top: 35px
+    margin: 0 auto
 
 </style>

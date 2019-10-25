@@ -1,9 +1,10 @@
 <template lang="pug">
 #header-div
     .headerimages
-        .icon-container(@click='onClick')
+        .icon-container
           IconTwo(icon-name="yellow brick group" :width="window.width" :height="window.height" :icon-color=' light? "black" : "white" ')
             component(:is="componentName[this.count]")
+          .click-box(@click='onClick')
     NavBar
 </template>
 
@@ -29,7 +30,7 @@ export default {
 
     }
   },
-  created() {
+  created(){
     window.addEventListener('resize', this.handleResize)
     this.handleResize();
   },
@@ -68,6 +69,8 @@ export default {
 #header-div
   position: relative
   z-index : 900
+  margin: 0 auto
+  text-align: center
 
 .headerimages
   padding-bottom: 35px
@@ -75,6 +78,15 @@ export default {
 .icon-container
   position: relative
   width: 100%
+
+.click-box
+  position: absolute 
+  display: block
+  height: 100%
+  width: 30%
+  margin: 0 auto
+  top: 0
+  left: 35%
   cursor: url("../assets/eye.png"), auto
 
 </style>

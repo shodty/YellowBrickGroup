@@ -9,7 +9,6 @@
 <script>
 
 import IconBase from './IconBase.vue'
-import { EventBus } from '../event-bus.js'
 
 export default {
   name: 'dark-light',

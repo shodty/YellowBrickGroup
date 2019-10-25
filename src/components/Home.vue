@@ -1,31 +1,16 @@
 <template lang="pug">
-#home(:style='[ light? bgc : {"background" : "black"} ]' v-cloak)
+#home(:style='[ light? {"background" : bgc } : {"background" : "black"} ]' v-cloak)
   video(v-if="videoplay" class="video-bottom" :src="getImgUrl(videosource, '.mp4')" autoplay muted loop)
   DarkLight(class="footerclass")
   SideBar
   // header, which contains header image & navbar
   Header
-  //grid of projects inside container div
+  // grid of projects inside container div
   .container
     .grid
-      // project = title on category page, tooltips 
-      // letter = passed to iconbase component to load letter svg 
-      // color1 = front face color, bound to array which is altered by onHoverChild method
-      // color2 = secondary color for project, sent to background and left face
-      // pattern = array of 9 bits that tell which categories projects fit into. toggles them on off in the 3x3 table on top face of cube, defined in Cube.vue
-      // bgColor = background color of faces so when page background shifts, they shift as well
-      // iconfill = when categories are clicked in the navbar, iconfill colors all of those icons on the tops of cubes. this is done via the event bus, which picks up the click events emitted from the Navbar.vue
-      // @hovered = picks up emits from the Cube.vue so bgc:{backgroundColor : } is updated and then passed to page background and cube face backgrounds
-
-      Cube(project='Our Street'       letter='letter-o' :color1='iconfronts.ourstreet[0]'  color2='#e5b4c8' image='os'    :pattern='patterns.ourstreet'   :bgColor='[ light? bgc : {"background" : "black"} ]' :iconsObject='iconsObject' @hovered="onHoverChild")
-      Cube(project='All City Riders'  letter='letter-a' :color1='iconfronts.acr[0]'        color2='#006bb6' image='acr'   :pattern='patterns.acr'         :bgColor='[ light? bgc : {"background" : "black"} ]' :iconsObject='iconsObject' @hovered="onHoverChild")
-      Cube(project='Jump'             letter='letter-j' :color1='iconfronts.jump[0]'       color2='#ffffff' image='jump'  :pattern='patterns.jump'        :bgColor='[ light? bgc : {"background" : "black"} ]' :iconsObject='iconsObject' @hovered="onHoverChild")
-      Cube(project='Mas Taco'         letter='letter-m' :color1='iconfronts.mastaco[0]'    color2='#c6d655' image='mas'   :pattern='patterns.mastaco'     :bgColor='[ light? bgc : {"background" : "black"} ]' :iconsObject='iconsObject' @hovered="onHoverChild")
-      Cube(project='Bottomless'       letter='letter-b' :color1='iconfronts.bottomless[0]' color2='#f26351' image='btm'   :pattern='patterns.bottomless'  :bgColor='[ light? bgc : {"background" : "black"} ]' :iconsObject='iconsObject' @hovered="onHoverChild")
-      Cube(project='ShangriLa'        letter='letter-s' :color1='iconfronts.shangrila[0]'  color2='#f4e6c1' image='shang' :pattern='patterns.shangrila'   :bgColor='[ light? bgc : {"background" : "black"} ]' :iconsObject='iconsObject' @hovered="onHoverChild")
-      Cube(project='The Cabin'        letter='letter-c' :color1='iconfronts.cabin[0]'      color2='#fbcc53' image='cabin' :pattern='patterns.cabin'       :bgColor='[ light? bgc : {"background" : "black"} ]' :iconsObject='iconsObject' @hovered="onHoverChild")
-      Cube(project='Art Life Tour'    letter='letter-a' :color1='iconfronts.artlife[0]'    color2='#61cbea' image='alt'   :pattern='patterns.artlife'     :bgColor='[ light? bgc : {"background" : "black"} ]' :iconsObject='iconsObject' @hovered="onHoverChild")
-      Cube(project='Bardis Miry'      letter='letter-b' :color1='iconfronts.bardismiry[0]' color2='#feede5' image='bm'    :pattern='patterns.bardismiry'  :bgColor='[ light? bgc : {"background" : "black"} ]' :iconsObject='iconsObject' @hovered="onHoverChild")
+      //references cubeObject in store to bind all props that define each cube made using Cube.vue
+      .cube-container(v-for="cube in cubeObject" @mouseenter='bgcChange(cube.color2)' @mouseleave='bgcChange("white")')  
+        Cube(:project='cube.text' :letter='cube.letter' :color1='cube.color1' color2='cube.color2' :image='cube.image' :pattern='cube.pattern' :bgColor='[ light? { "background" : bgc} : {"background" : "black"} ]')
   Footer(class="footerclass")
 </template>
 
@@ -42,53 +27,8 @@ export default {
   name: 'home',
   data() {
     return{
-      bgc : {
-        backgroundColor : 'white'
-      },
       videoplay :false,
       videosource : "cases/acr/2",
-      cubeObject : {
-        ourstreet : {
-          letter: 'letter-a',
-          color1: ['#2a276c'],
-          color2: '#e5b4c8',
-          image: 'os',
-          pattern: [1,1,1,1,1,1,1,1,1],
-        }
-      },
-      patterns : { 
-        ourstreet :   [1,1,1,1,1,1,1,1,1],
-        acr :         [1,1,0,1,0,1,1,1,0],
-        bottomless :  [1,1,1,1,1,1,1,0,1],
-        shangrila :   [1,0,0,1,0,1,1,1,1],
-        bardismiry :  [1,0,0,1,0,0,1,0,1],
-        cabin :       [1,0,0,1,0,1,1,1,0],
-        jump :        [1,0,1,0,1,1,1,0,1],
-        artlife :     [1,0,1,1,0,1,1,0,1],
-        mastaco :     [0,0,1,1,0,1,1,1,0]
-      },
-      projects :[
-        'ourstreet',
-        'acr',
-        'bottomless',
-        'shangrila',
-        'bardismiry',
-        'cabin',
-        'jump',
-        'artlife',
-        'mastaco'
-      ],
-      iconfronts:{
-        ourstreet :   ['#2a276c'],
-        acr :         ['#67a844'],
-        bottomless :  ['#f2bcb9'],
-        shangrila :   ['#d6693f'],
-        bardismiry :  ['#85ba9b'],
-        cabin :       ['#34442c'],
-        jump :        ['#e03b26'],
-        artlife :     ['#8667ad'],
-        mastaco :     ['#00adbb'],
-      }
     }
   },
   computed: {
@@ -97,6 +37,12 @@ export default {
       },
       light(){
           return this.$store.state.light
+      },
+      cubeObject(){
+        return this.$store.state.cubeObject
+      },
+      bgc(){
+        return this.$store.state.bgc
       }
   },
   mounted(){
@@ -109,14 +55,6 @@ export default {
             this.videosource = null
             this.videoplay = false
           }
-        }),
-        EventBus.$on('colorall', (name, color, clicked) => {
-          for(var icon in this.iconsObject.names){
-            if( (name == this.iconsObject.names[icon]) && !clicked ) 
-                this.iconsObject[this.iconsObject.names[icon]].color = color
-            else if( (name == this.iconsObject.names[icon]) && clicked )
-                this.iconsObject[this.iconsObject.names[icon]].color = 'white'
-          }
         })
   },
   components: {
@@ -127,27 +65,8 @@ export default {
     DarkLight
   },
   methods: {
-    onHoverChild (value1, value2) {
-      if(this.light == true){
-        if(value2 =='white') {
-          for(var project in this.projects)
-            this.iconfronts[this.projects[project]].shift()
-            return this.bgc.backgroundColor = value1
-        }
-        else
-          for(project in this.projects)
-            this.iconfronts[this.projects[project]].unshift(value2)
-            return this.bgc.backgroundColor = value1 // someValue
-      }
-      else {
-        if(value2 =='white') {
-          for(project in this.projects)
-            this.iconfronts[this.projects[project]].shift()
-        }
-        else
-          for(project in this.projects)  
-            this.iconfronts[this.projects[project]].unshift(value2)
-      }
+    bgcChange (color) {
+      this.$store.dispatch('backgroundChange', color)
     },
     getImgUrl(pic, ext){
       return require('../assets/img/' + pic + ext)
@@ -160,6 +79,9 @@ export default {
 *
   margin: 0px
   padding 0px
+
+body
+  width: 100%
 
 #home 
   font-family: 'Avenir', Helvetica, Arial, sans-serif
@@ -186,7 +108,6 @@ export default {
   align-items: center
   justify-content: center
  
-
 #ybg
   padding-bottom: 30px
 
@@ -214,5 +135,5 @@ export default {
 
 .footerclass
     position: relative
-    z-index : 900
+    z-index : 950
 </style>
