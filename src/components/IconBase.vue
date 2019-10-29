@@ -15,11 +15,11 @@ export default {
     },
     width: {
       type: [Number, String],
-      default: 18
+      default: '22vw'
     },
     height: {
       type: [Number, String],
-      default: 18
+      default: '22vw'
     },
     iconColor: {
       type: String,

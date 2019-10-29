@@ -2,14 +2,15 @@
 .navdiv
     .icons
         transition(name='slide-fade')
-            .nav-image(v-if='activeLink =="welcome"') 
+            .nav-image(v-if='activeLink =="start"') 
                 .welcome-image
                     img(alt='welcome' src='../assets/welcome3.png' height='66px' id='welcome')
 
         transition(name='slide-fade')
-            .nav-icons(v-if='activeLink =="categories"') 
+            .nav-icons(v-if='activeLink =="sort"') 
                 .icon-wrapper(:class="[{ lightclass: light }, { darkclass: !light }]")
-                    .icon-text(v-for="icon in iconsObject" @click="colorChanger(icon.name, icon.clicked)")
+                    //loops thru iconObject to create icons with name/color/text/clickstate assigned via the object. click event fires to action/mutation in store that will change icons clickstate & colors across components
+                    .icon-text(v-for="icon in iconObject" @click="colorChanger(icon.name, icon.clicked)")
                         IconBase(class="iconbases" :icon-name="icon.name" width="50" height="50"  :icon-color='icon.clicked? icon.color : baseColor')
                             component(:is="icon.name")
                         p {{icon.text}}
@@ -20,16 +21,15 @@
         transition(name='slide-fade')
             .nav-icons(v-if='activeLink =="projects"')
                 .icon-wrapper
+                    //loops through cubeObject to create icons in nav bar of PROJECTS link that are same letter forms/colors as the projects
                     IconBase(v-for="cube in cubeObject" class="iconbases" :icon-name="cube.text" width="50" height="50" :icon-color='cube.color1')
                         component(:is="cube.letter")
-
-    
-    
     .buttons
-        .nav.nav-text(href='#' ref="welcome"    @click='onClick("welcome"); rotateCube("showFront")'    :class='[activeLink == "welcome"? ["lightclass", "active"] : "lightclass" ]')    START
-        .nav.nav-text(href='#' ref="projects"   @click='onClick("projects"); rotateCube("showRight")'   :class='[activeLink == "projects"? ["lightclass", "active"] : "lightclass" ]')   PROJECTS
-        .nav.nav-text(href='#' ref="categories" @click='onClick("categories"); rotateCube("showTop")'   :class='[activeLink == "categories"? ["lightclass", "active"] : "lightclass" ]') SORT
-        .nav.nav-text(href='#' ref="videos"     @click='onClick("videos"); '                        :class='[activeLink == "videos"? ["lightclass", "active"] : "lightclass" ]')     VIDEOS
+        //text for START, PROJECTS, SORT, VIDEOS buttons. clicking makes the link active and rotates cube accordingly. 2 class bindings, one assigns .active class if link clicked, the other assigns lightmode/darkmode appropriate class
+        .nav.nav-text(href='#' @click='onClick("start"); rotateCube("showFront")'       :class='[activeLink == "start"? "active" : "", light? "lightclass" : "darkclass"]' )    START 
+        .nav.nav-text(href='#' @click='onClick("projects"); rotateCube("showRight")'    :class='[activeLink == "projects"? "active" : "", light? "lightclass" : "darkclass"]')  PROJECTS
+        .nav.nav-text(href='#' @click='onClick("sort"); rotateCube("showTop")'          :class='[activeLink == "sort"? "active" : "", light? "lightclass" : "darkclass"]')      SORT
+        .nav.nav-text(href='#' @click='onClick("videos"); '                             :class='[activeLink == "videos"? "active" : "", light? "lightclass" : "darkclass"]')    VIDEOS
 </template>
 
 <script>
@@ -42,7 +42,7 @@ export default {
     name: 'nav-bar',
     data() {
         return{
-            activeLink : 'welcome',
+            activeLink : 'start',
             topShower : true,
             rightShower : true,
             leftShower : true,
@@ -51,8 +51,8 @@ export default {
         }
   },
   computed: {
-      iconsObject(){
-          return this.$store.state.iconsObject
+      iconObject(){
+          return this.$store.state.iconObject
       },
       light(){
           return this.$store.state.light
@@ -91,10 +91,17 @@ export default {
 
 <style scoped lang="stylus">
 
-a
-    text-decoration: none
-
 .nav
+    float: left
+    padding-left: 7px
+    padding-right: 5px
+    margin-left : 10px
+    margin-right : 10px
+    font-family: 'Open Sans', sans-serif
+    font-weight: bold
+    letter-spacing: 3px
+    font-size: 20px
+    cursor: pointer
     transition: all .5s
     
 .nav:hover
@@ -106,6 +113,7 @@ a
     align-items: center
     justify-content: center
     padding-bottom: 30px
+    padding-top: 15px
 
 .icons
     display: flex
@@ -120,19 +128,12 @@ a
 .nav-icons
     position: absolute
 
-.nav-button
-    cursor: pointer
-    display : inline-block
-
 .icon-wrapper
     display: inline-flex
 
-.nav-icons img
-    padding-left: 20px
-    padding-right: 20px
-    
 .iconbases
     padding-right: 4px
+    cursor: pointer
 
 .lightclass
     color: black
@@ -154,18 +155,7 @@ a
     display: flex
     align-items: center
     justify-content: center
-
-.nav
-    float: left
-    padding-left: 7px
-    padding-right: 5px
-    margin-left : 10px
-    margin-right : 10px
-    font-family: 'Open Sans', sans-serif
-    font-weight: bold
-    letter-spacing: 3px
-    font-size: 20px
-    cursor: pointer
+    margin-top: 10px
 
 .icon-text
     display : block
@@ -173,23 +163,21 @@ a
     font-weight: 700
     font-size: 10px
     letter-spacing: 1px
-    line-height: 3
+    line-height: 2.5
     text-transform: uppercase
     margin-left: 15px
     margin-right : 15px
     cursor: pointer
 
-.slide-fade-enter-active {
+.slide-fade-enter-active
   transition: all 1s ease
-}
-.slide-fade-leave-active {
+
+.slide-fade-leave-active
   transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0)
-}
+
 .slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translateY(50px);
-  opacity: 0;
-}
+  transform: translateY(50px)
+  opacity: 0
 
 .movie-button
     cursor: url('../assets/hand.png'), auto

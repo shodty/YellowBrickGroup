@@ -8,7 +8,9 @@ export const store = new Vuex.Store({
         light : true,
         baseColor: '#000',
         bgc: 'white',
-        iconsObject : {
+        cubeHovered: false,
+        faceColor: '',
+        iconObject : {
           concept : {
             name : 'concept',
             color: '#625e9d',
@@ -70,7 +72,7 @@ export const store = new Vuex.Store({
             color1: '#2a276c',
             color2: '#e5b4c8',
             image: 'os',
-            pattern: [1,1,1,1,1,1,1,1,1],
+            pattern: ['concept', 'vid', 'gather', 'print', 'id', 'photo', 'social', 'web', 'collab'],
             text: 'Our Street'
           },
           acr : {
@@ -78,7 +80,7 @@ export const store = new Vuex.Store({
             color1: '#67a844',
             color2: '#006bb6',
             image: 'acr',
-            pattern: [1,1,0,1,0,1,1,1,0],
+            pattern: ['vid', 'gather', 'print', 'id', 'photo', 'social', 'web'],
             text: 'All City Riders'
           },
           jump : {
@@ -86,7 +88,7 @@ export const store = new Vuex.Store({
             color1: '#e03b26',
             color2: '#ffffff',
             image: 'jump',
-            pattern: [1,0,1,0,1,1,1,0,1],
+            pattern: ['vid', 'gather', 'photo', 'social', 'collab'],
             text: 'Jump'
           },
           mas : {
@@ -94,7 +96,7 @@ export const store = new Vuex.Store({
             color1: '#00adbb',
             color2: '#c6d655',
             image: 'mas',
-            pattern: [0,0,1,1,0,1,1,1,0],
+            pattern: ['vid', 'gather', 'print', 'photo', 'social', 'web'],
             text: 'Mas Taco'
           },
           btm : {
@@ -102,7 +104,7 @@ export const store = new Vuex.Store({
             color1: '#f2bcb9',
             color2: '#f26351',
             image: 'btm',
-            pattern: [1,1,1,1,1,1,1,0,1],
+            pattern: ['concept', 'vid', 'gather', 'print', 'id', 'photo', 'social', 'collab'],
             text: 'Bottomless'
           },
           shang : {
@@ -110,7 +112,7 @@ export const store = new Vuex.Store({
             color1: '#d6693f',
             color2: '#f4e6c1',
             image: 'shang',
-            pattern: [1,0,0,1,0,1,1,1,1],
+            pattern: ['print', 'id', 'photo'],
             text: 'Shangri-La'
           },
           cabin : {
@@ -118,7 +120,7 @@ export const store = new Vuex.Store({
             color1: '#34442c',
             color2: '#fbcc53',
             image: 'cabin',
-            pattern: [1,0,0,1,0,1,1,1,0],
+            pattern: ['print', 'id', 'photo', 'web'],
             text: 'The Cabin'
           },
           alt : {
@@ -126,7 +128,7 @@ export const store = new Vuex.Store({
             color1: '#8667ad',
             color2: '#61cbea',
             image: 'alt',
-            pattern: [1,0,1,1,0,1,1,0,1],
+            pattern: ['vid', 'gather', 'print', 'id', 'photo', 'social', 'collab'],
             text: 'Art Life Tour'
           },
           bm : {
@@ -134,7 +136,7 @@ export const store = new Vuex.Store({
             color1: '#85ba9b',
             color2: '#feede5',
             image: 'bm',
-            pattern: [1,0,0,1,0,0,1,0,1],
+            pattern: ['print', 'id', 'social', 'web'],
             text: 'Bardis Miry'
           }
     
@@ -151,10 +153,10 @@ export const store = new Vuex.Store({
         },
         colorChange: (state, {name, clicked}) => {
             if(clicked == false){
-                state.iconsObject[name].clicked = true
+                state.iconObject[name].clicked = true
             }
             else{
-                state.iconsObject[name].clicked = false   
+                state.iconObject[name].clicked = false   
             }   
         },
         backgroundChange: (state, color) => {
@@ -162,6 +164,15 @@ export const store = new Vuex.Store({
         },
         faceChange: (state, face) => {
           state.cubeFace = face
+        },
+        faceColor: (state, {entered, color}) => {
+          if(entered) {
+            state.faceColor = color
+            state.cubeHovered = true
+          }
+          else {
+            state.cubeHovered = false
+          }
         }
     },
     actions: {
@@ -176,6 +187,9 @@ export const store = new Vuex.Store({
         },
         faceChange: (context, face) => {
           context.commit('faceChange', face)
+        },
+        faceColor: (context, {entered, color}) => {
+          context.commit('faceColor', {entered, color})
         }
     }
 })

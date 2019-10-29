@@ -1,5 +1,5 @@
 <template lang="pug">
-#case-right
+#case-right(:style="bg")
     slot(name='image1')
     slot(name='image2')
     slot(name='image3')
@@ -23,6 +23,9 @@ export default {
     return {
     }
   },
+  props: {
+    bg : String
+  },
   components: {
 
   },
@@ -41,7 +44,8 @@ export default {
 
 #case-right
     display: inline-block
-    width: 70%
+    width: 65%
     float: right 
+    padding-right: 65px
 
 </style>
