@@ -50,7 +50,6 @@ export default {
 .darkclass.sidediv
   border-left: 3px solid white;
 
-
 .sidediv
     height: 100%
     width: 65px

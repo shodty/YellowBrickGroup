@@ -1,17 +1,24 @@
 <template lang="pug">
-#home(:style='[ light? {"background" : bgc } : {"background" : "black"} ]' v-cloak)
+#home(:style='[ light? {"background" : bgc } : {"background" : "black"} ]')
   video(v-if="videoplay" class="video-bottom" :src="getImgUrl(videosource, '.mp4')" autoplay muted loop)
   DarkLight(class="footerclass")
   SideBar
   // header, which contains header image & navbar
   Header
   // grid of projects inside container div
-  .container
-    .grid
+  //  .main-container
+  //    .grid
+  //      //references cubeObject in store to bind all props that define each cube made using Cube.vue
+  //      .cube-container(v-for="cube in cubeObject" @mouseenter='bgcChange(cube.color2)' @mouseleave='bgcChange("white")')  
+  //        Cube(:project='cube.text' :letter='cube.letter' :color1='cubeHovered? faceColor : cube.color1' color2='cube.color2' :image='cube.image' :pattern='cube.pattern' :bgColor='[ light? { "background" : bgc} : {"background" : "black"} ]')
+  .container-fluid
       //references cubeObject in store to bind all props that define each cube made using Cube.vue
-      .cube-container(v-for="cube in cubeObject" @mouseenter='bgcChange(cube.color2)' @mouseleave='bgcChange("white")')  
-        Cube(:project='cube.text' :letter='cube.letter' :color1='cube.color1' color2='cube.color2' :image='cube.image' :pattern='cube.pattern' :bgColor='[ light? { "background" : bgc} : {"background" : "black"} ]')
-  Footer(class="footerclass")
+      .test-wrapper
+        b-row(class="brow" align-h="center")
+          b-col(v-for="cube in cubeObject" sm=6 md=4 @mouseenter='bgcChange(cube.color2)' @mouseleave='bgcChange("white")' class="bcol mx-auto")  
+            Cube(class="cubeClass" :project='cube.text' :letter='cube.letter' :color1='cubeHovered? faceColor : cube.color1' color2='cube.color2' :image='cube.image' :pattern='cube.pattern' :bgColor='[ light? { "background" : bgc} : {"background" : "black"} ]')
+    
+  Footer(class="footerclass .d-sm-none .d-md-block")
 </template>
 
 <script>
@@ -22,29 +29,24 @@ import Footer from './Footer.vue'
 import SideBar from './SideBar.vue'
 import { EventBus } from '../event-bus.js'
 import DarkLight from './DarkLight.vue'
+import { mapState } from 'vuex'
 
 export default {
   name: 'home',
   data() {
     return{
       videoplay :false,
-      videosource : "cases/acr/2",
+      videosource : "cases/acr/2"
     }
   },
-  computed: {
-      iconsObject(){
-          return this.$store.state.iconsObject
-      },
-      light(){
-          return this.$store.state.light
-      },
-      cubeObject(){
-        return this.$store.state.cubeObject
-      },
-      bgc(){
-        return this.$store.state.bgc
-      }
-  },
+  computed: mapState([
+    'iconObject',
+    'light',
+    'cubeObject',
+    'bgc',
+    'faceColor',
+    'cubeHovered'
+  ]),
   mounted(){
         EventBus.$on('moviechange', (movie, play) => {
           if(play){
@@ -76,12 +78,33 @@ export default {
 </script>
 
 <style lang="stylus">
+
+.test-wrapper
+  width: 70%
+  margin: 0 auto
+  
+
 *
   margin: 0px
   padding 0px
 
 body
   width: 100%
+
+.cubeClass
+  margin-bottom: 1.3vw
+
+.bcol
+  border: 0px solid red
+
+.brow
+  border: 0px solid purple
+
+.container
+  border: 0px solid black
+
+.test-wrapper
+  border: 0px solid green
 
 #home 
   font-family: 'Avenir', Helvetica, Arial, sans-serif
@@ -92,7 +115,7 @@ body
   padding-top: 60px
   transition: 1s
 
-.container
+.main-container
   margin: 0 auto
   width: 80%
   display: flex
@@ -108,19 +131,6 @@ body
   align-items: center
   justify-content: center
  
-#ybg
-  padding-bottom: 30px
-
-[v-cloak] > * { display:none; }
-
-[v-cloak]::before { 
-  content: " ";
-  display: block;
-  width: 50px;
-  height: 50px;
-  background: url('../assets/loader.gif') no-repeat
-}
-
 .video-bottom
     position: fixed
     width: 100%
