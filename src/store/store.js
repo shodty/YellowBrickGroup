@@ -141,7 +141,14 @@ export const store = new Vuex.Store({
           }
     
         },
-        cubeFace : 'showFront'
+        cubeFace : 'showFront',
+        videoArray : [
+          'cases/ourstreet/8',
+          'cases/ourstreet/2',
+          'cases/ourstreet/5.5',
+          'cases/acr/2',
+          'cases/alt/2',
+        ]
     },
     mutations: {
         darkLight: state => {

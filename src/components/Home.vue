@@ -1,9 +1,9 @@
 <template lang="pug">
 #home(:style='[ light? {"background" : bgc } : {"background" : "black"} ]')
-  video(v-if="videoplay" class="video-bottom" :src="getImgUrl(videosource, '.mp4')" autoplay muted loop)
+  video(v-if="videoplay" poster="../assets/videobg.png" class="video-bottom" :src="getImgUrl(videosource, '.mp4')" autoplay muted loop @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused")
   DarkLight(class="footerclass")
   SideBar
-  // header, which contains header image & navbar
+  // header, which contains header imagSe & navbar
   Header
   // grid of projects inside container div
   //  .main-container
@@ -36,17 +36,24 @@ export default {
   data() {
     return{
       videoplay :false,
-      videosource : "cases/acr/2"
+      videosource : "cases/acr/2",
+      videoElement: null,
+      paused: null,
     }
   },
-  computed: mapState([
-    'iconObject',
-    'light',
-    'cubeObject',
-    'bgc',
-    'faceColor',
-    'cubeHovered'
-  ]),
+  computed: {
+
+    playing() { return !this.paused; },
+
+    ...mapState([
+      'iconObject',
+      'light',
+      'cubeObject',
+      'bgc',
+      'faceColor',
+      'cubeHovered'
+    ])
+  },
   mounted(){
         EventBus.$on('moviechange', (movie, play) => {
           if(play){
@@ -56,6 +63,16 @@ export default {
           else if(!play){
             this.videosource = null
             this.videoplay = false
+          }
+        }),
+        EventBus.$on('playVid', play => {
+          if(play){
+            this.videoElement.play();
+          }
+        }),
+        EventBus.$on('pause', play => {
+          if(play){
+            this.videoElement.pause();
           }
         })
   },
@@ -73,7 +90,11 @@ export default {
     getImgUrl(pic, ext){
       return require('../assets/img/' + pic + ext)
     },
-  }
+    updatePaused(event) {
+      this.videoElement = event.target;
+      this.paused = event.target.paused;
+    }
+  },
 }
 </script>
 
@@ -133,13 +154,12 @@ body
  
 .video-bottom
     position: fixed
-    width: 100%
     top: 50% 
     left: 50%
     -webkit-transform: translateX(-50%) translateY(-50%)   
     transform: translateX(-50%) translateY(-50%)
-    min-width: 100% 
     min-height: 100% 
+    min-width: 100% 
     z-index: 1 
     overflow: hidden
 

@@ -16,8 +16,12 @@
                         p {{icon.text}}
         transition(name='slide-fade')
             .nav-icons(v-if='activeLink =="videos"') 
-                .icon-wrapper
-
+                .video-controls
+                    img(alt='welcome' src='../assets/img/icons/back.png' height='46px' @click='previous')
+                    img(v-if="!play" alt='welcome' src='../assets/img/icons/play.png' height='46px' @click='playVid')
+                    img(v-else-if="play" alt='welcome' src='../assets/img/icons/pause.png' height='46px' @click='pause')
+                    img(alt='welcome' src='../assets/img/icons/forward.png' height='46px' @click='next')
+                    img(alt='welcome' src='../assets/img/icons/mute.png' height='46px')
         transition(name='slide-fade')
             .nav-icons(v-if='activeLink =="projects"')
                 .icon-wrapper
@@ -37,6 +41,7 @@
 import IconBase from './IconBase.vue'
 import Cube from './Cube.vue'
 import { EventBus } from '../event-bus.js'
+import { mapState } from 'vuex'
 
 export default {
     name: 'nav-bar',
@@ -48,38 +53,58 @@ export default {
             leftShower : true,
             bottomShower : true,
             frontShower : true,
+            play : true,
+            volume: false,
+            count: 0
         }
   },
   computed: {
-      iconObject(){
-          return this.$store.state.iconObject
-      },
-      light(){
-          return this.$store.state.light
-      },
-      baseColor(){
-          return this.$store.state.baseColor
-      },
-      cubeFace(){
-          return this.$store.state.cubeFace
-      },
-      cubeObject(){
-          return this.$store.state.cubeObject
-      }
+    ...mapState([
+        'iconObject',
+        'light',
+        'baseColor',
+        'cubeObject',
+        'cubeFace',
+        'videoArray'
+    ])
   },
   methods: {
     rotateCube(side){
         this.$store.dispatch('faceChange', side)
     },
+    onClick(entry) {
+        this.activeLink = entry
+        if(entry == 'videos')
+            this.movieChange("cases/ourstreet/8", true)
+        else
+            EventBus.$emit('moviechange', 'null', false)    
+    },
     movieChange(movie, play){
         EventBus.$emit('moviechange', movie, play)
     },
-    onClick(entry) {
-        this.activeLink = entry
-        EventBus.$emit('moviechange', 'null', false)    
-    },
     colorChanger(name, clicked){
         this.$store.dispatch('colorChange', {name, clicked})
+    },
+    playVid(){
+        this.play = true
+        EventBus.$emit('playVid', true)
+    },
+    pause(){
+        this.play = false
+        EventBus.$emit('pause', true)
+    },
+    next(){
+        this.count++
+        console.log(this.videoArray.length)
+        if(this.count > this.videoArray.length-1)
+            this.count = 0
+        this.movieChange(this.videoArray[this.count], true)
+    },
+    previous(){
+        this.count--
+        if(this.count < 0)
+            this.count = this.videoArray.length-1
+        this.movieChange(this.videoArray[this.count], true)
     }
   },
    components:{
@@ -181,4 +206,12 @@ export default {
 
 .movie-button
     cursor: url('../assets/hand.png'), auto
+
+.video-controls
+    background: white
+    padding: 5px 20px
+    border-radius: 35px;
+
+.video-controls img 
+    padding: 0 10px
 </style>
