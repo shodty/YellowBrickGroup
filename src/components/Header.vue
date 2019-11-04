@@ -6,7 +6,7 @@
             component(:is="componentName[this.count]")
           .click-box(@click='onClick')
         .mobile-container(class='hide-on-desktop')
-          img(src="../assets/YBG_Logo.png"  width="80%")
+          img(src="../assets/ybg_logo.png"  width="80%")
     NavBar(class='hide-on-mobile')
 </template>
 
