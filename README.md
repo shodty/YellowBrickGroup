@@ -1,29 +1,17 @@
 # YBG SITE
 
-## Project setup
-```
-npm install
-```
+## Packages in use:
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+npm install pug
 
-### Compiles and minifies for production
-```
-npm run build
-```
+npm install pug-plain-loader
 
-### Run your tests
-```
-npm run test
-```
+npm install stylus
 
-### Lints and fixes files
-```
-npm run lint
-```
+npm install stylus-loader
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+npm install vue-router
+
+npm install bootstrap-vue
+
+npm install vuex
