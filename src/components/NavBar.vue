@@ -3,8 +3,10 @@
     .icons
         transition(name='slide-fade')
             .nav-image(v-if='activeLink =="start"') 
-                .welcome-image
+                .welcome-image(v-if="light")
                     img(alt='welcome' src='../assets/welcome3.png' height='66px' id='welcome')
+                .welcome-image(v-else)
+                    img(alt='welcome' src='../assets/welcome4.png' height='66px' id='welcome')
 
         transition(name='slide-fade')
             .nav-icons(v-if='activeLink =="sort"') 

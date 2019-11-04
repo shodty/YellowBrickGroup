@@ -31,10 +31,4 @@ export default {
   margin: 0px
   padding 0px
 
-#contact-main 
-  font-family: 'Avenir', Helvetica, Arial, sans-serif
-  -webkit-font-smoothing: antialiased
-  -moz-osx-font-smoothing: grayscale
-  background-color: black
-
 </style>
