@@ -2,8 +2,10 @@
 .scene(class="project" @mouseenter="shiftCube(true, color1)" @mouseleave="shiftCube(false, 'white')" )
     .cube(:class="hovered? 'showRight' : cubeFace")
         .cube__face.cube__face--front(:style="bgColor")
-            IconBase(class="iconoclast" :icon-name="project" :icon-color="color1")
+            IconBase(width="22vw" height="22vw" :icon-name="project" :icon-color="color1"  class='hide-on-mobile')
                 component(:is="letter")
+            IconBase(width="65vw" height="65vw" :icon-name="project" :icon-color="color1"  class='hide-on-desktop')
+                component(:is="letter")    
         .cube__face.cube__face--back back
         .cube__face.cube__face--right(:style="bgColor" @click="goToCaseStudy")
             img(:alt='project' :src='getImgUrl(image, ".png")' width="100%" height="100%")
@@ -89,18 +91,28 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="stylus">
-.iconoclast
-    height: 22vw
-    width: 22vw
 
-*
+* {
+    @media(max-width: 768px) { 
+        --cube-face-size: 65vw 
+    }
+    @media(min-width: 769px) { 
+        --cube-face-size: 22vw 
+    }
+
     box-sizing: border-box
-    --cube-face-size: 22vw
     --cube-translate:       translateZ(calc(var(--cube-face-size)/-2))
     --cube-translate-pos:   translateZ(calc(var(--cube-face-size)/2))
+}
 
-.image-overlay
-    width: 22vw
+.image-overlay {
+     @media(max-width: 768px) { 
+        width: 65vw
+    }
+    @media(min-width: 769px) { 
+        width: 22vw
+    }
+}   
 
 body
     font-family: sans-serif

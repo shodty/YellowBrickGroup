@@ -1,11 +1,13 @@
 <template lang="pug">
 #header-div
     .headerimages
-        .icon-container
-          IconTwo(icon-name="yellow brick group" :width="window.width" :height="window.height" :icon-color=' light? "black" : "white" ')
+        .icon-container(class='hide-on-mobile')
+          IconTwo(icon-name="yellow brick group" width="80vw" height="5vw" :icon-color=' light? "black" : "white" ')
             component(:is="componentName[this.count]")
           .click-box(@click='onClick')
-    NavBar
+        .mobile-container(class='hide-on-desktop')
+          img(src="../assets/YBG_Logo.png"  width="80%")
+    NavBar(class='hide-on-mobile')
 </template>
 
 <script>
@@ -89,4 +91,6 @@ export default {
   left: 35%
   cursor: url("../assets/eye.png"), auto
 
+.mobile-container
+  color: white
 </style>
