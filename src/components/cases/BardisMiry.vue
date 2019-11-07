@@ -15,14 +15,12 @@
         //img(class='case-image' slot='image5' alt='bardis-miry5' src='../../assets/img/cases/bm/5.jpg' id='bardis-miry5')
         //img(class='case-image' slot='image6' alt='bardis-miry6' src='../../assets/img/cases/bm/6.jpg' id='bardis-miry6')
         //img(class='case-image-last' slot='image7' alt='bardis-miry7' src='../../assets/img/cases/bm/7.gif' id='bardis-miry7')
-    SideBar(class="hide-on-mobile")
 </template>
 
 <script>
 
 import CaseLeft from './CaseLeft.vue'
 import CaseRight from './CaseRight.vue'
-import SideBar from '../SideBar.vue'
 
 export default {
   name: 'bardis-miry',
@@ -43,8 +41,7 @@ export default {
   },
     components: {
         CaseLeft,
-        CaseRight,
-        SideBar
+        CaseRight
     },
     methods: {
 

@@ -16,14 +16,13 @@
         img(class='case-image' slot='image6' alt='cabin6' src='../../assets/img/cases/cabin/6.jpg' id='cabin6')
         img(class='case-image' slot='image7' alt='cabin7' src='../../assets/img/cases/cabin/7.png' id='cabin7')
         img(class='case-image-last' slot='image8' alt='cabin8' src='../../assets/img/cases/cabin/8.gif' id='cabin8')
-    SideBar(class="hide-on-mobile")
+
 </template>
 
 <script>
 
 import CaseLeft from './CaseLeft.vue'
 import CaseRight from './CaseRight.vue'
-import SideBar from '../SideBar.vue'
 
 export default {
   name: 'cabin',
@@ -44,8 +43,7 @@ export default {
   },
     components: {
         CaseLeft,
-        CaseRight,
-        SideBar
+        CaseRight
     },
     methods: {
 

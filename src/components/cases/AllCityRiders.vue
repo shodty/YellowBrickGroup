@@ -14,16 +14,14 @@
         img(class='case-image' slot='image4' alt='acr1' src='../../assets/img/cases/acr/4.jpg' id='our-street1')
         img(class='case-image' slot='image5' alt='acr1' src='../../assets/img/cases/acr/5.jpg' id='our-street1')
         img(class='case-image' slot='image6' alt='acr1' src='../../assets/img/cases/acr/6.gif' id='our-street1')
-        img(class='case-image-last' slot='image7' alt='acr1' src='../../assets/img/cases/acr/7.jpg' id='our-street1')
+        img(class='case-image' slot='image7' alt='acr1' src='../../assets/img/cases/acr/7.jpg' id='our-street1')
         img(class='case-image-last' slot='image8' alt='acr1' src='../../assets/img/cases/acr/8.jpg' id='our-street1')
-    SideBar(class="hide-on-mobile")
 </template>
 
 <script>
 
 import CaseLeft from './CaseLeft.vue'
 import CaseRight from './CaseRight.vue'
-import SideBar from '../SideBar.vue'
 
 export default {
   name: 'all-city-riders',
@@ -36,8 +34,7 @@ export default {
   },
   components: {
     CaseLeft,
-    CaseRight,
-    SideBar
+    CaseRight
   },
   methods: {
 

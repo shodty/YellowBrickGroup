@@ -12,10 +12,12 @@
     slot(name='image10')
     slot(name='image11')
     slot(name='image12')
+    SideBar(class="sidebar-hide")
 </template>
 
 <script>
 
+import SideBar from '../SideBar.vue'
 
 export default {
   name: 'case-left',
@@ -27,7 +29,7 @@ export default {
     bg : String
   },
   components: {
-
+    SideBar
   },
   methods: {
 
@@ -54,5 +56,11 @@ export default {
       float: right 
       padding-right: 65px
     }
+}
+
+.sidebar-hide {
+  @media(max-width: 1139px) { 
+    display: none !important
+  }
 }
 </style>

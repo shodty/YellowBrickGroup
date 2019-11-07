@@ -15,14 +15,12 @@
         //img(class='case-image' slot='image5' alt='art-life-tour5' src='../../assets/img/cases/alt/5.jpg' id='art-life-tour5')
         img(class='case-image' slot='image6' alt='art-life-tour6' src='../../assets/img/cases/alt/6.jpg' id='art-life-tour6')
         video(class='case-image-last' slot='image7' alt='art-life-tour7' src='../../assets/img/cases/alt/7.mp4' id='art-life-tour7'  controls autoplay muted loop)
-    SideBar(class="hide-on-mobile")
 </template>
 
 <script>
 
 import CaseLeft from './CaseLeft.vue'
 import CaseRight from './CaseRight.vue'
-import SideBar from '../SideBar.vue'
 
 export default {
   name: 'art-life-tour',
@@ -43,8 +41,7 @@ export default {
   },
     components: {
         CaseLeft,
-        CaseRight,
-        SideBar
+        CaseRight
     },
     methods: {
 
@@ -67,7 +64,6 @@ export default {
   transition: 1s
   width:100%
   height:100%
-
 
 .case-image
     width:100%

@@ -29,6 +29,14 @@ export default {
 
 *
   margin: 0px
-  padding 0px
+  padding: 0px
+
+html, body {
+  min-height: 100%;
+}
+
+#contact-main
+  background : black
+  min-height: 100%;
 
 </style>

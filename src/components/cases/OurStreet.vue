@@ -16,14 +16,12 @@
         video(class='case-image' slot='image6' alt='our-street1' src='../../assets/img/cases/ourstreet/5.5.mp4' id='our-street1' controls autoplay muted loop)
         img(class='case-image' slot='image7' alt='our-street1' src='../../assets/img/cases/ourstreet/6.jpg' id='our-street1')
         img(class='case-image-last' slot='image8' alt='our-street1' src='../../assets/img/cases/ourstreet/7.jpg' id='our-street1')
-    SideBar(class="hide-on-mobile")
 </template>
 
 <script>
 
 import CaseLeft from './CaseLeft.vue'
 import CaseRight from './CaseRight.vue'
-import SideBar from '../SideBar.vue'
 
 export default {
   name: 'our-street',
@@ -36,8 +34,7 @@ export default {
   },
   components: {
     CaseLeft,
-    CaseRight,
-    SideBar
+    CaseRight
   },
   methods: {
 

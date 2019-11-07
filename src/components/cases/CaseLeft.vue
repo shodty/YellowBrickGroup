@@ -75,7 +75,6 @@ export default {
         position: relative
         display: block
         padding: 30px
-        padding-right: 85px
     }
     @media(min-width: 1140px) { 
         padding-top: 30px
@@ -93,12 +92,19 @@ h1
     color: black
     line-height : 1.3 
 
+
+h1 {
+    @media(max-width: 1139px){
+        font-size: 40px
+        padding-bottom: 15px
+    }
+}
+
 h3
     font-size: 22px
     color: black 
     font-weight: 500
     text-decoration: underline
-
 
 
 .year-heading
@@ -113,12 +119,17 @@ p
     font-family: 'Open Sans', Helvetica, Arial, sans-serif
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale
-    padding-top: 20px
     color: black
-    font-size: 22px
+    font-size: 16px
     font-weight: 600
     line-height: 1.4
 
+p {
+    @media(min-width: 1139px) { 
+        padding-top: 20px
+        font-size: 22px
+    }
+}
 .line-two
     padding-bottom: 15px
 .icons

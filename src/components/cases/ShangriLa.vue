@@ -15,14 +15,12 @@
         img(class='case-image' slot='image5' alt='shangrila5' src='../../assets/img/cases/shang/5.jpg' id='shangrila5')
         img(class='case-image' slot='image6' alt='shangrila6' src='../../assets/img/cases/shang/6.jpg' id='shangrila6')
 
-    SideBar(class="hide-on-mobile")
 </template>
 
 <script>
 
 import CaseLeft from './CaseLeft.vue'
 import CaseRight from './CaseRight.vue'
-import SideBar from '../SideBar.vue'
 
 export default {
   name: 'shangrila',
@@ -43,8 +41,7 @@ export default {
   },
     components: {
         CaseLeft,
-        CaseRight,
-        SideBar
+        CaseRight
     },
     methods: {
 
