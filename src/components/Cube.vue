@@ -207,7 +207,7 @@ body
     top: 0
     left: 0
     opacity: 0
-    transition: 2s
+    transition: opacity 1s
 
 .picture-overlay.show-picture
     opacity: 1
