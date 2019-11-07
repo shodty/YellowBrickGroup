@@ -91,11 +91,11 @@ h1
     font-size: 60px
     color: black
     line-height : 1.3 
-
+    font-weight: 900
 
 h1 {
     @media(max-width: 1139px){
-        font-size: 40px
+        font-size: 32px
         padding-bottom: 15px
     }
 }

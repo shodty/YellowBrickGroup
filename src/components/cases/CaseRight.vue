@@ -13,6 +13,8 @@
     slot(name='image11')
     slot(name='image12')
     SideBar(class="sidebar-hide")
+    .escape(class="escape-hide" @click="goHome")
+      img(src="../../assets/escape.png"  width="40px")
 </template>
 
 <script>
@@ -32,7 +34,9 @@ export default {
     SideBar
   },
   methods: {
-
+        goHome(){
+            this.$router.push('/')
+        },
     },
 }
 
@@ -60,6 +64,19 @@ export default {
 
 .sidebar-hide {
   @media(max-width: 1139px) { 
+    display: none !important
+  }
+}
+
+.escape
+    position: fixed
+    top: 0
+    right: 0
+    padding 35px
+
+
+.escape-hide {
+  @media(min-width: 1140px) { 
     display: none !important
   }
 }

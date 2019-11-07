@@ -2,9 +2,12 @@
 .sidediv(:class="[{ lightclass: light}, { darkclass: !light}]")
     .links
       //img(alt='YBG' src='../assets/img/YBG.png' width='50px' id='YBGicon')
-      a.nav(href='./' ref="home") HOME
-      a.nav(href='./tester' ref="test") ABOUT
-      a.nav(href='./contact' ref="contact") CONTACT
+      .nav(@click="goToLink('/')")
+        p HOME
+      .nav(@click="goToLink('tester')")
+        p ABOUT
+      .nav(@click="goToLink('contact')")
+        p CONTACT
       .bxb
         img(alt='YBG' src='../assets/img/BXBXB.png' width='30px' id='BXB')
 </template>
@@ -25,6 +28,11 @@ export default {
       light(){
           return this.$store.state.light
       }
+  },
+  methods: {
+    goToLink(link){
+      this.$router.push(link)
+    }
   }
 }
 
@@ -34,8 +42,6 @@ export default {
 
 .lightclass
     background-color: #ffffff
-
-.lightclass a
     color: black
 
 .lightclass.sidediv
@@ -43,8 +49,6 @@ export default {
 
 .darkclass
     background-color: #000000
-    
-.darkclass a
     color: white
 
 .darkclass.sidediv
@@ -71,13 +75,15 @@ export default {
   font-weight: 400
   font-size: 36px
   transition: 1s
+  cursor: url('../assets/hand.png'), auto
 
-.links a 
+.links p
   writing-mode: vertical-rl;
   text-decoration: none
   padding-bottom: 30px
   padding-top:20px
   display: block
+
 
 .bxb 
   position: absolute
