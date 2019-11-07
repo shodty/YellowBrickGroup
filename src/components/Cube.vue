@@ -1,5 +1,5 @@
 <template lang="pug">
-.scene(class="project" @mouseenter="shiftCube(true, color1)" @mouseleave="shiftCube(false, 'white')" )
+.scene(class="project" @mouseenter="shiftCube(true, color1)" @mouseleave="shiftCube(false, 'white')"  @click="mobileShift(true, color1)")
     .cube(:class="hovered? 'showRight' : cubeFace")
         .cube__face.cube__face--front(:style="bgColor")
             IconBase(width="22vw" height="22vw" :icon-name="project" :icon-color="color1"  class='hide-on-mobile')
@@ -81,6 +81,14 @@ export default {
                 this.hovered = false
                 this.pictureclass = 'null'
             }
+        },
+        mobileShift(entered, color){
+            this.$store.dispatch('faceColor', {entered, color})
+            if(this.cubeFace == 'showFront' && entered && Modernizr.touchevents){
+                this.hovered = true
+                this.pictureclass = 'show-picture'
+            }
+
         }
     },
   components:{
