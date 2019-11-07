@@ -2,7 +2,7 @@
 #home(:style='[ light? {"background" : bgc } : {"background" : "black"} ]')
   video(v-if="videoplay" poster="../assets/videobg.png" class="video-bottom" :src="getImgUrl(videosource, '.mp4')" autoplay muted loop @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused")
   DarkLight(class="footerclass hide-on-mobile")
-  SideBar(class="hide-on-mobile")
+  SideBar(class="hide-on-mobile")(class="hide-on-mobile")
   // header, which contains header imagSe & navbar
   Header
   // grid of projects inside container div
@@ -15,7 +15,7 @@
       //references cubeObject in store to bind all props that define each cube made using Cube.vue
       .test-wrapper
         b-row(class="brow" align-h="center")
-          b-col(v-for="cube in cubeObject" sm=6 md=4 @mouseenter='bgcChange(cube.color2)' @mouseleave='bgcChange("white")' class="bcol")  
+          b-col(v-for="cube in cubeObject" xs=6 md=4 @mouseenter='bgcChange(cube.color2)' @mouseleave='bgcChange("white")' class="bcol")  
             Cube(class="cubeClass" :project='cube.text' :letter='cube.letter' :color1='cubeHovered? faceColor : cube.color1' color2='cube.color2' :image='cube.image' :pattern='cube.pattern' :bgColor='[ light? { "background" : bgc} : {"background" : "black"} ]')
     
   Footer(class="footerclass .d-sm-none .d-md-block hide-on-mobile")

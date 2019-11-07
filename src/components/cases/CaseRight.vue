@@ -42,10 +42,17 @@ export default {
   margin: 0px
   padding 0px
 
-#case-right
-    display: inline-block
-    width: 65%
-    float: right 
-    padding-right: 65px
-
+#case-right {
+    @media(max-width: 1139px) { 
+      display: inline-block
+      width: 100%
+      float: right 
+    }
+    @media(min-width: 1140px) { 
+      display: inline-block
+      width: 65%
+      float: right 
+      padding-right: 65px
+    }
+}
 </style>

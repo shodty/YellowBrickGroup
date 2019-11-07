@@ -15,7 +15,7 @@
         img(class='case-image' slot='image5' alt='shangrila5' src='../../assets/img/cases/shang/5.jpg' id='shangrila5')
         img(class='case-image' slot='image6' alt='shangrila6' src='../../assets/img/cases/shang/6.jpg' id='shangrila6')
 
-    SideBar
+    SideBar(class="hide-on-mobile")
 </template>
 
 <script>

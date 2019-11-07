@@ -15,7 +15,7 @@
         //img(class='case-image' slot='image5' alt='art-life-tour5' src='../../assets/img/cases/alt/5.jpg' id='art-life-tour5')
         img(class='case-image' slot='image6' alt='art-life-tour6' src='../../assets/img/cases/alt/6.jpg' id='art-life-tour6')
         video(class='case-image-last' slot='image7' alt='art-life-tour7' src='../../assets/img/cases/alt/7.mp4' id='art-life-tour7'  controls autoplay muted loop)
-    SideBar
+    SideBar(class="hide-on-mobile")
 </template>
 
 <script>

@@ -15,7 +15,7 @@
         //img(class='case-image' slot='image5' alt='bardis-miry5' src='../../assets/img/cases/bm/5.jpg' id='bardis-miry5')
         //img(class='case-image' slot='image6' alt='bardis-miry6' src='../../assets/img/cases/bm/6.jpg' id='bardis-miry6')
         //img(class='case-image-last' slot='image7' alt='bardis-miry7' src='../../assets/img/cases/bm/7.gif' id='bardis-miry7')
-    SideBar
+    SideBar(class="hide-on-mobile")
 </template>
 
 <script>

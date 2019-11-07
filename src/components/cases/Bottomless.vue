@@ -17,7 +17,7 @@
         img(class='case-image' slot='image7' alt='bottomless7' src='../../assets/img/cases/btm/7.jpg' id='bottomless7')
         img(class='case-image' slot='image8' alt='bottomless7' src='../../assets/img/cases/btm/8.jpg' id='bottomless8')
         img(class='case-image-last' slot='image9' alt='bottomless7' src='../../assets/img/cases/btm/9.jpg' id='bottomless9')
-    SideBar
+    SideBar(class="hide-on-mobile")
 </template>
 
 <script>

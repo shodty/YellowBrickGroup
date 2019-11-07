@@ -15,7 +15,7 @@
         img(class='case-image' slot='image5' alt='jump5' src='../../assets/img/cases/jump/5.jpg' id='jump5')
         video(class='case-image' slot='image6' alt='jump6' src='../../assets/img/cases/jump/6.mp4' id='jump6' controls autoplay muted loop)
         img(class='case-image-last' slot='image7' alt='jump7' src='../../assets/img/cases/jump/7.jpg' id='jump7')
-    SideBar
+    SideBar(class="hide-on-mobile")
 </template>
 
 <script>

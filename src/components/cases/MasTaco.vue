@@ -16,7 +16,7 @@
         video(class='case-image' slot='image6' alt='mastaco6' src='../../assets/img/cases/mas/6.mp4' id='mastaco6' controls autoplay muted loop)
         img(class='case-image-last' slot='image7' alt='mastaco7' src='../../assets/img/cases/mas/7.jpg' id='mastaco7')
 
-    SideBar
+    SideBar(class="hide-on-mobile")
 </template>
 
 <script>

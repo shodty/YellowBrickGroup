@@ -13,7 +13,7 @@
                 .icon-wrapper(:class="[{ lightclass: light }, { darkclass: !light }]")
                     //loops thru iconObject to create icons with name/color/text/clickstate assigned via the object. click event fires to action/mutation in store that will change icons clickstate & colors across components
                     .icon-text(v-for="icon in iconObject" @click="colorChanger(icon.name, icon.clicked)")
-                        IconBase(class="iconbases" :icon-name="icon.name" width="50" height="50"  :icon-color='icon.clicked? icon.color : baseColor')
+                        IconBase(class="iconbases" :icon-name="icon.name" width="3vw" height="4vw"  :icon-color='icon.clicked? icon.color : baseColor')
                             component(:is="icon.name")
                         p {{icon.text}}
         transition(name='slide-fade')

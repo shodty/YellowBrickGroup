@@ -69,14 +69,25 @@ export default {
     margin: 0px
     padding 0px
 
-#case-left
-    padding-top: 30px
-    padding-left: 60px
-    width: 32%
-    top: 0
-    left: 0
-    position: fixed
-    height: 100%
+#case-left {
+    @media(max-width: 1139px) { 
+        width: 100%
+        position: relative
+        display: block
+        padding: 30px
+        padding-right: 85px
+    }
+    @media(min-width: 1140px) { 
+        padding-top: 30px
+        padding-left: 60px
+        width: 32%
+        top: 0
+        left: 0
+        position: fixed
+        height: 100%
+    }
+}
+
 h1
     font-size: 60px
     color: black

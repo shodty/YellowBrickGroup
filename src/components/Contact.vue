@@ -1,7 +1,7 @@
 <template lang="pug">
 #contact-main
     img(alt='contact' src='../assets/img/contactpage.png' width='100%')
-    SideBar
+    SideBar(class="hide-on-mobile")
 </template>
 
 <script>

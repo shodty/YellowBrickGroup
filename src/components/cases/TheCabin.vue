@@ -16,7 +16,7 @@
         img(class='case-image' slot='image6' alt='cabin6' src='../../assets/img/cases/cabin/6.jpg' id='cabin6')
         img(class='case-image' slot='image7' alt='cabin7' src='../../assets/img/cases/cabin/7.png' id='cabin7')
         img(class='case-image-last' slot='image8' alt='cabin8' src='../../assets/img/cases/cabin/8.gif' id='cabin8')
-    SideBar
+    SideBar(class="hide-on-mobile")
 </template>
 
 <script>

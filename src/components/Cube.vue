@@ -84,7 +84,7 @@ export default {
         },
         mobileShift(entered, color){
             this.$store.dispatch('faceColor', {entered, color})
-            if(this.cubeFace == 'showFront' && entered && Modernizr.touchevents){
+            if(this.cubeFace == 'showFront' && entered){
                 this.hovered = true
                 this.pictureclass = 'show-picture'
             }
@@ -213,9 +213,10 @@ body
     opacity: 1
 
 .project-name
-    padding-left: 6px
+    padding-left: 4px
     padding-top: 15px
     position: fixed
+    font-size: 1.1vw
     writing-mode: vertical-rl;
     color: white
     text-transform: uppercase
@@ -223,7 +224,7 @@ body
 
 .iconbases
     width: 100%
-    padding-top: 35px
+    padding-top: 2vw
     margin: 0 auto
 
 </style>
