@@ -7,7 +7,7 @@
             |Sacramentans to enjoy amazing food prepared by chefs from our booming food scene. From its inception, Our Street has greatly 
             |exceeded projected attendance,  drawing over 12,000 people to its inaugural event, and reaching upwards of 50,000 attendees by its second year.
 
-    CaseRight
+    CaseRight(case='alt')
         img(class='case-image' slot='image1' alt='art-life-tour1' src='../../assets/img/cases/alt/1.jpg' id='art-life-tour1')
         video(class='case-image' slot='image2' alt='art-life-tour2' src='../../assets/img/cases/alt/2.mp4' id='art-life-tour2' controls muted loop)
         img(class='case-image' slot='image3' alt='art-life-tour3' src='../../assets/img/cases/alt/3.jpg' id='art-life-tour3')

@@ -7,7 +7,7 @@
             |Sacramentans to enjoy amazing food prepared by chefs from our booming food scene. From its inception, Our Street has greatly 
             |exceeded projected attendance,  drawing over 12,000 people to its inaugural event, and reaching upwards of 50,000 attendees by its second year.
 
-    CaseRight
+    CaseRight(case='shang')
         img(class='case-image' slot='image1' alt='shangrila1' src='../../assets/img/cases/shang/1.jpg' id='shangrila1')
         img(class='case-image' slot='image2' alt='shangrila2' src='../../assets/img/cases/shang/2.jpg' id='shangrila2')
         img(class='case-image' slot='image3' alt='shangrila3' src='../../assets/img/cases/shang/3.jpg' id='shangrila3')

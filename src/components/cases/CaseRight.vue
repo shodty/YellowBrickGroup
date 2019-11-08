@@ -16,6 +16,11 @@
     MobileMenu(class="mobile-menu-hide")
     //.escape(class="escape-desktop" @click="goHome")
       img(src="../../assets/escape.png"  width="32px")
+    .prev-next(class="mobile-menu-hide")
+      .prev(@click="goToLink(false)")
+          img(src="../../assets/prev.png")
+      .next(@click="goToLink(true)")
+          img(src="../../assets/next.png")
 </template>
 
 <script>
@@ -27,19 +32,36 @@ export default {
   name: 'case-left',
   data(){
     return {
+      cases: ['os', 'acr', 'jump', 'mas', 'btm', 'shang', 'cabin', 'alt', 'bm']
     }
   },
   props: {
-    bg : String
+    bg : String,
+    case: String
   },
   components: {
     SideBar,
     MobileMenu
   },
   methods: {
-        goHome(){
-            this.$router.push('/')
-        },
+      goHome(){
+          this.$router.push('/')
+      },
+      goToLink(forward){
+        var index = this.cases.indexOf(this.case)
+        console.log(index)
+        if(forward)
+            if(this.cases.length-1 > index)
+                this.$router.push(this.cases[index+1])
+            else
+                this.$router.push(this.cases[0])
+        else 
+            if(index > 0 )
+                this.$router.push(this.cases[index-1])
+            else
+                this.$router.push(this.cases[this.cases.length-1])
+        window.scrollTo(0,0)
+      }
     },
 }
 
@@ -91,4 +113,19 @@ export default {
     width: 40px
   }
 }
+
+.prev-next
+  width: 90%
+  margin: 0 auto
+  overflow:hidden;
+
+.prev img
+  width: 40%
+  float: left
+  display: inline-block
+
+.next img
+  width: 40%
+  float: right
+  display: inline-block
 </style>

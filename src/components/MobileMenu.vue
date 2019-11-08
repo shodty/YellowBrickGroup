@@ -46,10 +46,10 @@ export default {
   margin: 0px
   
 .menu-icon
-    z-index : 1100
+    z-index : 1400
     position: fixed
     top: 0
-    right: 2vw
+    right: 6vw
     padding 15px
 
 .menu-container
@@ -59,9 +59,9 @@ export default {
     margin 0
     padding 0
     left: 100%;
-    width 100%
+
     height 100%
-    overflow hidden
+
     
 .menu
     position: fixed

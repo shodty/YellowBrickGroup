@@ -36,7 +36,7 @@
                                 IconBase(v-if="pattern[8] == '1'" class="iconbases" icon-name="collaboration" width="30" height="30" icon-color='black')
                                     component(is="collab")
         slot(name="description")
-    .prev-next
+    .prev-next(class="hide-prev")
         .prev(@click="goToLink(false)")
             img(src="../../assets/prev.png")
         .next(@click="goToLink(true)")
@@ -78,6 +78,7 @@ export default {
                 this.$router.push(this.cases[index-1])
             else
                 this.$router.push(this.cases[this.cases.length-1])
+        window.scrollTo(0,0)
     }
     },
 }
@@ -174,28 +175,26 @@ p {
     padding-top: 5px
     display: table-row
 
-.prev-next {
-    z-index: 1000
-    position: fixed
+.prev-next 
+    z-index: 1300
     bottom: 35px
-    @media(max-width: 1139px) {
-        padding-left: 20%
-        right: 10%
-        width: 100%
-    }
-    @media(min-width:1140px){
-        width: 32%
-        left: 0
-        padding-left: 3%
-    }
-}
+    position: fixed
+    width: 32%
+    left: 0
+    padding-left: 3%
+
 .prev img
-    width: 30%
+    width: 40%
     float: left 
 
 .next img
-    width: 30%
+    width: 40%
     float: right
 
+.hide-prev {
+  @media(max-width: 1139px) { 
+    display: none !important
+  }
+}
 
 </style>
