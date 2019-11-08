@@ -1,6 +1,6 @@
 <template lang="pug">
 #shangrila-main
-    CaseLeft(caseTitle='Shangri-La' year='2018 2019' :pattern='patterns.shangrila')
+    CaseLeft(caseTitle='Shangri-La' year='2018 2019' :pattern='patterns.shangrila' case='shang')
         p(slot="description") 
             |Drawing inspiration from traditional night markets in Asia, Our Street Night Market is an award-winning, 
             |one-of-a-kind event conceptualized, branded, curated, and run entirely by YBG. Our Street is a gathering place for all 

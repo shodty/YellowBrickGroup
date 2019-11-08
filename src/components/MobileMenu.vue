@@ -5,7 +5,7 @@
     .menu-container(:class="opened? 'open' : 'closed'")
         .menu
             .nav(@click="openMenu")
-                img(src="../assets/close.png" width="32px")
+                img(src="../assets/close.png" width="32px" height="32px")
             .nav(@click="goToLink('/')")
                 p HOME
             .nav(@click="goToLink('os')")
@@ -46,15 +46,16 @@ export default {
   margin: 0px
   
 .menu-icon
-    z-index : 1000
+    z-index : 1100
     position: fixed
     top: 0
     right: 2vw
     padding 15px
 
 .menu-container
+    top: 0
     position: fixed
-    z-index: 1100
+    z-index: 1200
     margin 0
     padding 0
     left: 100%;

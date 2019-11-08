@@ -1,6 +1,6 @@
 <template lang="pug">
 #bottomless-main
-    CaseLeft(caseTitle='BOTTOMLESS' year='2019' :pattern='patterns.bottomless')
+    CaseLeft(caseTitle='BOTTOMLESS' year='2019' :pattern='patterns.bottomless'  case='btm')
         p(slot="description") 
             |Drawing inspiration from traditional night markets in Asia, Our Street Night Market is an award-winning, 
             |one-of-a-kind event conceptualized, branded, curated, and run entirely by YBG. Our Street is a gathering place for all 

@@ -37,9 +37,9 @@
                                     component(is="collab")
         slot(name="description")
     .prev-next
-        .prev
+        .prev(@click="goToLink(false)")
             img(src="../../assets/prev.png")
-        .next
+        .next(@click="goToLink(true)")
             img(src="../../assets/next.png")
 </template>
 
@@ -51,19 +51,34 @@ export default {
   name: 'case-left',
   data(){
     return {
+        cases: ['os', 'acr', 'jump', 'mas', 'btm', 'shang', 'cabin', 'alt', 'bm']
     }
   },
   props: {
         caseTitle : String,
         year: String,
         pattern: Array,
-        bg : String
+        bg : String,
+        case: String
   },
   components: {
       IconBase
   },
   methods: {
-
+    goToLink(forward){
+        var index = this.cases.indexOf(this.case)
+        console.log(index)
+        if(forward)
+            if(this.cases.length-1 > index)
+                this.$router.push(this.cases[index+1])
+            else
+                this.$router.push(this.cases[0])
+        else 
+            if(index > 0 )
+                this.$router.push(this.cases[index-1])
+            else
+                this.$router.push(this.cases[this.cases.length-1])
+    }
     },
 }
 
@@ -160,6 +175,7 @@ p {
     display: table-row
 
 .prev-next {
+    z-index: 1000
     position: fixed
     bottom: 35px
     @media(max-width: 1139px) {

@@ -1,6 +1,6 @@
 <template lang="pug">
 #jump-main
-    CaseLeft(caseTitle='JUMP' year='2019' :pattern='patterns.jump')
+    CaseLeft(caseTitle='JUMP' year='2019' :pattern='patterns.jump' case='jump')
         p(slot="description") 
             |Drawing inspiration from traditional night markets in Asia, Our Street Night Market is an award-winning, 
             |one-of-a-kind event conceptualized, branded, curated, and run entirely by YBG. Our Street is a gathering place for all 
