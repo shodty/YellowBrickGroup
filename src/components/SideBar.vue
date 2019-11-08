@@ -78,8 +78,7 @@ export default {
   cursor: url('../assets/hand.png'), auto
 
 .links p
-  writing-mode: vertical-rl;
-  text-decoration: none
+  writing-mode: vertical-rl
   padding-bottom: 30px
   padding-top:20px
   display: block

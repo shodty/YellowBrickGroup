@@ -2,7 +2,8 @@
 #home(:style='[ light? {"background" : bgc } : {"background" : "black"} ]')
   video(v-if="videoplay" poster="../assets/videobg.png" class="video-bottom" :src="getImgUrl(videosource, '.mp4')" autoplay muted loop @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused")
   DarkLight(class="footerclass hide-on-mobile")
-  SideBar(class="hide-on-mobile")(class="hide-on-mobile")
+  SideBar(class="hide-on-mobile")
+  MobileMenu(class="hide-on-desktop")
   // header, which contains header imagSe & navbar
   Header
   // grid of projects inside container div
@@ -17,7 +18,7 @@
         b-row(class="brow" align-h="center")
           b-col(v-for="cube in cubeObject" xs=6 md=4 @mouseenter='bgcChange(cube.color2)' @mouseleave='bgcChange("white")' class="bcol")  
             Cube(class="cubeClass" :project='cube.text' :letter='cube.letter' :color1='cubeHovered? faceColor : cube.color1' color2='cube.color2' :image='cube.image' :pattern='cube.pattern' :bgColor='[ light? { "background" : bgc} : {"background" : "black"} ]')
-    
+  ToTop(class="hide-on-mobile hide-on-desktop")
   Footer(class="footerclass .d-sm-none .d-md-block hide-on-mobile")
 </template>
 
@@ -30,6 +31,9 @@ import SideBar from './SideBar.vue'
 import { EventBus } from '../event-bus.js'
 import DarkLight from './DarkLight.vue'
 import { mapState } from 'vuex'
+import ToTop from './ToTop.vue'
+import MobileMenu from './MobileMenu.vue'
+
 
 export default {
   name: 'home',
@@ -81,7 +85,9 @@ export default {
     Header,
     Footer,
     SideBar,
-    DarkLight
+    DarkLight,
+    ToTop,
+    MobileMenu
   },
   methods: {
     bgcChange (color) {

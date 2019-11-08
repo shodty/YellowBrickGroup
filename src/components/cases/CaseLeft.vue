@@ -36,6 +36,11 @@
                                 IconBase(v-if="pattern[8] == '1'" class="iconbases" icon-name="collaboration" width="30" height="30" icon-color='black')
                                     component(is="collab")
         slot(name="description")
+    .prev-next
+        .prev
+            img(src="../../assets/prev.png")
+        .next
+            img(src="../../assets/next.png")
 </template>
 
 <script>
@@ -75,6 +80,7 @@ export default {
         position: relative
         display: block
         padding: 30px
+        
     }
     @media(min-width: 1140px) { 
         padding-top: 30px
@@ -90,7 +96,7 @@ export default {
 h1
     font-size: 60px
     color: black
-    line-height : 1.3 
+    line-height : 1 
     font-weight: 900
 
 h1 {
@@ -106,6 +112,11 @@ h3
     font-weight: 500
     text-decoration: underline
 
+h3 {
+    @media(min-width: 1140px){
+        padding-top: 25px
+    }
+}
 
 .year-heading
     display: inline-block
@@ -125,8 +136,8 @@ p
     line-height: 1.4
 
 p {
-    @media(min-width: 1139px) { 
-        padding-top: 20px
+    @media(min-width: 1140px) { 
+        padding-top: .5vw
         font-size: 22px
     }
 }
@@ -147,5 +158,28 @@ p {
 .icon-row
     padding-top: 5px
     display: table-row
+
+.prev-next {
+    position: fixed
+    bottom: 35px
+    @media(max-width: 1139px) {
+        padding-left: 20%
+        right: 10%
+        width: 100%
+    }
+    @media(min-width:1140px){
+        width: 32%
+        left: 0
+        padding-left: 3%
+    }
+}
+.prev img
+    width: 30%
+    float: left 
+
+.next img
+    width: 30%
+    float: right
+
 
 </style>

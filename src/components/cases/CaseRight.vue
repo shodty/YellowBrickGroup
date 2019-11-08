@@ -13,13 +13,15 @@
     slot(name='image11')
     slot(name='image12')
     SideBar(class="sidebar-hide")
-    .escape(class="escape-hide" @click="goHome")
-      img(src="../../assets/escape.png"  width="40px")
+    MobileMenu(class="mobile-menu-hide")
+    //.escape(class="escape-desktop" @click="goHome")
+      img(src="../../assets/escape.png"  width="32px")
 </template>
 
 <script>
 
 import SideBar from '../SideBar.vue'
+import MobileMenu from '../MobileMenu.vue'
 
 export default {
   name: 'case-left',
@@ -31,7 +33,8 @@ export default {
     bg : String
   },
   components: {
-    SideBar
+    SideBar,
+    MobileMenu
   },
   methods: {
         goHome(){
@@ -68,6 +71,13 @@ export default {
   }
 }
 
+.mobile-menu-hide {
+  @media(min-width: 1140px) { 
+    display: none !important
+  }
+}
+
+
 .escape
     position: fixed
     top: 0
@@ -75,9 +85,10 @@ export default {
     padding 35px
 
 
-.escape-hide {
+.escape-desktop {
   @media(min-width: 1140px) { 
-    display: none !important
+    right: 85px
+    width: 40px
   }
 }
 </style>
