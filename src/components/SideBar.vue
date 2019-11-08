@@ -4,8 +4,8 @@
       //img(alt='YBG' src='../assets/img/YBG.png' width='50px' id='YBGicon')
       .nav(@click="goToLink('/')")
         p HOME
-      .nav(@click="goToLink('tester')")
-        p ABOUT
+      .nav(@click="goToLink('os')")
+        p WORK
       .nav(@click="goToLink('contact')")
         p CONTACT
       .bxb

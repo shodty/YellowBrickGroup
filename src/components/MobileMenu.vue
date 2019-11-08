@@ -61,8 +61,7 @@ export default {
     padding 0
     left: 100%;
     height 100%
-    overflow: hidden
-    
+
 .menu
     position: fixed
     top: 0
@@ -75,7 +74,6 @@ export default {
     font-size: 50px
     text-align: center
     background: #f3b120
-    overflow: hidden
 
 .menu-container.closed {
     transition: left 1s
