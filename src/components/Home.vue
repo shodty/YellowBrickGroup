@@ -1,9 +1,10 @@
 <template lang="pug">
-#home(:style='[ light? {"background" : bgc } : {"background" : "black"} ]')
+#home
+  .background-div(:style='[ light? {"background" : bgc } : {"background" : "black"} ]')
   video(v-if="videoplay" poster="../assets/videobg.png" class="video-bottom" :src="getImgUrl(videosource, '.mp4')" autoplay muted loop @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused")
-  DarkLight(class="footerclass hide-on-mobile")
-  SideBar(class="hide-on-ipad")
-  MobileMenu(class="show-on-ipad")
+  DarkLight(class="darklightclass hide-on-mobile")
+  SideBar(class="hide-on-ipad hide-on-desktop")
+  MobileMenu
   // header, which contains header imagSe & navbar
   Header
   // grid of projects inside container div
@@ -102,31 +103,46 @@ export default {
 
 <style lang="stylus">
 
+.container-fluid
+  position: relative
+  z-index: 1
+
 .test-wrapper
   width: 72%
   margin: 0 auto
   z-index: 0
-  
+  position: relative
+
 *
   margin: 0px
   padding 0px
 
 body
+  margin: 0
   width: 100%
   height: 100%
 
 .cubeClass
   margin-bottom: 1.3vw
 
-#home 
+#home
   font-family: 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   text-align: center
   color: #2c3e50
   padding-top: 60px
-  transition: 1s
   
+
+.background-div  
+  position: fixed
+  z-index: 0
+  top 0
+  left 0
+  height: 100%
+  width: 100%
+  transition: 1s
+
 .main-container
   margin: 0 auto
   width: 80%
@@ -162,6 +178,11 @@ body
       bottom: 0
     }
 
+}
+
+.darklightclass {
+    position: relative 
+    z-index : 950
 }
 .hide-on-mobile {
   @media(max-width: 767px) { 

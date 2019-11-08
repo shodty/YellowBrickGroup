@@ -46,7 +46,7 @@ export default {
     color: black
 
 .lightclass.sidediv
-  border-left: 3px solid black;
+  border-left: 4px solid black;
 
 .darkclass
     background-color: #000000
@@ -73,7 +73,7 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
-  font-weight: 400
+  font-weight: 500
   font-size: 36px
   transition: 1s
   cursor: url('../assets/hand.png'), auto

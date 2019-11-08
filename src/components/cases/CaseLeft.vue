@@ -184,11 +184,11 @@ p {
     padding-left: 3%
 
 .prev img
-    width: 40%
+    width: 25%
     float: left 
 
 .next img
-    width: 40%
+    width: 25%
     float: right
 
 .hide-prev {

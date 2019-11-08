@@ -132,6 +132,8 @@ body
     perspective: calc(var(--cube-face-size)*1.5) 
     float: left
     transform-style: preserve-3d
+    position: relative
+    z-index: 1
 
 .cube
     width: inherit

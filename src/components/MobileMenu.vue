@@ -1,7 +1,7 @@
 <template lang="pug">
 #mobile-menu
     .menu-icon(@click="openMenu")
-        img(src="../assets/menu.png"  width="32px")
+        img(src="../assets/menu.png")
     .menu-container(:class="opened? 'open' : 'closed'")
         .menu
             .nav(@click="openMenu")
@@ -33,6 +33,7 @@ export default {
         return this.opened = !this.opened
     },
     goToLink(link){
+        this.openMenu()
         this.$router.push(link)
         window.scrollTo(0,0)
     }
@@ -50,8 +51,20 @@ export default {
     z-index : 1300
     position: fixed
     top: 0
-    right: 2vw
-    padding 15px
+    right: 0
+    padding 2vw
+
+.menu-icon img {
+    @media(max-width: 767px) { 
+        width 8vw
+    }
+    @media(min-width: 768px) { 
+        width 4vw
+    }
+}
+
+    
+    
 
 .menu-container
     top: 0
