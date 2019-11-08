@@ -167,7 +167,7 @@ body
     transform: translateX(-50%) translateY(-50%)
     min-height: 100% 
     min-width: 100% 
-    z-index: 1 
+    z-index: 3 
     overflow: hidden
 
 .footerclass{

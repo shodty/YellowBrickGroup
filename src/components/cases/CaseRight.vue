@@ -12,10 +12,8 @@
     slot(name='image10')
     slot(name='image11')
     slot(name='image12')
-    SideBar(class="sidebar-hide")
-    MobileMenu(class="mobile-menu-hide")
-    //.escape(class="escape-desktop" @click="goHome")
-      img(src="../../assets/escape.png"  width="32px")
+    //SideBar(class="sidebar-hide")
+    MobileMenu
     .prev-next(class="mobile-menu-hide")
       .prev
           img(src="../../assets/prev.png" @click="goToLink(false)")
@@ -45,9 +43,6 @@ export default {
     MobileMenu
   },
   methods: {
-      goHome(){
-          this.$router.push('/')
-      },
       goToLink(forward){
         var index = this.cases.indexOf(this.case)
         console.log(index)
@@ -84,7 +79,7 @@ export default {
       display: inline-block
       width: 65%
       float: right 
-      padding-right: 65px
+      //padding-right: 65px
     }
 }
 
@@ -97,21 +92,6 @@ export default {
 .mobile-menu-hide {
   @media(min-width: 1140px) { 
     display: none !important
-  }
-}
-
-
-.escape
-    position: fixed
-    top: 0
-    right: 0
-    padding 35px
-
-
-.escape-desktop {
-  @media(min-width: 1140px) { 
-    right: 85px
-    width: 40px
   }
 }
 

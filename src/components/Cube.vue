@@ -9,12 +9,10 @@
         .cube__face.cube__face--back back
         .cube__face.cube__face--right(:style="bgColor" @click="goToCaseStudy")
             img(:alt='project' :src='getImgUrl(image, ".png")' width="100%" height="100%")
-            .picture-overlay( :class="cubeFace == 'showRight'? 'show-picture' : pictureclass" )
-                img(:src='getLogoUrl(image)' class="image-overlay")  
         .cube__face.cube__face--left
             IconBase(width="22vw" height="22vw" :icon-name="project" :icon-color="color2")
                 component(:is="letter")
-        .cube__face.cube__face--top(:style="[cubeFace == 'showTop' || light? {'background' : 'black'} : {'background' : 'white' }]")
+        .cube__face.cube__face--top(:style="[cubeFace == 'showTop' || light? {'background' : 'black'} : bgColor]")
             .project-name
                 p {{ project }}
             .icon-container(v-for="(icon, index) in iconObject" @click="colorChanger(icon.name, icon.clicked)")
@@ -61,9 +59,6 @@ export default {
     methods: {
         getImgUrl(pic, ext){
             return require('../assets/img/' + pic + ext)
-        },
-        getLogoUrl(pic){
-            return require('../assets/img/cases/overlay/' + pic + '.png')
         },
         goToCaseStudy(){
             this.$router.push(this.image)

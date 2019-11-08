@@ -1,5 +1,7 @@
 <template lang="pug">
 #case-left(:style="bg")
+    .escape(class="escape-desktop hide-prev" @click="goHome")
+        img(src="../../assets/escape.png"  width="32px")
     .case-content
         h1 {{caseTitle}}
         .line-two
@@ -79,8 +81,12 @@ export default {
             else
                 this.$router.push(this.cases[this.cases.length-1])
         window.scrollTo(0,0)
-    }
     },
+    goHome(){
+          this.$router.push('/')
+    },
+  },
+    
 }
 
 </script>
@@ -186,14 +192,30 @@ p {
 .prev img
     width: 25%
     float: left 
+    cursor: url('../../assets/hand.png'), auto
 
 .next img
     width: 25%
     float: right
-
+    cursor: url('../../assets/hand.png'), auto
+    
 .hide-prev {
   @media(max-width: 1139px) { 
     display: none !important
+  }
+}
+
+.escape
+    position: fixed
+    top: 0
+    left: 30%
+    padding 35px
+
+
+.escape-desktop {
+  @media(min-width: 1140px) { 
+    right: 85px
+    width: 40px
   }
 }
 

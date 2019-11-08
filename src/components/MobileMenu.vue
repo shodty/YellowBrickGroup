@@ -5,15 +5,16 @@
     .menu-container(:class="opened? 'open' : 'closed'")
         .menu
             .nav(@click="openMenu")
-                img(src="../assets/close.png" width="32px" height="32px")
+                img(src="../assets/close2.png" width="32px" height="32px")
             .nav(@click="goToLink('/')")
                 p HOME
             .nav(@click="goToLink('os')")
                 p WORK
             .nav(@click="goToLink('contact')")
                 p CONTACT
-            .copyright
-                img(src="../assets/copyright.png" width="50%")
+            b-row(class="copyright")
+                b-col(xs=6 md=6 lg=4 offset-md="3" offset-lg="4")
+                    img(src="../assets/copyright.png" width="50%")
 </template>
 
 <script>
@@ -56,7 +57,9 @@ export default {
 
 .menu-icon img {
     @media(max-width: 767px) { 
-        width 8vw
+        width 12vw
+        margin-right: 2vw
+        margin-top: 2vw
     }
     @media(min-width: 768px) { 
         width 4vw
@@ -102,11 +105,13 @@ export default {
     padding-bottom: 30px
     padding-top:20px
     margin 0 auto
+    cursor: url('../assets/hand.png'), auto
 
 .nav img 
     margin: 25px
 
 .copyright
-    margin-top: 35%
+    margin-top: 10%
+
 
 </style>
