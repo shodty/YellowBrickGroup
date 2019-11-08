@@ -1,7 +1,7 @@
 <template lang="pug">
 #case-left(:style="bg")
-    .escape(class="escape-desktop hide-prev" @click="goHome")
-        img(src="../../assets/escape.png"  width="32px")
+    //.escape(class="escape-desktop hide-prev" @click="goHome")
+        img(src="../../assets/close2.png"  width="20px")
     .case-content
         h1 {{caseTitle}}
         .line-two
@@ -10,32 +10,32 @@
             .icons
                 .icon-table
                     .icon-row
-                            .icon-cell
-                                IconBase(v-if="pattern[4]== '1'" class="iconbases" icon-name="concept" width="30" height="30" icon-color='black')
+                            .icon-cell(v-if="pattern[4]== '1'")
+                                IconBase( class="iconbases" icon-name="concept" width="30" height="30" icon-color='black')
                                     component(is="concept")
-                            .icon-cell
-                                IconBase(v-if="pattern[1] == '1'" class="iconbases" icon-name="videos" width="30" height="30" icon-color='black')
+                            .icon-cell(v-if="pattern[1] == '1'")
+                                IconBase( class="iconbases" icon-name="videos" width="30" height="30" icon-color='black')
                                     component(is="vid")
-                            .icon-cell
-                                IconBase(v-if="pattern[2] == '1'" class="iconbases" icon-name="gathering" width="30" height="30" icon-color='black')
+                            .icon-cell(v-if="pattern[2] == '1'")
+                                IconBase( class="iconbases" icon-name="gathering" width="30" height="30" icon-color='black')
                                     component(is="gather")
-                            .icon-cell
-                                IconBase(v-if="pattern[3] == '1'" class="iconbases" icon-name="print" width="30" height="30" icon-color='black')
+                            .icon-cell(v-if="pattern[3] == '1'")
+                                IconBase( class="iconbases" icon-name="print" width="30" height="30" icon-color='black')
                                     component(is="print")
-                            .icon-cell
+                            .icon-cell()
                                 IconBase(v-if="pattern[0] == '1'" class="iconbases" icon-name="identity" width="30" height="30" icon-color='black')
                                     component(is="id")
-                            .icon-cell
-                                IconBase(v-if="pattern[5] == '1'" class="iconbases" icon-name="photo & video" width="30" height="30" icon-color='black')
+                            .icon-cell(v-if="pattern[5] == '1'")
+                                IconBase( class="iconbases" icon-name="photo & video" width="30" height="30" icon-color='black')
                                     component(is="photo")
-                            .icon-cell
+                            .icon-cell()
                                 IconBase(v-if="pattern[6] == '1'" class="iconbases" icon-name="social" width="30" height="30" icon-color='black')
                                     component(is="social")
-                            .icon-cell
-                                IconBase(v-if="pattern[7] == '1'" class="iconbases" icon-name="web" width="30" height="30" icon-color='black')
+                            .icon-cell(v-if="pattern[7] == '1'")
+                                IconBase( class="iconbases" icon-name="web" width="30" height="30" icon-color='black')
                                     component(is="web")   
-                            .icon-cell
-                                IconBase(v-if="pattern[8] == '1'" class="iconbases" icon-name="collaboration" width="30" height="30" icon-color='black')
+                            .icon-cell(v-if="pattern[8] == '1'")
+                                IconBase( class="iconbases" icon-name="collaboration" width="30" height="30" icon-color='black')
                                     component(is="collab")
         slot(name="description")
     .prev-next(class="hide-prev")
@@ -107,7 +107,7 @@ export default {
     @media(min-width: 1140px) { 
         padding-top: 30px
         padding-left: 60px
-        width: 32%
+        width: 36%
         top: 0
         left: 0
         position: fixed
@@ -132,7 +132,7 @@ h3
     font-size: 22px
     color: black 
     font-weight: 500
-    text-decoration: underline
+
 
 h3 {
     @media(min-width: 1140px){
@@ -153,18 +153,17 @@ p
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale
     color: black
-    font-size: 16px
+    font-size: 14px
     font-weight: 600
     line-height: 1.4
 
 p {
     @media(min-width: 1140px) { 
         padding-top: .5vw
-        font-size: 22px
+        font-size: 18px
     }
 }
-.line-two
-    padding-bottom: 15px
+
 .icons
     display: inline-block
 
@@ -185,7 +184,7 @@ p {
     z-index: 1300
     bottom: 35px
     position: fixed
-    width: 32%
+    width: 35%
     left: 0
     padding-left: 3%
 
@@ -208,9 +207,9 @@ p {
 .escape
     position: fixed
     top: 0
-    left: 30%
-    padding 35px
-
+    left: 34%
+    padding 16px
+    padding-left 20px
 
 .escape-desktop {
   @media(min-width: 1140px) { 

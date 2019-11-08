@@ -1,18 +1,18 @@
 <template lang="pug">
 .scene(class="project" @mouseenter="shiftCube(true, color1)" @mouseleave="shiftCube(false, 'white')"  @click="mobileShift(true, color1)")
     .cube(:class="hovered? 'showRight' : cubeFace")
-        .cube__face.cube__face--front(:style="bgColor")
+        .cube__face.cube__face--front(:style="bgColor[0]")
             IconBase(width="22vw" height="22vw" :icon-name="project" :icon-color="color1"  class='hide-on-mobile')
                 component(:is="letter")
             IconBase(width="35vw" height="35vw" :icon-name="project" :icon-color="color1"  class='hide-on-desktop')
                 component(:is="letter")    
         .cube__face.cube__face--back back
-        .cube__face.cube__face--right(:style="bgColor" @click="goToCaseStudy")
+        .cube__face.cube__face--right(:style="bgColor[0]" @click="goToCaseStudy")
             img(:alt='project' :src='getImgUrl(image, ".png")' width="100%" height="100%")
         .cube__face.cube__face--left
             IconBase(width="22vw" height="22vw" :icon-name="project" :icon-color="color2")
                 component(:is="letter")
-        .cube__face.cube__face--top(:style="[cubeFace == 'showTop' || light? {'background' : 'black'} : bgColor]")
+        .cube__face.cube__face--top(:style="[cubeFace == 'showTop' || light? {'background' : 'black'} : bgColor[0]]")
             .project-name
                 p {{ project }}
             .icon-container(v-for="(icon, index) in iconObject" @click="colorChanger(icon.name, icon.clicked)")
@@ -167,7 +167,7 @@ body
 .cube__face--left
     background: hsla(  0, 0%, 100%, 0)
 .cube__face--top
-    //background: hsla(  0, 0%, 100%, 1)
+    background: hsla(  0, 0%, 100%, 1)
 .cube__face--bottom
     background: hsla(  0, 0%, 100%, 0)
 
@@ -192,15 +192,6 @@ body
     width: 33%
     cursor: url('../assets/hand.png'), auto
 
-.picture-overlay
-    position: fixed
-    top: 0
-    left: 0
-    opacity: 0
-    transition: opacity 1s
-
-.picture-overlay.show-picture
-    opacity: 1
 
 .project-name
     padding-left: 4px

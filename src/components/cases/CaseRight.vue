@@ -77,7 +77,7 @@ export default {
     }
     @media(min-width: 1140px) { 
       display: inline-block
-      width: 65%
+      width: 62%
       float: right 
       //padding-right: 65px
     }

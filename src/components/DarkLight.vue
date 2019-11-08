@@ -37,13 +37,13 @@ export default {
 <style scoped lang="stylus">
 
 *
-  margin: 0px
+    margin: 0px
   
 #dark-light
     position: fixed
     top: 0
     left: 0
-    padding 35px
+    padding 2vw
 
 .icon-holder
     transition: all 3s
