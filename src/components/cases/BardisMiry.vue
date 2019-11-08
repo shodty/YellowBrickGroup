@@ -11,7 +11,7 @@
         img(class='case-image' slot='image1' alt='bardis-miry1' src='../../assets/img/cases/bm/1.jpg' id='bardis-miry1')
         img(class='case-image' slot='image2' alt='bardis-miry2' src='../../assets/img/cases/bm/2.jpg' id='bardis-miry2')
         img(class='case-image' slot='image3' alt='bardis-miry3' src='../../assets/img/cases/bm/3.jpg' id='bardis-miry3')
-        video(class='case-image' slot='image4' alt='bardis-miry4' src='../../assets/img/cases/bm/4.mp4' id='bardis-miry4' controls autoplay muted loop)
+        video(class='case-image' slot='image4' alt='bardis-miry4' src='../../assets/img/cases/bm/4.mp4' id='bardis-miry4' controls muted loop)
         //img(class='case-image' slot='image5' alt='bardis-miry5' src='../../assets/img/cases/bm/5.jpg' id='bardis-miry5')
         //img(class='case-image' slot='image6' alt='bardis-miry6' src='../../assets/img/cases/bm/6.jpg' id='bardis-miry6')
         //img(class='case-image-last' slot='image7' alt='bardis-miry7' src='../../assets/img/cases/bm/7.gif' id='bardis-miry7')

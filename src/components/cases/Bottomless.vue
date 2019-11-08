@@ -9,8 +9,8 @@
 
     CaseRight
         img(class='case-image' slot='image1' alt='bottomless1' src='../../assets/img/cases/btm/1.jpg' id='bottomless1')
-        video(class='case-image' slot='image2' alt='bottomless2' src='../../assets/img/cases/btm/2.mp4' id='bottomless2' controls autoplay muted loop)
-        video(class='case-image' slot='image3' alt='bottomless3' src='../../assets/img/cases/btm/3.mp4' id='bottomless3' controls autoplay muted loop)
+        video(class='case-image' slot='image2' alt='bottomless2' src='../../assets/img/cases/btm/2.mp4' id='bottomless2' controls muted loop)
+        video(class='case-image' slot='image3' alt='bottomless3' src='../../assets/img/cases/btm/3.mp4' id='bottomless3' controls muted loop)
         img(class='case-image' slot='image4' alt='bottomless4' src='../../assets/img/cases/btm/4.jpg' id='bottomless4')
         img(class='case-image' slot='image5' alt='bottomless5' src='../../assets/img/cases/btm/5.jpg' id='bottomless5')
         img(class='case-image' slot='image6' alt='bottomless6' src='../../assets/img/cases/btm/6.jpg' id='bottomless6')

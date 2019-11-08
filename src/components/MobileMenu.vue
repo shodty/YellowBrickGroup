@@ -78,12 +78,12 @@ export default {
 
 .menu-container.closed {
 
-    transition: 1s
+    transition: left 1s
 }
 
 .menu-container.open {
     left: 0
-    transition: 1s
+    transition: left 1s
 
 }
 
