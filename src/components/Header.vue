@@ -6,9 +6,9 @@
             component(:is="componentName[this.count]")
           .click-box(@click='onClick')
         .mobile-container(class='hide-on-desktop')
-          img(src="../assets/ybg_bubbly.png"  width="80%")
+          img(:src=' light? getImgUrl("ybg_bubbly", ".png") : getImgUrl("ybg_bubbly_white", ".png")'  width="80%")
         .mobile-instructions(class='hide-on-desktop')
-          img(src="../assets/welcome_mobile.png"  width="80%")
+          img(:src=' light? getImgUrl("welcome_mobile", ".png") : getImgUrl("welcome_mobile_white", ".png")' width="60%")
     NavBar(class='hide-on-mobile')
 </template>
 
@@ -34,18 +34,11 @@ export default {
 
     }
   },
-  created(){
-    window.addEventListener('resize', this.handleResize)
-    this.handleResize();
-  },
   mounted(){
     EventBus.$on('moviechange', (movie, play) => {
       if(play)
         return this.count = 3
     })
-  },
-  destroyed() {
-    window.removeEventListener('resize', this.handleResize)
   },
   computed: {
       light(){
@@ -57,10 +50,9 @@ export default {
       this.count++
       if(this.count > 3) this.count = 0
     },
-    handleResize() {
-      this.window.width = window.innerWidth*.8;
-      this.window.height = this.window.width/13.3;
-    }
+    getImgUrl(pic, ext){
+      return require('../assets/' + pic + ext)
+    },
   },
   components:{
     NavBar,

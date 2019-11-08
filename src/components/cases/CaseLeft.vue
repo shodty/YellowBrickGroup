@@ -1,8 +1,9 @@
 <template lang="pug">
-#case-left(:style="bg")
+#case-left(:style='[ light? {"background" : "white" } : {"background" : "black"} ]')
     //.escape(class="escape-desktop hide-prev" @click="goHome")
         img(src="../../assets/close2.png"  width="20px")
-    .case-content
+    DarkLight
+    .case-content(:class='light? "black" : "white" ')
         h1 {{caseTitle}}
         .line-two
             .year-heading
@@ -10,33 +11,33 @@
             .icons
                 .icon-table
                     .icon-row
-                            .icon-cell(v-if="pattern[4]== '1'")
-                                IconBase( class="iconbases" icon-name="concept" width="30" height="30" icon-color='black')
-                                    component(is="concept")
-                            .icon-cell(v-if="pattern[1] == '1'")
-                                IconBase( class="iconbases" icon-name="videos" width="30" height="30" icon-color='black')
-                                    component(is="vid")
-                            .icon-cell(v-if="pattern[2] == '1'")
-                                IconBase( class="iconbases" icon-name="gathering" width="30" height="30" icon-color='black')
-                                    component(is="gather")
-                            .icon-cell(v-if="pattern[3] == '1'")
-                                IconBase( class="iconbases" icon-name="print" width="30" height="30" icon-color='black')
-                                    component(is="print")
-                            .icon-cell()
-                                IconBase(v-if="pattern[0] == '1'" class="iconbases" icon-name="identity" width="30" height="30" icon-color='black')
-                                    component(is="id")
-                            .icon-cell(v-if="pattern[5] == '1'")
-                                IconBase( class="iconbases" icon-name="photo & video" width="30" height="30" icon-color='black')
-                                    component(is="photo")
-                            .icon-cell()
-                                IconBase(v-if="pattern[6] == '1'" class="iconbases" icon-name="social" width="30" height="30" icon-color='black')
-                                    component(is="social")
-                            .icon-cell(v-if="pattern[7] == '1'")
-                                IconBase( class="iconbases" icon-name="web" width="30" height="30" icon-color='black')
-                                    component(is="web")   
-                            .icon-cell(v-if="pattern[8] == '1'")
-                                IconBase( class="iconbases" icon-name="collaboration" width="30" height="30" icon-color='black')
-                                    component(is="collab")
+                        .icon-cell(v-if="pattern[4]== '1'")
+                            IconBase( class="iconbases" icon-name="concept" width="30" height="30" :icon-color='light? "black" : "white" ')
+                                component(is="concept")
+                        .icon-cell(v-if="pattern[1] == '1'")
+                            IconBase( class="iconbases" icon-name="videos" width="30" height="30" :icon-color='light? "black" : "white" ')
+                                component(is="vid")
+                        .icon-cell(v-if="pattern[2] == '1'")
+                            IconBase( class="iconbases" icon-name="gathering" width="30" height="30" :icon-color='light? "black" : "white" ')
+                                component(is="gather")
+                        .icon-cell(v-if="pattern[3] == '1'")
+                            IconBase( class="iconbases" icon-name="print" width="30" height="30" :icon-color='light? "black" : "white" ')
+                                component(is="print")
+                        .icon-cell()
+                            IconBase(v-if="pattern[0] == '1'" class="iconbases" icon-name="identity" width="30" height="30" :icon-color='light? "black" : "white" ')
+                                component(is="id")
+                        .icon-cell(v-if="pattern[5] == '1'")
+                            IconBase( class="iconbases" icon-name="photo & video" width="30" height="30" :icon-color='light? "black" : "white" ')
+                                component(is="photo")
+                        .icon-cell()
+                            IconBase(v-if="pattern[6] == '1'" class="iconbases" icon-name="social" width="30" height="30" :icon-color='light? "black" : "white" ')
+                                component(is="social")
+                        .icon-cell(v-if="pattern[7] == '1'")
+                            IconBase( class="iconbases" icon-name="web" width="30" height="30" :icon-color='light? "black" : "white" ')
+                                component(is="web")   
+                        .icon-cell(v-if="pattern[8] == '1'")
+                            IconBase( class="iconbases" icon-name="collaboration" width="30" height="30" :icon-color='light? "black" : "white" ')
+                                component(is="collab")
         slot(name="description")
     .prev-next(class="hide-prev")
         .prev(@click="goToLink(false)")
@@ -48,6 +49,7 @@
 <script>
 
 import IconBase from '../IconBase.vue'
+import DarkLight from '../DarkLight.vue'
 
 export default {
   name: 'case-left',
@@ -63,8 +65,14 @@ export default {
         bg : String,
         case: String
   },
+  computed: {
+      light(){
+          return this.$store.state.light
+      }
+  },
   components: {
-      IconBase
+      IconBase,
+      DarkLight
   },
   methods: {
     goToLink(forward){
@@ -97,11 +105,13 @@ export default {
     padding 0px
 
 #case-left {
+    transition: 1s
     @media(max-width: 1139px) { 
         width: 100%
         position: relative
         display: block
         padding: 30px
+        padding-top: 65px
         
     }
     @media(min-width: 1140px) { 
@@ -115,9 +125,17 @@ export default {
     }
 }
 
+.white {
+    color: white
+    transition: 1s
+}
+
+.black {
+    color: black
+    transition: 1s
+}
 h1
     font-size: 60px
-    color: black
     line-height : 1 
     font-weight: 900
 
@@ -130,7 +148,6 @@ h1 {
 
 h3
     font-size: 22px
-    color: black 
     font-weight: 500
 
 
@@ -152,7 +169,6 @@ p
     font-family: 'Open Sans', Helvetica, Arial, sans-serif
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale
-    color: black
     font-size: 14px
     font-weight: 600
     line-height: 1.4

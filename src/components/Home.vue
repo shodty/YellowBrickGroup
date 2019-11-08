@@ -2,7 +2,7 @@
 #home
   .background-div(:style='[ light? {"background" : bgc } : {"background" : "black"} ]')
   video(v-if="videoplay" poster="../assets/videobg.png" class="video-bottom" :src="getImgUrl(videosource, '.mp4')" autoplay muted loop @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused")
-  DarkLight(class="darklightclass hide-on-mobile")
+  DarkLight(class="darklightclass")
   SideBar(class="hide-on-ipad hide-on-desktop")
   MobileMenu
   // header, which contains header imagSe & navbar

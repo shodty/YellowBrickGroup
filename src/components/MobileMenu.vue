@@ -1,7 +1,7 @@
 <template lang="pug">
 #mobile-menu
     .menu-icon(@click="openMenu")
-        img(src="../assets/menu.png")
+        img(:src=' light? getImgUrl("menu", ".png") : getImgUrl("menu_white", ".png")')
     .menu-container(:class="opened? 'open' : 'closed'")
         .menu
             .nav(@click="openMenu")
@@ -29,6 +29,11 @@ export default {
   },
   components: {
   },
+  computed: {
+      light(){
+          return this.$store.state.light
+      }
+  },
   methods: {
     openMenu(){
         return this.opened = !this.opened
@@ -37,7 +42,10 @@ export default {
         this.openMenu()
         this.$router.push(link)
         window.scrollTo(0,0)
-    }
+    },
+    getImgUrl(pic, ext){
+      return require('../assets/' + pic + ext)
+    },
   }
 }
 

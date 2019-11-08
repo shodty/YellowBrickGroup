@@ -1,8 +1,13 @@
 <template lang="pug">
-#dark-light(@click='flip')
-    .icon-holder(:class="[{ lightmode: light }, { darkmode: !light }]")
-        IconBase(icon-name="dark light" width="55" height="55" :icon-color=' light? "black" : "white" ')
-            component(is="smile")
+#dark-light
+    .desktop(class='hide-on-mobile')
+        .icon-holder(:class="[{ lightmode: light }, { darkmode: !light }]" @click='flip')
+            IconBase(icon-name="dark light" width="55" height="55" :icon-color=' light? "black" : "white" ')
+                component(is="smile")
+    .mobile(class='hide-on-desktop')
+        .icon-holder(:class="[{ lightmode: light }, { darkmode: !light }]" @click='flip')
+            IconBase(icon-name="dark light" width="35" height="35" :icon-color=' light? "black" : "white" ')
+                component(is="sun-moon")
 
 </template>
 
@@ -44,9 +49,10 @@ export default {
     top: 0
     left: 0
     padding 2vw
+    z-index: 1000
 
 .icon-holder
-    transition: all 3s
+    transition: all 2s
 
 .icon-holder.lightmode
     cursor: url("../assets/dark.png"), auto
@@ -59,5 +65,9 @@ export default {
 
 .lightmode
     transform: rotate(0deg)
+
+.mobile
+    margin-left: 2vw
+    margin-top: 1vw
 
 </style>

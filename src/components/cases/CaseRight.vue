@@ -1,5 +1,5 @@
 <template lang="pug">
-#case-right(:style="bg")
+#case-right(:style='[ light? {"background" : "white" } : {"background" : "black"} ]')
     slot(name='image1')
     slot(name='image2')
     slot(name='image3')
@@ -38,6 +38,11 @@ export default {
     bg : String,
     case: String
   },
+  computed: {
+      light(){
+          return this.$store.state.light
+      }
+  },
   components: {
     SideBar,
     MobileMenu
@@ -70,6 +75,7 @@ export default {
   padding 0px
 
 #case-right {
+    transition: 1s
     @media(max-width: 1139px) { 
       display: inline-block
       width: 100%
