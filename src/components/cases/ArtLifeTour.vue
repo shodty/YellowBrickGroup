@@ -9,12 +9,12 @@
 
     CaseRight(case='alt')
         img(class='case-image' slot='image1' alt='art-life-tour1' src='../../assets/img/cases/alt/1.jpg' id='art-life-tour1')
-        video(class='case-image' slot='image2' alt='art-life-tour2' src='../../assets/img/cases/alt/2.mp4' id='art-life-tour2' controls muted loop preload="auto")
+        video(class='case-image' slot='image2' alt='art-life-tour2' src='../../assets/img/cases/alt/2.mp4' id='art-life-tour2' controls muted loop poster="../../assets/img/posters/alt2.jpg")
         img(class='case-image' slot='image3' alt='art-life-tour3' src='../../assets/img/cases/alt/3.jpg' id='art-life-tour3')
         img(class='case-image' slot='image4' alt='art-life-tour4' src='../../assets/img/cases/alt/4.jpg' id='art-life-tour4')
         //img(class='case-image' slot='image5' alt='art-life-tour5' src='../../assets/img/cases/alt/5.jpg' id='art-life-tour5')
         img(class='case-image' slot='image6' alt='art-life-tour6' src='../../assets/img/cases/alt/6.jpg' id='art-life-tour6')
-        video(class='case-image-last' slot='image7' alt='art-life-tour7' src='../../assets/img/cases/alt/7.mp4' id='art-life-tour7'  controls muted loop preload="auto")
+        video(class='case-image-last' slot='image7' alt='art-life-tour7' src='../../assets/img/cases/alt/7.mp4' id='art-life-tour7'  controls muted loop poster="../../assets/img/posters/alt1.jpg")
 </template>
 
 <script>

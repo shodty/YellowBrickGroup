@@ -8,12 +8,12 @@
             |exceeded projected attendance,  drawing over 12,000 people to its inaugural event, and reaching upwards of 50,000 attendees by its second year.
 
     CaseRight(case='mas')
-        video(class='case-image' slot='image1' alt='mastaco1' src='../../assets/img/cases/mas/1.mp4' id='mastaco1' controls muted loop preload="auto")
-        video(class='case-image' slot='image2' alt='mastaco2' src='../../assets/img/cases/mas/2.mp4' id='mastaco2' controls muted loop preload="auto")
-        video(class='case-image' slot='image3' alt='mastaco3' src='../../assets/img/cases/mas/3.mp4' id='mastaco3' controls)
-        video(class='case-image' slot='image4' alt='mastaco4' src='../../assets/img/cases/mas/4.mp4' id='mastaco4' controls muted loop preload="auto")
-        video(class='case-image' slot='image5' alt='mastaco5' src='../../assets/img/cases/mas/5.mp4' id='mastaco5' controls)
-        video(class='case-image' slot='image6' alt='mastaco6' src='../../assets/img/cases/mas/6.mp4' id='mastaco6' controls muted loop preload="auto")
+        video(class='case-image' slot='image1' alt='mastaco1' src='../../assets/img/cases/mas/1.mp4' id='mastaco1' controls muted loop poster="../../assets/img/posters/mas1.jpg")
+        video(class='case-image' slot='image2' alt='mastaco2' src='../../assets/img/cases/mas/2.mp4' id='mastaco2' controls muted loop poster="../../assets/img/posters/mas6.jpg")
+        video(class='case-image' slot='image3' alt='mastaco3' src='../../assets/img/cases/mas/3.mp4' id='mastaco3' controls muted loop poster="../../assets/img/posters/mas5.jpg")
+        video(class='case-image' slot='image4' alt='mastaco4' src='../../assets/img/cases/mas/4.mp4' id='mastaco4' controls muted loop poster="../../assets/img/posters/mas4.jpg")
+        video(class='case-image' slot='image5' alt='mastaco5' src='../../assets/img/cases/mas/5.mp4' id='mastaco5' controls muted loop poster="../../assets/img/posters/mas2.jpg")
+        video(class='case-image' slot='image6' alt='mastaco6' src='../../assets/img/cases/mas/6.mp4' id='mastaco6' controls muted loop poster="../../assets/img/posters/mas3.jpg")
         img(class='case-image-last' slot='image7' alt='mastaco7' src='../../assets/img/cases/mas/7.jpg' id='mastaco7')
 
 </template>
