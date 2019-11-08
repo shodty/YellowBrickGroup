@@ -1,6 +1,6 @@
 <template lang="pug">
 #main-footer
-  img(alt='logo marquee' src='../assets/img/logo_strip.png' width='100%' id='YBG-footer')
+  img(alt='logo marquee' src='../assets/img/logo_strip.png' width='98%' id='YBG-footer')
 
 </template>
 
@@ -16,7 +16,6 @@ export default {
 
 #main-footer
   margin: 0
-  overflow: hidden
 
 #YBG-footer
   padding-top: 30px

@@ -21,12 +21,14 @@
           img(src="../../assets/prev.png")
       .next(@click="goToLink(true)")
           img(src="../../assets/next.png")
+    Footer(class="footerclass mobile-menu-hide")
 </template>
 
 <script>
 
 import SideBar from '../SideBar.vue'
 import MobileMenu from '../MobileMenu.vue'
+import Footer from '../Footer.vue'
 
 export default {
   name: 'case-left',
@@ -41,7 +43,8 @@ export default {
   },
   components: {
     SideBar,
-    MobileMenu
+    MobileMenu,
+    Footer
   },
   methods: {
       goHome(){
@@ -115,7 +118,7 @@ export default {
 }
 
 .prev-next
-  padding 20px 0
+  padding-top 30px
   width: 90%
   margin: 0 auto
   overflow:hidden;
@@ -129,4 +132,8 @@ export default {
   width: 40%
   float: right
   display: inline-block
+
+.footerclass
+  z-index : 1950
+
 </style>

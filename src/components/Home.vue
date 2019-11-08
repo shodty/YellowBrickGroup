@@ -3,7 +3,7 @@
   video(v-if="videoplay" poster="../assets/videobg.png" class="video-bottom" :src="getImgUrl(videosource, '.mp4')" autoplay muted loop @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused")
   DarkLight(class="footerclass hide-on-mobile")
   SideBar(class="hide-on-mobile")
-  MobileMenu(class="hide-on-desktop")
+  MobileMenu(class="hide-on-desktop force-frontal")
   // header, which contains header imagSe & navbar
   Header
   // grid of projects inside container div
@@ -19,7 +19,7 @@
           b-col(v-for="cube in cubeObject" xs=6 md=4 @mouseenter='bgcChange(cube.color2)' @mouseleave='bgcChange("white")' class="bcol")  
             Cube(class="cubeClass" :project='cube.text' :letter='cube.letter' :color1='cubeHovered? faceColor : cube.color1' color2='cube.color2' :image='cube.image' :pattern='cube.pattern' :bgColor='[ light? { "background" : bgc} : {"background" : "black"} ]')
   ToTop(class="hide-on-mobile hide-on-desktop")
-  Footer(class="footerclass .d-sm-none .d-md-block")
+  Footer(class="footerclass")
 </template>
 
 <script>
@@ -120,18 +120,6 @@ body
 .cubeClass
   margin-bottom: 1.3vw
 
-.bcol
-  border: 0px solid red
-
-.brow
-  border: 0px solid purple
-
-.container
-  border: 0px solid black
-
-.test-wrapper
-  border: 0px solid green
-
 #home 
   font-family: 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing: antialiased
@@ -184,4 +172,6 @@ body
   }
 }
 
+.force-frontal
+  z-index: 2000 !important
 </style>
