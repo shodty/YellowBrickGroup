@@ -17,7 +17,7 @@
       //references cubeObject in store to bind all props that define each cube made using Cube.vue
       .test-wrapper
         b-row(align-h="center")
-          b-col(v-for="cube in cubeObject" xs=6 md=4  @mouseenter='bgcChange(cube.color2)' @mouseleave='bgcChange("white")')  
+          b-col(v-for="cube in cubeObject" cols=6 md=4  @mouseenter='bgcChange(cube.color2)' @mouseleave='bgcChange("white")' class='nopadding')  
             Cube(class="cubeClass" :project='cube.text' :letter='cube.letter' :color1='cubeHovered? faceColor : cube.color1' color2='cube.color2' :image='cube.image' :pattern='cube.pattern' :bgColor='[ light? { "background" : bgc} : {"background" : "black"} ]')
   Footer(class="footerclass")
 </template>
@@ -206,5 +206,10 @@ body
   @media(max-width: 1024px) { 
     display: none !important;
   }
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
 }
 </style>

@@ -4,7 +4,7 @@
         .cube__face.cube__face--front(:style="bgColor")
             IconBase(width="22vw" height="22vw" :icon-name="project" :icon-color="color1"  class='hide-on-mobile')
                 component(:is="letter")
-            IconBase(width="65vw" height="65vw" :icon-name="project" :icon-color="color1"  class='hide-on-desktop')
+            IconBase(width="35vw" height="35vw" :icon-name="project" :icon-color="color1"  class='hide-on-desktop')
                 component(:is="letter")    
         .cube__face.cube__face--back back
         .cube__face.cube__face--right(:style="bgColor" @click="goToCaseStudy")
@@ -98,7 +98,7 @@ export default {
 
 * {
     @media(max-width: 767px) { 
-        --cube-face-size: 65vw 
+        --cube-face-size: 35vw 
     }
     @media(min-width: 768px) { 
         --cube-face-size: 22vw 
@@ -108,15 +108,6 @@ export default {
     --cube-translate:       translateZ(calc(var(--cube-face-size)/-2))
     --cube-translate-pos:   translateZ(calc(var(--cube-face-size)/2))
 }
-
-.image-overlay {
-     @media(max-width: 767px) { 
-        width: 65vw
-    }
-    @media(min-width: 768px) { 
-        width: 22vw
-    }
-}   
 
 body
     font-family: sans-serif
