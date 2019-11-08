@@ -56,7 +56,7 @@ export default {
 .menu-container
     top: 0
     position: fixed
-    z-index: 1400
+    z-index: 1200
     margin 0
     padding 0
     left: 100%;
@@ -77,9 +77,7 @@ export default {
     background: #f3b120
     overflow: hidden
 
-
 .menu-container.closed {
-
     transition: left 1s
 }
 

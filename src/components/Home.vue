@@ -3,7 +3,7 @@
   video(v-if="videoplay" poster="../assets/videobg.png" class="video-bottom" :src="getImgUrl(videosource, '.mp4')" autoplay muted loop @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused")
   DarkLight(class="footerclass hide-on-mobile")
   SideBar(class="hide-on-mobile")
-  MobileMenu(class="hide-on-desktop force-frontal")
+  MobileMenu(class="hide-on-desktop")
   // header, which contains header imagSe & navbar
   Header
   // grid of projects inside container div
@@ -108,7 +108,7 @@ export default {
 .test-wrapper
   width: 70%
   margin: 0 auto
-  
+  z-index: 0
 
 *
   margin: 0px
@@ -171,7 +171,4 @@ body
     display: none !important;
   }
 }
-
-.force-frontal
-  z-index: 2000 !important
 </style>
