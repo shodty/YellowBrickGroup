@@ -102,10 +102,10 @@ export default {
 <style scoped lang="stylus">
 
 * {
-    @media(max-width: 768px) { 
+    @media(max-width: 767px) { 
         --cube-face-size: 65vw 
     }
-    @media(min-width: 769px) { 
+    @media(min-width: 768px) { 
         --cube-face-size: 22vw 
     }
 
@@ -115,10 +115,10 @@ export default {
 }
 
 .image-overlay {
-     @media(max-width: 768px) { 
+     @media(max-width: 767px) { 
         width: 65vw
     }
-    @media(min-width: 769px) { 
+    @media(min-width: 768px) { 
         width: 22vw
     }
 }   
@@ -131,13 +131,13 @@ body
     height: var(--cube-face-size)
     perspective: calc(var(--cube-face-size)*1.5) 
     float: left
-    //margin: 10px
     transform-style: preserve-3d
 
 .cube
     width: inherit
     height: inherit
     position: relative
+    z-index: 1
     transform-style: preserve-3d
     transform: var(--cube-translate)
     transition: transform 1s
@@ -158,6 +158,7 @@ body
 
 .cube__face 
     position: absolute
+    z-index: 1
     width: inherit
     height: inherit
     color: white

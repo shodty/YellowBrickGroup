@@ -2,8 +2,8 @@
 #home(:style='[ light? {"background" : bgc } : {"background" : "black"} ]')
   video(v-if="videoplay" poster="../assets/videobg.png" class="video-bottom" :src="getImgUrl(videosource, '.mp4')" autoplay muted loop @canplay="updatePaused" @playing="updatePaused" @pause="updatePaused")
   DarkLight(class="footerclass hide-on-mobile")
-  SideBar(class="hide-on-mobile")
-  MobileMenu(class="hide-on-desktop")
+  SideBar(class="hide-on-ipad")
+  MobileMenu(class="show-on-ipad")
   // header, which contains header imagSe & navbar
   Header
   // grid of projects inside container div
@@ -15,10 +15,9 @@
   .container-fluid
       //references cubeObject in store to bind all props that define each cube made using Cube.vue
       .test-wrapper
-        b-row(class="brow" align-h="center")
-          b-col(v-for="cube in cubeObject" xs=6 md=4 @mouseenter='bgcChange(cube.color2)' @mouseleave='bgcChange("white")' class="bcol")  
+        b-row(align-h="center")
+          b-col(v-for="cube in cubeObject" xs=6 md=4  @mouseenter='bgcChange(cube.color2)' @mouseleave='bgcChange("white")')  
             Cube(class="cubeClass" :project='cube.text' :letter='cube.letter' :color1='cubeHovered? faceColor : cube.color1' color2='cube.color2' :image='cube.image' :pattern='cube.pattern' :bgColor='[ light? { "background" : bgc} : {"background" : "black"} ]')
-  ToTop(class="hide-on-mobile hide-on-desktop")
   Footer(class="footerclass")
 </template>
 
@@ -31,7 +30,6 @@ import SideBar from './SideBar.vue'
 import { EventBus } from '../event-bus.js'
 import DarkLight from './DarkLight.vue'
 import { mapState } from 'vuex'
-import ToTop from './ToTop.vue'
 import MobileMenu from './MobileMenu.vue'
 
 export default {
@@ -85,7 +83,6 @@ export default {
     Footer,
     SideBar,
     DarkLight,
-    ToTop,
     MobileMenu
   },
   methods: {
@@ -106,16 +103,17 @@ export default {
 <style lang="stylus">
 
 .test-wrapper
-  width: 70%
+  width: 72%
   margin: 0 auto
   z-index: 0
-
+  
 *
   margin: 0px
   padding 0px
 
 body
   width: 100%
+  height: 100%
 
 .cubeClass
   margin-bottom: 1.3vw
@@ -128,7 +126,7 @@ body
   color: #2c3e50
   padding-top: 60px
   transition: 1s
-
+  
 .main-container
   margin: 0 auto
   width: 80%
@@ -156,18 +154,35 @@ body
     z-index: 1 
     overflow: hidden
 
-.footerclass
-    position: relative
+.footerclass{
+    position: relative 
     z-index : 950
+    @media (min-width: 768px) and (orientation:portrait) {
+      position: fixed
+      bottom: 0
+    }
 
+}
 .hide-on-mobile {
-  @media(max-width: 768px) { 
+  @media(max-width: 767px) { 
     display: none !important
   }
 }
 
 .hide-on-desktop {
-  @media(min-width: 769px) { 
+  @media(min-width: 768px) { 
+    display: none !important;
+  }
+}
+
+.show-on-ipad {
+  @media(min-width: 1025px) { 
+    display: none !important;
+  }
+}
+
+.hide-on-ipad {
+  @media(max-width: 1024px) { 
     display: none !important;
   }
 }
