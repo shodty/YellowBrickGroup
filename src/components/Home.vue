@@ -107,12 +107,17 @@ export default {
   position: relative
   z-index: 1
 
-.test-wrapper
-  width: 72%
+.test-wrapper{
   margin: 0 auto
   z-index: 0
   position: relative
-
+  @media(max-width: 767px) { 
+    width: 87%
+  }
+  @media(min-width: 768px) { 
+    width: 72%
+  }
+}
 *
   margin: 0px
   padding 0px

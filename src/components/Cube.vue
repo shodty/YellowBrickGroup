@@ -4,7 +4,7 @@
         .cube__face.cube__face--front(:style="bgColor[0]")
             IconBase(width="22vw" height="22vw" :icon-name="project" :icon-color="color1"  class='hide-on-mobile')
                 component(:is="letter")
-            IconBase(width="35vw" height="35vw" :icon-name="project" :icon-color="color1"  class='hide-on-desktop')
+            IconBase(width="42vw" height="42vw" :icon-name="project" :icon-color="color1"  class='hide-on-desktop')
                 component(:is="letter")    
         .cube__face.cube__face--back back
         .cube__face.cube__face--right(:style="bgColor[0]" @click="goToCaseStudy")
@@ -98,7 +98,7 @@ export default {
 
 * {
     @media(max-width: 767px) { 
-        --cube-face-size: 35vw 
+        --cube-face-size: 42vw 
     }
     @media(min-width: 768px) { 
         --cube-face-size: 22vw 

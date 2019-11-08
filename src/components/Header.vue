@@ -7,6 +7,8 @@
           .click-box(@click='onClick')
         .mobile-container(class='hide-on-desktop')
           img(src="../assets/ybg_bubbly.png"  width="80%")
+        .mobile-instructions(class='hide-on-desktop')
+          img(src="../assets/welcome_mobile.png"  width="80%")
     NavBar(class='hide-on-mobile')
 </template>
 
@@ -74,9 +76,14 @@ export default {
   margin: 0 auto
   text-align: center
 
-.headerimages
-  padding-bottom: 35px
-
+.headerimages {
+  @media(min-width:768px) {
+    padding-bottom: 35px
+  }
+  @media(max-width:767px) {
+    padding-bottom: 20px
+  }
+}
 .icon-container
   position: relative
   width: 100%
@@ -93,4 +100,5 @@ export default {
 
 .mobile-container
   color: white
+  padding-bottom: 20px
 </style>
