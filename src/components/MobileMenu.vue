@@ -74,9 +74,6 @@ export default {
     }
 }
 
-    
-    
-
 .menu-container
     top: 0
     position: fixed
@@ -84,7 +81,7 @@ export default {
     margin 0
     padding 0
     left: 100%;
-    height 100%
+    height 100vw
 
 .menu
     position: fixed

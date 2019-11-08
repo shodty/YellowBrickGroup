@@ -16,10 +16,11 @@
     MobileMenu
     .prev-next(class="mobile-menu-hide")
       .prev
-          img(src="../../assets/prev.png" @click="goToLink(false)")
+          img(:src=' light? getImgUrl("prev", ".png") : getImgUrl("prev_white", ".png")' @click="goToLink(false)")
       .next
-          img(src="../../assets/next.png" @click="goToLink(false)")
-    
+          img(:src=' light? getImgUrl("next", ".png") : getImgUrl("next_white", ".png")' @click="goToLink(false)")
+    .mobile-case-footer
+      img(:src=' light? getImgUrl("ybg_badge_black", ".png") : getImgUrl("ybg_badge_white", ".png")' height='60px')
 </template>
 
 <script>
@@ -62,7 +63,10 @@ export default {
             else
                 this.$router.push(this.cases[this.cases.length-1])
         window.scrollTo(0,0)
-      }
+      },
+      getImgUrl(pic, ext){
+        return require('../../assets/' + pic + ext)
+      },
     },
 }
 
@@ -102,10 +106,12 @@ export default {
 }
 
 .prev-next
-  padding 20px 0
+  padding 24px 0
   width: 90%
   margin: 0 auto
   overflow:hidden;
+  position: relative
+  z-index 1000
 
 .prev, .next
   width: 100%
@@ -122,5 +128,9 @@ export default {
   height: 100%
   float: right
   display: inline-block
-  
+
+.mobile-case-footer
+  text-align center
+  padding-bottom 24px
+
 </style>

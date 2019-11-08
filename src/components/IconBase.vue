@@ -40,8 +40,8 @@ export default {
 <style lang="stylus" scoped>
 svg 
   display: inline-block
-  vertical-align: baseline
-  margin-bottom: -2px
+  //vertical-align: baseline
+  //margin-bottom: -2px
 
 .transitional 
   transition: all .8s ease

@@ -1,7 +1,7 @@
 <template lang="pug">
 #case-left(:style='[ light? {"background" : "white" } : {"background" : "black"} ]')
-    //.escape(class="escape-desktop hide-prev" @click="goHome")
-        img(src="../../assets/close2.png"  width="20px")
+    .escape(class="escape-desktop hide-for-desktop" @click="goHome")
+        img(:src=' light? getImgUrl("escape_black", ".png") : getImgUrl("escape_white", ".png")'  width="22px")
     DarkLight
     .case-content(:class='light? "black" : "white" ')
         h1 {{caseTitle}}
@@ -39,7 +39,7 @@
                             IconBase( class="iconbases" icon-name="collaboration" width="30" height="30" :icon-color='light? "black" : "white" ')
                                 component(is="collab")
         slot(name="description")
-    .prev-next(class="hide-prev")
+    .prev-next(class="hide-for-mobile")
         .prev(@click="goToLink(false)")
             img(src="../../assets/prev.png")
         .next(@click="goToLink(true)")
@@ -92,6 +92,9 @@ export default {
     },
     goHome(){
           this.$router.push('/')
+    },
+    getImgUrl(pic, ext){
+      return require('../../assets/' + pic + ext)
     },
   },
     
@@ -214,18 +217,25 @@ p {
     float: right
     cursor: url('../../assets/hand.png'), auto
     
-.hide-prev {
+.hide-for-mobile {
   @media(max-width: 1139px) { 
     display: none !important
   }
 }
 
+.hide-for-desktop {
+  @media(min-width: 1140px) { 
+    display: none !important
+  }    
+}
+
 .escape
     position: fixed
     top: 0
-    left: 34%
-    padding 16px
-    padding-left 20px
+    left: 49%;
+    transform: translate(-51%, 0);
+    margin-top: 4vw
+
 
 .escape-desktop {
   @media(min-width: 1140px) { 
