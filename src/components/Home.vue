@@ -19,7 +19,7 @@
           b-col(v-for="cube in cubeObject" xs=6 md=4 @mouseenter='bgcChange(cube.color2)' @mouseleave='bgcChange("white")' class="bcol")  
             Cube(class="cubeClass" :project='cube.text' :letter='cube.letter' :color1='cubeHovered? faceColor : cube.color1' color2='cube.color2' :image='cube.image' :pattern='cube.pattern' :bgColor='[ light? { "background" : bgc} : {"background" : "black"} ]')
   ToTop(class="hide-on-mobile hide-on-desktop")
-  Footer(class="footerclass .d-sm-none .d-md-block hide-on-mobile")
+  Footer(class="footerclass .d-sm-none .d-md-block")
 </template>
 
 <script>
@@ -33,7 +33,6 @@ import DarkLight from './DarkLight.vue'
 import { mapState } from 'vuex'
 import ToTop from './ToTop.vue'
 import MobileMenu from './MobileMenu.vue'
-
 
 export default {
   name: 'home',

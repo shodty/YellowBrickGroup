@@ -67,6 +67,7 @@ export default {
         },
         goToCaseStudy(){
             this.$router.push(this.image)
+            window.scrollTo(0,0)
         },
         colorChanger(name, clicked){
             this.$store.dispatch('colorChange', {name, clicked})

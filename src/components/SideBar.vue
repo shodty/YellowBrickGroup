@@ -32,6 +32,7 @@ export default {
   methods: {
     goToLink(link){
       this.$router.push(link)
+      window.scrollTo(0,0)
     }
   }
 }

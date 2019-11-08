@@ -33,7 +33,8 @@ export default {
         return this.opened = !this.opened
     },
     goToLink(link){
-      this.$router.push(link)
+        this.$router.push(link)
+        window.scrollTo(0,0)
     }
   }
 }
@@ -49,7 +50,7 @@ export default {
     z-index : 1400
     position: fixed
     top: 0
-    right: 6vw
+    right: 2vw
     padding 15px
 
 .menu-container

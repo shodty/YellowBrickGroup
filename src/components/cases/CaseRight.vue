@@ -115,6 +115,7 @@ export default {
 }
 
 .prev-next
+  padding 20px 0
   width: 90%
   margin: 0 auto
   overflow:hidden;
