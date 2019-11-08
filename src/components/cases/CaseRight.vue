@@ -17,18 +17,17 @@
     //.escape(class="escape-desktop" @click="goHome")
       img(src="../../assets/escape.png"  width="32px")
     .prev-next(class="mobile-menu-hide")
-      .prev(@click="goToLink(false)")
-          img(src="../../assets/prev.png")
-      .next(@click="goToLink(true)")
-          img(src="../../assets/next.png")
-    Footer(class="footerclass mobile-menu-hide")
+      .prev
+          img(src="../../assets/prev.png" @click="goToLink(false)")
+      .next
+          img(src="../../assets/next.png" @click="goToLink(false)")
+    
 </template>
 
 <script>
 
 import SideBar from '../SideBar.vue'
 import MobileMenu from '../MobileMenu.vue'
-import Footer from '../Footer.vue'
 
 export default {
   name: 'case-left',
@@ -43,8 +42,7 @@ export default {
   },
   components: {
     SideBar,
-    MobileMenu,
-    Footer
+    MobileMenu
   },
   methods: {
       goHome(){
@@ -118,22 +116,25 @@ export default {
 }
 
 .prev-next
-  padding-top 30px
+  padding 20px 0
   width: 90%
   margin: 0 auto
   overflow:hidden;
 
+.prev, .next
+  width: 100%
+  height: 100%
+
 .prev img
   width: 40%
+  height: 100%
   float: left
   display: inline-block
 
 .next img
   width: 40%
+  height: 100%
   float: right
   display: inline-block
-
-.footerclass
-  z-index : 1950
-
+  
 </style>

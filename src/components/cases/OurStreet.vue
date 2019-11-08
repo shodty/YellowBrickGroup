@@ -9,11 +9,11 @@
 
     CaseRight(case='os')
         img(class='case-image' slot='image1' alt='our-street1' src='../../assets/img/cases/ourstreet/1.jpg' id='our-street1')
-        video(class='case-image' slot='image2' alt='our-street1' src='../../assets/img/cases/ourstreet/2.mp4' id='our-street1' controls muted loop)
+        video(class='case-image' slot='image2' alt='our-street1' src='../../assets/img/cases/ourstreet/2.mp4' id='our-street1' controls muted loop preload="auto")
         img(class='case-image' slot='image3' alt='our-street1' src='../../assets/img/cases/ourstreet/3.jpg' id='our-street1')
         img(class='case-image' slot='image4' alt='our-street1' src='../../assets/img/cases/ourstreet/4.jpg' id='our-street1')
         img(class='case-image' slot='image5' alt='our-street1' src='../../assets/img/cases/ourstreet/5.jpg' id='our-street1')
-        video(class='case-image' slot='image6' alt='our-street1' src='../../assets/img/cases/ourstreet/5.5.mp4' id='our-street1' controls muted loop)
+        video(class='case-image' slot='image6' alt='our-street1' src='../../assets/img/cases/ourstreet/5.5.mp4' id='our-street1' controls muted loop preload="auto")
         img(class='case-image' slot='image7' alt='our-street1' src='../../assets/img/cases/ourstreet/6.jpg' id='our-street1')
         img(class='case-image-last' slot='image8' alt='our-street1' src='../../assets/img/cases/ourstreet/7.jpg' id='our-street1')
 </template>

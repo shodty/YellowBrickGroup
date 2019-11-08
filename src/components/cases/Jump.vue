@@ -9,11 +9,11 @@
 
     CaseRight(case='jump')
         img(class='case-image' slot='image1' alt='jump1' src='../../assets/img/cases/jump/1.jpg' id='jump1')
-        video(class='case-image' slot='image2' alt='jump2' src='../../assets/img/cases/jump/2.mp4' id='jump2' controls muted loop)
-        video(class='case-image' slot='image3' alt='jump3' src='../../assets/img/cases/jump/3.mp4' id='jump3' controls muted loop)
-        video(class='case-image' slot='image4' alt='jump4' src='../../assets/img/cases/jump/4.mp4' id='jump4' controls muted loop)
+        video(class='case-image' slot='image2' alt='jump2' src='../../assets/img/cases/jump/2.mp4' id='jump2' controls muted loop preload="auto")
+        video(class='case-image' slot='image3' alt='jump3' src='../../assets/img/cases/jump/3.mp4' id='jump3' controls muted loop preload="auto")
+        video(class='case-image' slot='image4' alt='jump4' src='../../assets/img/cases/jump/4.mp4' id='jump4' controls muted loop preload="auto")
         img(class='case-image' slot='image5' alt='jump5' src='../../assets/img/cases/jump/5.jpg' id='jump5')
-        video(class='case-image' slot='image6' alt='jump6' src='../../assets/img/cases/jump/6.mp4' id='jump6' controls muted loop)
+        video(class='case-image' slot='image6' alt='jump6' src='../../assets/img/cases/jump/6.mp4' id='jump6' controls muted loop preload="auto")
         img(class='case-image-last' slot='image7' alt='jump7' src='../../assets/img/cases/jump/7.jpg' id='jump7')
 </template>
 

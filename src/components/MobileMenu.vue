@@ -47,7 +47,7 @@ export default {
   margin: 0px
   
 .menu-icon
-    z-index : 1400
+    z-index : 1300
     position: fixed
     top: 0
     right: 2vw
@@ -56,12 +56,12 @@ export default {
 .menu-container
     top: 0
     position: fixed
-    z-index: 1200
+    z-index: 1400
     margin 0
     padding 0
     left: 100%;
     height 100%
-
+    overflow: hidden
     
 .menu
     position: fixed
@@ -75,6 +75,8 @@ export default {
     font-size: 50px
     text-align: center
     background: #f3b120
+    overflow: hidden
+
 
 .menu-container.closed {
 

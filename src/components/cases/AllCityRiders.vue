@@ -9,7 +9,7 @@
 
     CaseRight(case='acr')
         img(class='case-image' slot='image1' alt='acr1' src='../../assets/img/cases/acr/1.jpg' id='our-street1')
-        video(class='case-image' slot='image2' alt='acr1' src='../../assets/img/cases/acr/2.mp4#t=1' id='our-street1' controls muted loop)
+        video(class='case-image' slot='image2' alt='acr1' src='../../assets/img/cases/acr/2.mp4' id='our-street1' controls muted loop preload="auto")
         img(class='case-image' slot='image3' alt='acr1' src='../../assets/img/cases/acr/3.jpg' id='our-street1')
         img(class='case-image' slot='image4' alt='acr1' src='../../assets/img/cases/acr/4.jpg' id='our-street1')
         img(class='case-image' slot='image5' alt='acr1' src='../../assets/img/cases/acr/5.jpg' id='our-street1')
