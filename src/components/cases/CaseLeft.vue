@@ -245,7 +245,7 @@ p {
     margin-top: 2vw
   }
   @media(max-width: 1140px) and (orientation:portrait) { 
-    margin-top: 2.4vw
+    margin-top: 3.4vw
   }
 }
 
