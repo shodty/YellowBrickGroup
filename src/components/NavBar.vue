@@ -13,7 +13,7 @@
                 .icon-wrapper(:class="[{ lightclass: light }, { darkclass: !light }]")
                     //loops thru iconObject to create icons with name/color/text/clickstate assigned via the object. click event fires to action/mutation in store that will change icons clickstate & colors across components
                     .icon-text(v-for="icon in iconObject" @click="colorChanger(icon.name, icon.clicked)")
-                        IconBase(class="iconbases" :icon-name="icon.name" width="3vw" height="4vw"  :icon-color='icon.clicked? icon.color : baseColor')
+                        IconBase(class="iconbases" :icon-name="icon.name" width="3vw" height="5vw"  :icon-color='icon.clicked? icon.color : baseColor')
                             component(:is="icon.name")
                         p {{icon.text}}
         transition(name='slide-fade')
@@ -28,7 +28,7 @@
             .nav-icons(v-if='activeLink =="projects"')
                 .icon-wrapper
                     //loops through cubeObject to create icons in nav bar of PROJECTS link that are same letter forms/colors as the projects
-                    IconBase(v-for="cube in cubeObject" class="iconbases" :icon-name="cube.text" width="50" height="50" :icon-color='cube.color1')
+                    IconBase(v-for="cube in cubeObject" class="iconbases" :icon-name="cube.text" width="3vw" height="3vw" :icon-color='cube.color1')
                         component(:is="cube.letter")
     .buttons
         //text for START, PROJECTS, SORT, VIDEOS buttons. clicking makes the link active and rotates cube accordingly. 2 class bindings, one assigns .active class if link clicked, the other assigns lightmode/darkmode appropriate class
@@ -147,13 +147,14 @@ export default {
     align-items: center
     justify-content: center
     height: 50px
-    padding-bottom: 30px
+    padding-bottom: 1vw
 
 .nav-image
     position: relative
 
 .nav-icons
     position: absolute
+
 
 .icon-wrapper
     display: inline-flex
@@ -182,7 +183,7 @@ export default {
     display: flex
     align-items: center
     justify-content: center
-    margin-top: 10px
+    margin-top: 2.5vw
 
 .icon-text
     display : block
@@ -190,11 +191,12 @@ export default {
     font-weight: 700
     font-size: 10px
     letter-spacing: 1px
-    line-height: 2.5
+    line-height: .2
     text-transform: uppercase
     margin-left: 15px
     margin-right : 15px
     cursor: pointer
+    padding-top 2vh
 
 .slide-fade-enter-active
   transition: all 1s ease

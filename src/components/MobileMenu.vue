@@ -13,7 +13,7 @@
             .nav(@click="goToLink('contact')")
                 p CONTACT
             b-row(class="copyright")
-                b-col(xs=6 md=6 lg=4 offset-md="3" offset-lg="4")
+                b-col(xs=6 md=6 lg=4 class='ml-auto mr-auto')
                     img(src="../assets/copyright.png" width="50%")
 </template>
 

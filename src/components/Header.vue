@@ -70,7 +70,7 @@ export default {
 
 .headerimages {
   @media(min-width:768px) {
-    padding-bottom: 35px
+    padding-bottom: 1vw
   }
   @media(max-width:767px) {
     padding-bottom: 20px
