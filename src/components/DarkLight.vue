@@ -2,8 +2,8 @@
 #dark-light
     .desktop(class='hide-on-mobile')
         .icon-holder(:class="[{ lightmode: light }, { darkmode: !light }]" @click='flip')
-            IconBase(icon-name="dark light" width="50" height="50" :icon-color=' light? "black" : "white" ')
-                component(is="smile")
+            IconBase(icon-name="dark light" width="40" height="40" :icon-color=' light? "black" : "white" ')
+                component(is="sun-moon")
     .mobile(class='hide-on-desktop')
         .icon-holder(:class="[{ lightmode: light }, { darkmode: !light }]" @click='flip')
             IconBase(icon-name="dark light" width="35" height="35" :icon-color=' light? "black" : "white" ')
@@ -48,17 +48,10 @@ export default {
     position: fixed
     top: 0
     left: 0
-    margin 2vw
     z-index: 1000
 
 .icon-holder
     transition: all 2s
-
-.icon-holder.lightmode
-    cursor: url("../assets/dark.png"), auto
-
-.icon-holder.darkmode
-    cursor: url("../assets/light.png"), auto
 
 .darkmode
     transform: rotate(180deg)
@@ -67,7 +60,10 @@ export default {
     transform: rotate(0deg)
 
 .mobile
-    margin-left: 1vw
-    margin-top: 1vw
+    margin-left: 3vw
+    margin-top: 3vw
 
+.desktop
+    margin-left: .75vw
+    margin-top: .75vw
 </style>

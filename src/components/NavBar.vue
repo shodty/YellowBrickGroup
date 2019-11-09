@@ -124,7 +124,7 @@ export default {
     padding-right: 5px
     margin-left : 10px
     margin-right : 10px
-    font-family: 'Open Sans', sans-serif
+    font-family: 'cardinal_grotesque_wideSBd', sans-serif
     font-weight: bold
     letter-spacing: 3px
     font-size: 20px
@@ -186,7 +186,7 @@ export default {
 
 .icon-text
     display : block
-    font-family: 'Open Sans', sans-serif
+    font-family: 'cardinal_grotesque_wideSBd', sans-serif
     font-weight: 700
     font-size: 10px
     letter-spacing: 1px

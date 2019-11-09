@@ -1,6 +1,6 @@
 <template lang="pug">
 #acr-main
-    CaseLeft(caseTitle='ALL CITY RIDERS' year='2018' :pattern='patterns.acr'  case='acr')
+    CaseLeft(caseTitle='All City Riders' year='2018' :pattern='patterns.acr'  case='acr')
         p(slot="description") 
             |Drawing inspiration from traditional night markets in Asia, Our Street Night Market is an award-winning, 
             |one-of-a-kind event conceptualized, branded, curated, and run entirely by YBG. Our Street is a gathering place for all 

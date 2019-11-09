@@ -19,7 +19,7 @@
           img(:src=' light? getImgUrl("prev", ".png") : getImgUrl("prev_white", ".png")' @click="goToLink(false)")
       .next
           img(:src=' light? getImgUrl("next", ".png") : getImgUrl("next_white", ".png")' @click="goToLink(false)")
-    .mobile-case-footer
+    .mobile-case-footer(class="mobile-menu-hide")
       img(:src=' light? getImgUrl("ybg_badge_black", ".png") : getImgUrl("ybg_badge_white", ".png")' height='60px')
 </template>
 

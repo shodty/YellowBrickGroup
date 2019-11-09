@@ -91,8 +91,10 @@ export default {
     color: black
     border-left: 2px solid black;
     line-height: 1
+    font-family: 'cardinal_grotesque_wideSBd', sans-serif
+    letter-spacing: 2px
     font-weight: 1000
-    font-size: 50px
+    font-size: 54px
     text-align: center
     background: #f3b120
 

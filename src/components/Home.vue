@@ -103,6 +103,34 @@ export default {
 
 <style lang="stylus">
 
+@font-face {
+    font-family: 'cardinal_grotesque_condenseBd';
+    src: url('../assets/fonts/cardinalgrotesquecondensed-bold-webfont.woff2') format('woff2'),
+         url('../assets/fonts/cardinalgrotesquecondensed-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'cardinal_grotesque_wideSBd';
+    src: url('../assets/fonts/cardinalgrotesquewide-semibold-webfont.woff2') format('woff2'),
+         url('../assets/fonts/cardinalgrotesquewide-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'goopersemibold_italic';
+    src: url('../assets/fonts/gooper-semibolditalic-webfont.woff2') format('woff2'),
+         url('../assets/fonts/gooper-semibolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
 .container-fluid
   position: relative
   z-index: 1

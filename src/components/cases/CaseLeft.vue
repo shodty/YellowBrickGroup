@@ -118,9 +118,10 @@ export default {
         
     }
     @media(min-width: 1140px) { 
-        padding-top: 30px
+        padding-top: 45px
         padding-left: 60px
-        width: 36%
+        padding-right: 16px
+        width: 38%
         top: 0
         left: 0
         position: fixed
@@ -138,6 +139,8 @@ export default {
     transition: 1s
 }
 h1
+    font-family: 'cardinal_grotesque_wideSBd', sans-serif
+    letter-spacing: 1px
     font-size: 60px
     line-height : 1 
     font-weight: 900
@@ -165,8 +168,8 @@ h3 {
     padding-right: 20px
     height: 100%
     top: 60%;
-    -ms-transform: translateY(-40%);
-    transform: translateY(-40%);
+    -ms-transform: translateY(-12%);
+    transform: translateY(-12%);
 
 p
     font-family: 'Open Sans', Helvetica, Arial, sans-serif
@@ -238,9 +241,11 @@ p {
 
 
 .escape-desktop {
-  @media(min-width: 1140px) { 
-    right: 85px
-    width: 40px
+  @media(max-width: 1140px) and (orientation:landscape) { 
+    margin-top: 2vw
+  }
+  @media(max-width: 1140px) and (orientation:portrait) { 
+    margin-top: 2.4vw
   }
 }
 
