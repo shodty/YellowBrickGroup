@@ -165,7 +165,7 @@ body
   text-align: center
   color: #2c3e50
   padding-top: 60px
-  
+  overflow-x: hidden
 
 .background-div  
   position: fixed
