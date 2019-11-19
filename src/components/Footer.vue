@@ -1,17 +1,27 @@
 <template lang="pug">
 #main-footer
   p(class='marquee hide-on-mobile')
-    img(alt='logo marquee' src='../assets/img/logo_strip.png' width='98%' id='YBG-footer')
-    img(alt='logo marquee' src='../assets/img/logo_strip.png' width='98%' id='YBG-footer')
-    img(alt='logo marquee' src='../assets/img/logo_strip.png' width='98%' id='YBG-footer')
-  img(class='hide-on-desktop bxb' src='../assets/bxb.png' width='14%')
+    img(alt='logo marquee' :src="light? getImgUrl('img/logo_strip', '.png') : getImgUrl('img/logo_strip_white', '.png')" width='98%' id='YBG-footer')
+    img(alt='logo marquee' :src="light? getImgUrl('img/logo_strip', '.png') : getImgUrl('img/logo_strip_white', '.png')" width='98%' id='YBG-footer')
+    img(alt='logo marquee' :src="light? getImgUrl('img/logo_strip', '.png') : getImgUrl('img/logo_strip_white', '.png')" width='98%' id='YBG-footer')
+  img(class='hide-on-desktop bxb' :src="light? getImgUrl('bxb', '.png') : getImgUrl('bxb_white', '.png')" width='14%')
 </template>
 
 <script>
 
 export default {
-  name: 'app-footer'
-  }
+  name: 'app-footer',
+  computed: {
+      light(){
+          return this.$store.state.light
+      }
+  },
+  methods: {
+    getImgUrl(pic, ext){
+      return require('../assets/' + pic + ext)
+    },
+  },
+}
 
 </script>
 
