@@ -4,16 +4,16 @@
         transition(name='slide-fade')
             .nav-image(v-if='activeLink =="start"') 
                 .welcome-image(v-if="light")
-                    img(alt='welcome' src='../assets/welcome3.png' height='66px' id='welcome')
+                    img(alt='welcome' src='../assets/welcome3.png' id='welcome')
                 .welcome-image(v-else)
-                    img(alt='welcome' src='../assets/welcome4.png' height='66px' id='welcome')
+                    img(alt='welcome' src='../assets/welcome4.png' id='welcome2')
 
         transition(name='slide-fade')
             .nav-icons(v-if='activeLink =="sort"') 
                 .icon-wrapper(:class="[{ lightclass: light }, { darkclass: !light }]")
                     //loops thru iconObject to create icons with name/color/text/clickstate assigned via the object. click event fires to action/mutation in store that will change icons clickstate & colors across components
                     .icon-text(v-for="icon in iconObject" @click="colorChanger(icon.name, icon.clicked)")
-                        IconBase(class="iconbases" :icon-name="icon.name" width="3vw" height="5vw"  :icon-color='icon.clicked? icon.color : baseColor')
+                        IconBase(class="iconbases" :icon-name="icon.name" width="2.5vw" height="4.5vw"  :icon-color='icon.clicked? icon.color : baseColor')
                             component(:is="icon.name")
                         p {{icon.text}}
         transition(name='slide-fade')
@@ -146,7 +146,7 @@ export default {
     display: flex
     align-items: center
     justify-content: center
-    height: 50px
+    height: 2vw
     padding-bottom: 1vw
 
 .nav-image
@@ -158,6 +158,7 @@ export default {
 
 .icon-wrapper
     display: inline-flex
+    padding-top: 1.5vw
 
 .iconbases
     padding-right: 4px
@@ -218,4 +219,8 @@ export default {
 
 .video-controls img 
     padding: 0 10px
+
+.welcome-image img
+    padding-top: 1vw
+    height: 5vw
 </style>

@@ -73,7 +73,8 @@ export const store = new Vuex.Store({
             color2: '#e5b4c8',
             image: 'os',
             pattern: ['concept', 'vid', 'gather', 'print', 'id', 'photo', 'social', 'web', 'collab'],
-            text: 'Our Street'
+            text: 'Our Street',
+            show: true
           },
           acr : {
             letter: 'letter-a',
@@ -81,7 +82,8 @@ export const store = new Vuex.Store({
             color2: '#006bb6',
             image: 'acr',
             pattern: ['vid', 'gather', 'print', 'id', 'photo', 'social', 'web'],
-            text: 'All City Riders'
+            text: 'All City Riders',
+            show: true
           },
           jump : {
             letter: 'letter-j',
@@ -89,7 +91,8 @@ export const store = new Vuex.Store({
             color2: '#ffffff',
             image: 'jump',
             pattern: ['vid', 'gather', 'photo', 'social', 'collab'],
-            text: 'Jump'
+            text: 'Jump',
+            show: true
           },
           mas : {
             letter: 'letter-m',
@@ -97,7 +100,8 @@ export const store = new Vuex.Store({
             color2: '#c6d655',
             image: 'mas',
             pattern: ['vid', 'gather', 'print', 'photo', 'social', 'web'],
-            text: 'Mas Taco'
+            text: 'Mas Taco',
+            show: true
           },
           btm : {
             letter: 'letter-b',
@@ -105,7 +109,8 @@ export const store = new Vuex.Store({
             color2: '#f26351',
             image: 'btm',
             pattern: ['concept', 'vid', 'gather', 'print', 'id', 'photo', 'social', 'collab'],
-            text: 'Bottomless'
+            text: 'Bottomless',
+            show: true
           },
           shang : {
             letter: 'letter-s',
@@ -113,7 +118,8 @@ export const store = new Vuex.Store({
             color2: '#f4e6c1',
             image: 'shang',
             pattern: ['print', 'id', 'photo'],
-            text: 'Shangri-La'
+            text: 'Shangri-La',
+            show: true
           },
           cabin : {
             letter: 'letter-c',
@@ -121,7 +127,8 @@ export const store = new Vuex.Store({
             color2: '#fbcc53',
             image: 'cabin',
             pattern: ['print', 'id', 'photo', 'web'],
-            text: 'The Cabin'
+            text: 'The Cabin',
+            show: true
           },
           alt : {
             letter: 'letter-a',
@@ -129,7 +136,8 @@ export const store = new Vuex.Store({
             color2: '#61cbea',
             image: 'alt',
             pattern: ['vid', 'gather', 'print', 'id', 'photo', 'social', 'collab'],
-            text: 'Art Life Tour'
+            text: 'Art Life Tour',
+            show: true
           },
           bm : {
             letter: 'letter-b',
@@ -137,9 +145,9 @@ export const store = new Vuex.Store({
             color2: '#feede5',
             image: 'bm',
             pattern: ['print', 'id', 'social', 'web'],
-            text: 'Bardis Miry'
+            text: 'Bardis Miry',
+            show: true
           }
-    
         },
         cubeFace : 'showFront',
         videoArray : [
@@ -148,7 +156,7 @@ export const store = new Vuex.Store({
           'cases/ourstreet/5.5',
           'cases/acr/2',
           'cases/alt/2',
-        ]
+        ],
     },
     mutations: {
         darkLight: state => {
@@ -161,10 +169,24 @@ export const store = new Vuex.Store({
         colorChange: (state, {name, clicked}) => {
             if(clicked == false){
                 state.iconObject[name].clicked = true
+                for(let cube in state.cubeObject){
+                  if(state.cubeObject[cube].pattern.includes(name)){
+                    state.cubeObject[cube].show = true
+                  }
+                  else state.cubeObject[cube].show = false
+                }
             }
             else{
-                state.iconObject[name].clicked = false   
-            }   
+                state.iconObject[name].clicked = false  
+            }
+            for(let icon in state.iconObject){
+              if(state.iconObject[icon].clicked){
+                return false
+              }
+            }
+            for(let cube in state.cubeObject){
+              state.cubeObject[cube].show = true
+            }
         },
         backgroundChange: (state, color) => {
           state.bgc = color
