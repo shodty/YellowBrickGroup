@@ -230,13 +230,13 @@ body
 }
 
 .show-on-ipad {
-  @media(min-width: 1025px) { 
+  @media(min-width: 1140px) { 
     display: none !important;
   }
 }
 
 .hide-on-ipad {
-  @media(max-width: 1024px) { 
+  @media(max-width: 1139px) { 
     display: none !important;
   }
 }

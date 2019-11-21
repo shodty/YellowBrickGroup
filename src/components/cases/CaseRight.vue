@@ -1,5 +1,6 @@
 <template lang="pug">
 #case-right(:style='[ light? {"background" : "white" } : {"background" : "black"} ]')
+    slot(name='image0')
     slot(name='image1')
     slot(name='image2')
     slot(name='image3')
@@ -12,6 +13,7 @@
     slot(name='image10')
     slot(name='image11')
     slot(name='image12')
+    slot(name='z1')
     //SideBar(class="sidebar-hide")
     MobileMenu
     .prev-next(class="mobile-menu-hide")
@@ -132,5 +134,6 @@ export default {
 .mobile-case-footer
   text-align center
   padding-bottom 24px
+
 
 </style>

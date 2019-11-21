@@ -103,6 +103,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+
 *
     margin: 0px
     padding 0px
@@ -239,7 +240,6 @@ p {
     transform: translate(-51%, 0);
     margin-top: 4vw
 
-
 .escape-desktop {
   @media(max-width: 1140px) and (orientation:landscape) { 
     margin-top: 2vw
@@ -248,5 +248,7 @@ p {
     margin-top: 3.4vw
   }
 }
+
+
 
 </style>
