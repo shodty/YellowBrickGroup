@@ -9,15 +9,15 @@
 
     CaseRight(case='bm')
         img(class='case-image' slot='image0' alt='bardis-miry1' src='../../assets/img/cases/bm/1.jpg' id='bardis-miry1')
-        hooper( :settings='hooperSettings' slot='image1' class='case-image' style="height: 100%")
+        hooper( :settings='hooperSettings' slot='image1' class='case-image' style="height: 100%" class='image-slider')
           slide
-            img(class='case-image' alt='bm' src='../../assets/img/cases/bm/slide/s1.jpg' id='bardis-miry1')
+            img(class='case-image' alt='bm' src='../../assets/img/cases/bm/slide/s1.png' id='bardis-miry1')
           slide
-            img(class='case-image' alt='bm' src='../../assets/img/cases/bm/slide/s2.jpg' id='bardis-miry2')
+            img(class='case-image' alt='bm' src='../../assets/img/cases/bm/slide/s2.png' id='bardis-miry2')
           slide
-            img(class='case-image' alt='bm' src='../../assets/img/cases/bm/slide/s3.jpg' id='bardis-miry3')
+            img(class='case-image' alt='bm' src='../../assets/img/cases/bm/slide/s3.png' id='bardis-miry3')
           slide
-            img(class='case-image' alt='bm' src='../../assets/img/cases/bm/slide/s4.jpg' id='bardis-miry4')                        
+            img(class='case-image' alt='bm' src='../../assets/img/cases/bm/slide/s4.png' id='bardis-miry4')                        
           hooper-navigation(slot="hooper-addons")            
         img(class='case-image' slot='image2' alt='bardis-miry2' src='../../assets/img/cases/bm/2.jpg' id='bardis-miry2')
         img(class='case-image' slot='image3' alt='bardis-miry3' src='../../assets/img/cases/bm/3.jpg' id='bardis-miry3')

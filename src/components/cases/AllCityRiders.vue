@@ -8,7 +8,7 @@
 
     CaseRight(case='acr')
         img(class='case-image' slot='image0' alt='acr1' src='../../assets/img/cases/acr/1.jpg' id='all-city-riders1')
-        hooper( :settings='hooperSettings' slot='image1' class='case-image' style="height: 100%")
+        hooper( :settings='hooperSettings' slot='image1' class='case-image' style="height: 100%" class='image-slider')
           slide
             img(class='case-image' alt='acr3' src='../../assets/img/cases/acr/slide/s2.jpg' id='all-city-riders1')
           slide
@@ -25,7 +25,7 @@
         img(class='case-image' slot='image6' alt='acr1' src='../../assets/img/cases/acr/6.gif' id='all-city-riders1')
         img(class='case-image' slot='image7' alt='acr1' src='../../assets/img/cases/acr/7.jpg' id='all-city-riders1')
         img(class='case-image-last' slot='image8' alt='acr1' src='../../assets/img/cases/acr/8.jpg' id='all-city-riders1')
-
+        
         img( alt='acr1' slot='z1' src='../../assets/img/cases/acr/card1.png' id='z1' class='hide-on-ipad')
         img( alt='acr1' slot='z1' src='../../assets/img/cases/acr/card2.png' id='z2' class='hide-on-ipad')
         img( alt='acr1' slot='z1' src='../../assets/img/cases/acr/card1.png' id='z3' class='hide-on-ipad')
@@ -38,6 +38,7 @@ import CaseLeft from './CaseLeft.vue'
 import CaseRight from './CaseRight.vue'
 import { Hooper, Slide, Navigation as HooperNavigation } from 'hooper'
 import 'hooper/dist/hooper.css'
+import Parallax from "vue-parallaxy"
 
 export default {
   name: 'all-city-riders',
@@ -59,7 +60,8 @@ export default {
     CaseRight,
     Hooper,
     Slide,
-    HooperNavigation
+    HooperNavigation,
+    Parallax
   },
   methods: {
 
@@ -96,7 +98,7 @@ zTop
 
 #z1
   position absolute
-  top 160%
+  top 98%
   left 0
   padding-left 24%
   z-index 1000
@@ -104,7 +106,7 @@ zTop
 
 #z2
   position absolute
-  top 260%
+  top 192%
   left 0
   padding-left 30%
   z-index 1000

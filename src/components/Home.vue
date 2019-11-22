@@ -69,13 +69,20 @@ export default {
         }),
         EventBus.$on('playVid', play => {
           if(play){
-            this.videoElement.play();
+            this.videoElement.play()
           }
         }),
         EventBus.$on('pause', play => {
           if(play){
-            this.videoElement.pause();
+            this.videoElement.pause()
           }
+        }),
+        EventBus.$on('volumeChange', vol => {
+            if(vol > 0){
+              this.videoElement.muted = false
+              this.videoElement.volume = vol/100
+            }
+            else this.videoElement.muted = true
         })
   },
   components: {

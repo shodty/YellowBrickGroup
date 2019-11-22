@@ -8,7 +8,7 @@
             |exceeded projected attendance,  drawing over 12,000 people to its inaugural event, and reaching upwards of 50,000 attendees by its second year.
 
     CaseRight(case='shang')
-        hooper( :settings='hooperSettings' slot='image1' class='case-image' style="height: 100%")
+        hooper( :settings='hooperSettings' slot='image1' class='case-image' style="height: 100%" class='image-slider')
           slide
             img(class='case-image' alt='os1' src='../../assets/img/cases/shang/slide/s5.jpg' id='shangri-la1')
           slide

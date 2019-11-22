@@ -8,7 +8,7 @@
             |exceeded projected attendance,  drawing over 12,000 people to its inaugural event, and reaching upwards of 50,000 attendees by its second year.
 
     CaseRight(case='alt')
-        hooper( :settings='hooperSettings' slot='image2' class='case-image' style="height: 100%")
+        hooper( :settings='hooperSettings' slot='image2' class='case-image' style="height: 100%" class='image-slider')
           slide
             img(class='case-image' alt='os1' src='../../assets/img/cases/alt/slide/s1.jpg' id='art-life-tour1')
           slide
@@ -48,7 +48,7 @@ export default {
             bardismiry :  [1,0,0,1,0,0,1,0,1],
             cabin :       [1,0,0,1,0,1,1,1,0],
             jump :        [1,0,1,0,1,1,1,0,1],
-            artlife :     [1,0,1,1,0,1,1,0,1],
+            artlife :     [1,1,1,1,0,1,1,0,1],
             mastaco :     [0,0,1,1,0,1,1,1,0]
         },
         hooperSettings: {

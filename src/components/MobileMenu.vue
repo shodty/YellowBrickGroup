@@ -6,10 +6,20 @@
         .menu
             .nav(@click="openMenu")
                 img(src="../assets/close2.png" width="32px" height="32px")
-            .nav(@click="goToLink('/')")
+            .nav(@click="goToLink('/'); rotateCube('showFront'); onClick()")
                 p HOME
-            .nav(@click="goToLink('os')")
+            .nav(@click="show = !show")
                 p WORK
+            .workcontainer(v-if='show')
+                .worklisting(@click="goToLink('os')") Our Street
+                .worklisting(@click="goToLink('acr')") All City Riders
+                .worklisting(@click="goToLink('jump')") Jump
+                .worklisting(@click="goToLink('mas')") Mas Taco
+                .worklisting(@click="goToLink('btm')") Bottomless
+                .worklisting(@click="goToLink('shang')") Shangri-La
+                .worklisting(@click="goToLink('cabin')") The Cabin
+                .worklisting(@click="goToLink('alt')") Art Life Tour
+                .worklisting(@click="goToLink('bm')") Bardis & Miry
             .nav(@click="goToLink('contact')")
                 p CONTACT
             b-row(class="copyright")
@@ -18,13 +28,15 @@
 </template>
 
 <script>
+import { EventBus } from '../event-bus.js'
 
 export default {
   name: 'to-top',
   data(){
     return {
         opened: false,
-        faceColor: 'black'
+        faceColor: 'black',
+        show: false
     }
   },
   components: {
@@ -46,6 +58,12 @@ export default {
     getImgUrl(pic, ext){
       return require('../assets/' + pic + ext)
     },
+    rotateCube(side){
+        this.$store.dispatch('faceChange', side)
+    },
+    onClick() {
+        EventBus.$emit('menuChange', "start") 
+    },    
   }
 }
 
@@ -109,7 +127,7 @@ export default {
 }
 
 .menu p
-    padding-bottom: 30px
+    padding-bottom: 10px
     padding-top:20px
     margin 0 auto
     cursor: url('../assets/hand.png'), auto
@@ -120,5 +138,16 @@ export default {
 .copyright
     margin-top: 10%
 
+.worklisting
+    margin 0 auto
+    padding-bottom 10px
+    font-size: 24px
+    font-weight: 100
+    cursor: url('../assets/hand.png'), auto
+    color black
+    transition .5s
+
+.worklisting:hover
+    color white
 
 </style>

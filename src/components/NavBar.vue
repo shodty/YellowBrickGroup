@@ -17,19 +17,29 @@
                             component(:is="icon.name")
                         p {{icon.text}}
         transition(name='slide-fade')
-            .nav-icons(v-if='activeLink =="videos"') 
+            .video-play-controls(v-if='activeLink =="videos"') 
                 .video-controls
-                    img(alt='welcome' src='../assets/img/icons/back.png' height='46px' @click='previous')
-                    img(v-if="!play" alt='welcome' src='../assets/img/icons/play.png' height='46px' @click='playVid')
-                    img(v-else-if="play" alt='welcome' src='../assets/img/icons/pause.png' height='46px' @click='pause')
-                    img(alt='welcome' src='../assets/img/icons/forward.png' height='46px' @click='next')
-                    img(alt='welcome' src='../assets/img/icons/mute.png' height='46px')
+                    img(alt='welcome' src='../assets/img/icons/back.png' @click='previous')
+                    img(v-if="!play" alt='welcome' src='../assets/img/icons/play.png'  @click='playVid')
+                    img(v-else-if="play" alt='welcome' src='../assets/img/icons/pause.png'  @click='pause')
+                    img(alt='welcome' src='../assets/img/icons/forward.png'  @click='next')
+                    br
+                    vue-slider(v-model="value" @change="changeVolume" :process-style="{ backgroundColor: 'black' }" :tooltip-style="{ backgroundColor: 'black', borderColor: 'black' }")
+                        template( v-slot:dot="{ value }")
+                           img(v-if="value <= 5" id='volume-slider' src='../assets/img/icons/vol0.png' )
+                           img(v-else-if="33 >= value && value > 5" id='volume-slider' src='../assets/img/icons/vol1.png' )
+                           img(v-else-if="66 >= value && value > 33" id='volume-slider' src='../assets/img/icons/vol2.png' )
+                           img(v-else-if="100 >= value && value > 66" id='volume-slider' src='../assets/img/icons/vol3.png' )
         transition(name='slide-fade')
             .nav-icons(v-if='activeLink =="projects"')
                 .icon-wrapper
                     //loops through cubeObject to create icons in nav bar of PROJECTS link that are same letter forms/colors as the projects
-                    IconBase(v-for="cube in cubeObject" class="iconbases" :icon-name="cube.text" width="3vw" height="3vw" :icon-color='cube.color1')
+                    //IconBase(v-for="cube in cubeObject" class="iconbases" :icon-name="cube.text" width="3vw" height="3vw" :icon-color='cube.color1')
                         component(:is="cube.letter")
+                    .click-image(v-if="light")
+                        img(alt='welcome' src='../assets/click_black.png' id='welcome')
+                    .click-image(v-else)
+                        img(alt='welcome' src='../assets/click_white.png' id='welcome2')
     .buttons
         //text for START, PROJECTS, SORT, VIDEOS buttons. clicking makes the link active and rotates cube accordingly. 2 class bindings, one assigns .active class if link clicked, the other assigns lightmode/darkmode appropriate class
         .nav.nav-text(href='#' @click='onClick("start"); rotateCube("showFront")'       :class='[activeLink == "start"? "active" : "", light? "lightclass" : "darkclass"]' )    START 
@@ -44,6 +54,8 @@ import IconBase from './IconBase.vue'
 import Cube from './Cube.vue'
 import { EventBus } from '../event-bus.js'
 import { mapState } from 'vuex'
+import VueSlider from 'vue-slider-component'
+import 'vue-slider-component/theme/default.css'
 
 export default {
     name: 'nav-bar',
@@ -57,8 +69,14 @@ export default {
             frontShower : true,
             play : true,
             volume: false,
-            count: 0
+            count: 0,
+            value: 0,
         }
+  },
+    mounted(){
+        EventBus.$on('menuChange', entry => {
+            this.activeLink = entry
+    })
   },
   computed: {
     ...mapState([
@@ -97,7 +115,6 @@ export default {
     },
     next(){
         this.count++
-        console.log(this.videoArray.length)
         if(this.count > this.videoArray.length-1)
             this.count = 0
         this.movieChange(this.videoArray[this.count], true)
@@ -107,10 +124,13 @@ export default {
         if(this.count < 0)
             this.count = this.videoArray.length-1
         this.movieChange(this.videoArray[this.count], true)
+    },
+    changeVolume(){
+        EventBus.$emit('volumeChange', this.value)
     }
   },
    components:{
-    Cube, IconBase
+    Cube, IconBase, VueSlider
   }
 }
 
@@ -155,6 +175,9 @@ export default {
 .nav-icons
     position: absolute
 
+.video-play-controls
+    position absolute 
+    padding-top 2vw
 
 .icon-wrapper
     display: inline-flex
@@ -214,13 +237,24 @@ export default {
 
 .video-controls
     background: white
-    padding: 5px 20px
+    padding: 3px 30px
     border-radius: 35px;
 
 .video-controls img 
     padding: 0 10px
+    height 2vw
 
 .welcome-image img
     padding-top: 1vw
     height: 5vw
+
+.click-image img 
+    padding-top: 1vw
+    height: 3vw
+
+#volume-slider
+    position absolute
+    left -8px
+    top -6px
+    height 26px
 </style>

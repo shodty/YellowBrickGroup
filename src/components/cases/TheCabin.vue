@@ -17,6 +17,14 @@
         img(class='case-image' slot='image7' alt='cabin7' src='../../assets/img/cases/cabin/7.png' id='cabin7')
         img(class='case-image-last' slot='image8' alt='cabin8' src='../../assets/img/cases/cabin/8.gif' id='cabin8')
 
+        img( alt='acr1' slot='z1' src='../../assets/img/cases/cabin/z/z1.png' id='z1' class='hide-on-ipad')
+        img( alt='acr1' slot='z1' src='../../assets/img/cases/cabin/z/z2.png' id='z2' class='hide-on-ipad')
+        img( alt='acr1' slot='z1' src='../../assets/img/cases/cabin/z/z2.png' id='z3' class='hide-on-ipad')
+        img( alt='acr1' slot='z1' src='../../assets/img/cases/cabin/z/z2.png' id='z4' class='hide-on-ipad')     
+        img( alt='acr1' slot='z1' src='../../assets/img/cases/cabin/z/z1.png' id='z5' class='hide-on-ipad')
+        img( alt='acr1' slot='z1' src='../../assets/img/cases/cabin/z/z1.png' id='z6' class='hide-on-ipad')
+        img( alt='acr1' slot='z1' src='../../assets/img/cases/cabin/z/z1.png' id='z7' class='hide-on-ipad')  
+
 </template>
 
 <script>
@@ -75,5 +83,68 @@ export default {
 .case-image-last
     width:100%
     padding-bottom: 0px
+
+#z1
+  position absolute
+  transform: rotate(-24deg);
+  top 54%
+  left 0
+  padding-left 29%
+  z-index 1000
+  height 25%
+
+#z2
+  position absolute
+  transform: rotate(-14deg);
+  top 199%
+  left 0
+  padding-left 25%
+  z-index 1000
+  height 25%
+
+#z3
+  position absolute
+  transform: rotate(14deg);
+  top 320%
+  left 0
+  padding-left 12%
+  z-index 1000
+  height 25%
+
+#z4
+  position absolute
+  transform: rotate(-19deg);
+  top 396%
+  left 0
+  padding-left 29%
+  z-index 1000
+  height 25%
+
+#z5
+  position absolute
+  transform: rotate(-28deg);
+  top 269%
+  left 0
+  padding-left 31%
+  z-index 1000
+  height 25%
+
+#z6
+  position absolute
+  transform: rotate(-41deg);
+  top 154%
+  left 0
+  padding-left 15%
+  z-index 1000
+  height 25%
+
+#z7
+  position absolute
+  transform: rotate(24deg);
+  top 452%
+  left 0
+  padding-left 8%
+  z-index 1000
+  height 25%
 
 </style>

@@ -135,5 +135,6 @@ export default {
   text-align center
   padding-bottom 24px
 
-
+.image-slider
+  cursor: url('../../assets/leftright.png'), auto 
 </style>
