@@ -10,16 +10,16 @@
                 p HOME
             .nav(@click="show = !show")
                 p WORK
-            .workcontainer(v-if='show')
-                .worklisting(@click="goToLink('os')") Our Street
-                .worklisting(@click="goToLink('acr')") All City Riders
-                .worklisting(@click="goToLink('jump')") Jump
-                .worklisting(@click="goToLink('mas')") Mas Taco
-                .worklisting(@click="goToLink('btm')") Bottomless
-                .worklisting(@click="goToLink('shang')") Shangri-La
-                .worklisting(@click="goToLink('cabin')") The Cabin
-                .worklisting(@click="goToLink('alt')") Art Life Tour
-                .worklisting(@click="goToLink('bm')") Bardis & Miry
+            ul(v-if='show' class="list")
+                li(@click="goToLink('os')") Our Street
+                li(@click="goToLink('acr')") All City Riders
+                li(@click="goToLink('jump')") Jump
+                li(@click="goToLink('mas')") Mas Taco
+                li(@click="goToLink('btm')") Bottomless
+                li(@click="goToLink('shang')") Shangri-La
+                li(@click="goToLink('cabin')") The Cabin
+                li(@click="goToLink('alt')") Art Life Tour
+                li(@click="goToLink('bm')") Bardis & Miry
             .nav(@click="goToLink('contact')")
                 p CONTACT
             b-row(class="copyright")
@@ -138,16 +138,24 @@ export default {
 .copyright
     margin-top: 10%
 
-.worklisting
+.list
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  transform-origin: top;
+  transition: transform .4s ease-in-out;
+  overflow: hidden;
+
+li
     margin 0 auto
     padding-bottom 10px
     font-size: 24px
     font-weight: 100
     cursor: url('../assets/hand.png'), auto
     color black
-    transition .5s
+    transition .25s
 
-.worklisting:hover
+li:hover
     color white
 
 </style>

@@ -10,17 +10,17 @@
     CaseRight(case='shang')
         hooper( :settings='hooperSettings' slot='image1' class='case-image' style="height: 100%" class='image-slider')
           slide
-            img(class='case-image' alt='os1' src='../../assets/img/cases/shang/slide/s5.jpg' id='shangri-la1')
+            img(class='case-image' alt='os1' src='../../assets/img/cases/shang/slide/s5.png' id='shangri-la1')
           slide
-            img(class='case-image' alt='os2' src='../../assets/img/cases/shang/slide/s6.jpg' id='shangri-la2')
+            img(class='case-image' alt='os2' src='../../assets/img/cases/shang/slide/s6.png' id='shangri-la2')
           slide
-            img(class='case-image' alt='os3' src='../../assets/img/cases/shang/slide/s1.jpg' id='shangri-la3')
+            img(class='case-image' alt='os3' src='../../assets/img/cases/shang/slide/s1.png' id='shangri-la3')
           slide
-            img(class='case-image' alt='os4' src='../../assets/img/cases/shang/slide/s2.jpg' id='shangri-la4')
+            img(class='case-image' alt='os4' src='../../assets/img/cases/shang/slide/s2.png' id='shangri-la4')
           slide
-            img(class='case-image' alt='os5' src='../../assets/img/cases/shang/slide/s3.jpg' id='shangri-la5')
+            img(class='case-image' alt='os5' src='../../assets/img/cases/shang/slide/s3.png' id='shangri-la5')
           slide
-            img(class='case-image' alt='os5' src='../../assets/img/cases/shang/slide/s4.jpg' id='shangri-la5')                                
+            img(class='case-image' alt='os5' src='../../assets/img/cases/shang/slide/s4.png' id='shangri-la5')                                
           hooper-navigation(slot="hooper-addons")       
         img(class='case-image' slot='image0' alt='shangrila1' src='../../assets/img/cases/shang/1.jpg' id='shangrila1')
         img(class='case-image' slot='image2' alt='shangrila2' src='../../assets/img/cases/shang/2.jpg' id='shangrila2')
