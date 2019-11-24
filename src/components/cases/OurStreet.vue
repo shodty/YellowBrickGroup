@@ -8,20 +8,40 @@
             |exceeded projected attendance,  drawing over 12,000 people to its inaugural event, and reaching upwards of 50,000 attendees by its second year.
 
     CaseRight(case='os')
-        img(class='case-image' slot='image1' alt='our-street1' src='../../assets/img/cases/ourstreet/1.jpg' id='our-street1')
-        video(class='case-image' slot='image2' alt='our-street1' src='../../assets/img/cases/ourstreet/2.mp4' id='our-street1' controls muted loop poster="../../assets/img/posters/os2.jpg")
-        img(class='case-image' slot='image3' alt='our-street1' src='../../assets/img/cases/ourstreet/3.jpg' id='our-street1')
-        img(class='case-image' slot='image4' alt='our-street1' src='../../assets/img/cases/ourstreet/4.jpg' id='our-street1')
-        img(class='case-image' slot='image5' alt='our-street1' src='../../assets/img/cases/ourstreet/5.jpg' id='our-street1')
-        video(class='case-image' slot='image6' alt='our-street1' src='../../assets/img/cases/ourstreet/5.5.mp4' id='our-street1' controls muted loop poster="../../assets/img/posters/os3.jpg")
-        img(class='case-image' slot='image7' alt='our-street1' src='../../assets/img/cases/ourstreet/6.jpg' id='our-street1')
-        img(class='case-image-last' slot='image8' alt='our-street1' src='../../assets/img/cases/ourstreet/7.jpg' id='our-street1')
+        hooper( :settings='hooperSettings' slot='image1' class='case-image' style="height: 100%")
+          slide
+            img(class='case-image' alt='os1' src='../../assets/img/cases/os/slide/s1.jpg' id='our-street1')
+          slide
+            img(class='case-image' alt='os2' src='../../assets/img/cases/os/slide/s2.jpg' id='our-street2')
+          slide
+            img(class='case-image' alt='os3' src='../../assets/img/cases/os/slide/s3.jpg' id='our-street2')
+          slide
+            img(class='case-image' alt='os4' src='../../assets/img/cases/os/slide/s4.jpg' id='our-street2')                        
+          hooper-navigation(slot="hooper-addons")            
+        img(class='case-image' slot='image0' alt='our-street1' src='../../assets/img/cases/os/1.jpg' id='our-street1')
+        video(class='case-image' slot='image2' alt='our-street1' src='../../assets/img/cases/os/2.mp4' id='our-street1' controls muted loop poster="../../assets/img/posters/os2.jpg")
+        img(class='case-image' slot='image3' alt='our-street1' src='../../assets/img/cases/os/3.jpg' id='our-street1')
+        img(class='case-image' slot='image4' alt='our-street1' src='../../assets/img/cases/os/4.jpg' id='our-street1')
+        img(class='case-image' slot='image5' alt='our-street1' src='../../assets/img/cases/os/5.jpg' id='our-street1')
+        video(class='case-image' slot='image6' alt='our-street1' src='../../assets/img/cases/os/5.5.mp4' id='our-street1' controls muted loop poster="../../assets/img/posters/os3.jpg")
+        img(class='case-image' slot='image7' alt='our-street1' src='../../assets/img/cases/os/6.jpg' id='our-street1')
+        img(class='case-image-last' slot='image8' alt='our-street1' src='../../assets/img/cases/os/7.jpg' id='our-street1')
+
+        img( alt='acr1' slot='z1' src='../../assets/img/cases/os/z/z1.png' id='z1' class='hide-on-ipad zbit')
+        img( alt='acr1' slot='z1' src='../../assets/img/cases/os/z/z2.png' id='z2' class='hide-on-ipad zbit')
+        img( alt='acr1' slot='z1' src='../../assets/img/cases/os/z/z3.png' id='z3' class='hide-on-ipad zbit')
+        img( alt='acr1' slot='z1' src='../../assets/img/cases/os/z/z4.png' id='z4' class='hide-on-ipad zbit')       
+        img( alt='acr1' slot='z1' src='../../assets/img/cases/os/z/z5.png' id='z5' class='hide-on-ipad zbit') 
+        img( alt='acr1' slot='z1' src='../../assets/img/cases/os/z/z6.png' id='z6' class='hide-on-ipad zbit')         
 </template>
 
 <script>
 
 import CaseLeft from './CaseLeft.vue'
 import CaseRight from './CaseRight.vue'
+import { Hooper, Slide, Navigation as HooperNavigation } from 'hooper'
+import 'hooper/dist/hooper.css'
+
 
 export default {
   name: 'our-street',
@@ -29,12 +49,21 @@ export default {
     return {
         patterns : { 
             ourstreet : [1,1,1,1,1,1,1,1,1]
-        }
+        },
+        hooperSettings: {
+          itemsToShow: 1,
+          centerMode: true,
+          infiniteScroll: true,
+          wheelControl: false
+      }
     }
   },
   components: {
     CaseLeft,
-    CaseRight
+    CaseRight,
+    Hooper,
+    Slide,
+    HooperNavigation    
   },
   methods: {
 
@@ -67,4 +96,44 @@ export default {
     width:100%
     padding-bottom: 0px
 
+#z1
+  position absolute
+  top 60%
+  left 0
+  padding-left 24%
+
+#z2
+  position absolute
+  top 160%
+  left 0
+  padding-left 30%
+
+#z3
+  position absolute
+  top 220%
+  left 0
+  padding-left 20%
+
+#z4
+  position absolute
+  top 306%
+  left 0
+  padding-left 34%
+
+#z5
+  position absolute
+  top 336%
+  left 0
+  padding-left 29%
+
+#z6
+  position absolute
+  top 396%
+  left 0
+  padding-left 22%
+
+.zbit
+  height 10%
+  z-index 1000
+    
 </style>

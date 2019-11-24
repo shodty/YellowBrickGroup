@@ -8,8 +8,20 @@
             |exceeded projected attendance,  drawing over 12,000 people to its inaugural event, and reaching upwards of 50,000 attendees by its second year.
 
     CaseRight(case='alt')
-        img(class='case-image' slot='image1' alt='art-life-tour1' src='../../assets/img/cases/alt/1.jpg' id='art-life-tour1')
-        video(class='case-image' slot='image2' alt='art-life-tour2' src='../../assets/img/cases/alt/2.mp4' id='art-life-tour2' controls muted loop poster="../../assets/img/posters/alt2.jpg")
+        hooper( :settings='hooperSettings' slot='image2' class='case-image' style="height: 100%" class='image-slider')
+          slide
+            img(class='case-image' alt='os1' src='../../assets/img/cases/alt/slide/s1.jpg' id='art-life-tour1')
+          slide
+            img(class='case-image' alt='os2' src='../../assets/img/cases/alt/slide/s2.jpg' id='art-life-tour2')
+          slide
+            img(class='case-image' alt='os3' src='../../assets/img/cases/alt/slide/s3.jpg' id='art-life-tour3')
+          slide
+            img(class='case-image' alt='os4' src='../../assets/img/cases/alt/slide/s4.jpg' id='art-life-tour4')
+          slide
+            img(class='case-image' alt='os5' src='../../assets/img/cases/alt/slide/s5.jpg' id='art-life-tour5')                               
+          hooper-navigation(slot="hooper-addons")         
+        img(class='case-image' slot='image0' alt='art-life-tour1' src='../../assets/img/cases/alt/1.jpg' id='art-life-tour1')
+        video(class='case-image' slot='image1' alt='art-life-tour2' src='../../assets/img/cases/alt/2.mp4' id='art-life-tour2' controls muted loop poster="../../assets/img/posters/alt2.jpg")
         img(class='case-image' slot='image3' alt='art-life-tour3' src='../../assets/img/cases/alt/3.jpg' id='art-life-tour3')
         img(class='case-image' slot='image4' alt='art-life-tour4' src='../../assets/img/cases/alt/4.jpg' id='art-life-tour4')
         //img(class='case-image' slot='image5' alt='art-life-tour5' src='../../assets/img/cases/alt/5.jpg' id='art-life-tour5')
@@ -21,6 +33,8 @@
 
 import CaseLeft from './CaseLeft.vue'
 import CaseRight from './CaseRight.vue'
+import { Hooper, Slide, Navigation as HooperNavigation } from 'hooper'
+import 'hooper/dist/hooper.css'
 
 export default {
   name: 'art-life-tour',
@@ -34,14 +48,23 @@ export default {
             bardismiry :  [1,0,0,1,0,0,1,0,1],
             cabin :       [1,0,0,1,0,1,1,1,0],
             jump :        [1,0,1,0,1,1,1,0,1],
-            artlife :     [1,0,1,1,0,1,1,0,1],
+            artlife :     [1,1,1,1,0,1,1,0,1],
             mastaco :     [0,0,1,1,0,1,1,1,0]
-        }
+        },
+        hooperSettings: {
+          itemsToShow: 1,
+          centerMode: true,
+          infiniteScroll: true,
+          wheelControl: false
+      }
     }
   },
     components: {
         CaseLeft,
-        CaseRight
+        CaseRight,
+        Hooper,
+        Slide,
+        HooperNavigation
     },
     methods: {
 

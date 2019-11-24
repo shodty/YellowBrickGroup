@@ -8,7 +8,17 @@
             |exceeded projected attendance,  drawing over 12,000 people to its inaugural event, and reaching upwards of 50,000 attendees by its second year.
 
     CaseRight(case='bm')
-        img(class='case-image' slot='image1' alt='bardis-miry1' src='../../assets/img/cases/bm/1.jpg' id='bardis-miry1')
+        img(class='case-image' slot='image0' alt='bardis-miry1' src='../../assets/img/cases/bm/1.jpg' id='bardis-miry1')
+        hooper( :settings='hooperSettings' slot='image1' class='case-image' style="height: 100%" class='image-slider')
+          slide
+            img(class='case-image' alt='bm' src='../../assets/img/cases/bm/slide/s1.png' id='bardis-miry1')
+          slide
+            img(class='case-image' alt='bm' src='../../assets/img/cases/bm/slide/s2.png' id='bardis-miry2')
+          slide
+            img(class='case-image' alt='bm' src='../../assets/img/cases/bm/slide/s3.png' id='bardis-miry3')
+          slide
+            img(class='case-image' alt='bm' src='../../assets/img/cases/bm/slide/s4.png' id='bardis-miry4')                        
+          hooper-navigation(slot="hooper-addons")            
         img(class='case-image' slot='image2' alt='bardis-miry2' src='../../assets/img/cases/bm/2.jpg' id='bardis-miry2')
         img(class='case-image' slot='image3' alt='bardis-miry3' src='../../assets/img/cases/bm/3.jpg' id='bardis-miry3')
         video(class='case-image' slot='image4' alt='bardis-miry4' src='../../assets/img/cases/bm/4.mp4' id='bardis-miry4' controls muted loop poster="../../assets/img/posters/bm1.jpg")
@@ -21,6 +31,8 @@
 
 import CaseLeft from './CaseLeft.vue'
 import CaseRight from './CaseRight.vue'
+import { Hooper, Slide, Navigation as HooperNavigation } from 'hooper'
+import 'hooper/dist/hooper.css'
 
 export default {
   name: 'bardis-miry',
@@ -36,12 +48,21 @@ export default {
             jump :        [1,0,1,0,1,1,1,0,1],
             artlife :     [1,0,1,1,0,1,1,0,1],
             mastaco :     [0,0,1,1,0,1,1,1,0]
-        }
+        },
+        hooperSettings: {
+          itemsToShow: 1,
+          centerMode: true,
+          infiniteScroll: true,
+          wheelControl: false
+      }
     }
   },
     components: {
         CaseLeft,
-        CaseRight
+        CaseRight,
+        Hooper,
+        Slide,
+        HooperNavigation
     },
     methods: {
 

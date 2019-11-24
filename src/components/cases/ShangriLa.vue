@@ -8,7 +8,21 @@
             |exceeded projected attendance,  drawing over 12,000 people to its inaugural event, and reaching upwards of 50,000 attendees by its second year.
 
     CaseRight(case='shang')
-        img(class='case-image' slot='image1' alt='shangrila1' src='../../assets/img/cases/shang/1.jpg' id='shangrila1')
+        hooper( :settings='hooperSettings' slot='image1' class='case-image' style="height: 100%" class='image-slider')
+          slide
+            img(class='case-image' alt='os1' src='../../assets/img/cases/shang/slide/s5.png' id='shangri-la1')
+          slide
+            img(class='case-image' alt='os2' src='../../assets/img/cases/shang/slide/s6.png' id='shangri-la2')
+          slide
+            img(class='case-image' alt='os3' src='../../assets/img/cases/shang/slide/s1.png' id='shangri-la3')
+          slide
+            img(class='case-image' alt='os4' src='../../assets/img/cases/shang/slide/s2.png' id='shangri-la4')
+          slide
+            img(class='case-image' alt='os5' src='../../assets/img/cases/shang/slide/s3.png' id='shangri-la5')
+          slide
+            img(class='case-image' alt='os5' src='../../assets/img/cases/shang/slide/s4.png' id='shangri-la5')                                
+          hooper-navigation(slot="hooper-addons")       
+        img(class='case-image' slot='image0' alt='shangrila1' src='../../assets/img/cases/shang/1.jpg' id='shangrila1')
         img(class='case-image' slot='image2' alt='shangrila2' src='../../assets/img/cases/shang/2.jpg' id='shangrila2')
         img(class='case-image' slot='image3' alt='shangrila3' src='../../assets/img/cases/shang/3.jpg' id='shangrila3')
         img(class='case-image' slot='image4' alt='shangrila4' src='../../assets/img/cases/shang/4.jpg' id='shangrila4')
@@ -21,6 +35,8 @@
 
 import CaseLeft from './CaseLeft.vue'
 import CaseRight from './CaseRight.vue'
+import { Hooper, Slide, Navigation as HooperNavigation } from 'hooper'
+import 'hooper/dist/hooper.css'
 
 export default {
   name: 'shangrila',
@@ -36,12 +52,21 @@ export default {
             jump :        [1,0,1,0,1,1,1,0,1],
             artlife :     [1,0,1,1,0,1,1,0,1],
             mastaco :     [0,0,1,1,0,1,1,1,0]
-        }
+        },
+        hooperSettings: {
+          itemsToShow: 1,
+          centerMode: true,
+          infiniteScroll: true,
+          wheelControl: false
+      }
     }
   },
     components: {
         CaseLeft,
-        CaseRight
+        CaseRight,
+        Hooper,
+        Slide,
+        HooperNavigation   
     },
     methods: {
 

@@ -14,7 +14,7 @@
                 component(:is="letter")
         .cube__face.cube__face--top(:style="[cubeFace == 'showTop' || light? {'background' : 'black'} : bgColor[0]]")
             .project-name
-                p {{ project }}
+                p(@click="goToCaseStudy") {{ project }}
             .icon-container(v-for="(icon, index) in iconObject" @click="colorChanger(icon.name, icon.clicked)")
                 IconBase(v-if="pattern.includes(index)" class="iconbases" :icon-name="icon.name" width="2.5vw" height="2.5vw"  :icon-color='icon.clicked? icon.color : baseColor')
                     component(:is="icon.name")
@@ -208,4 +208,10 @@ body
     padding-top: 2vw
     margin: 0 auto
 
+p
+    transition .5s
+
+p:hover
+    color: #e43d30
+    cursor: url('../assets/hand.png'), auto
 </style>

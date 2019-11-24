@@ -17,8 +17,8 @@
       //references cubeObject in store to bind all props that define each cube made using Cube.vue
       .test-wrapper
         b-row(align-h="center")
-          b-col(v-for="cube in cubeObject" cols=6 md=4  @mouseenter='bgcChange(cube.color2)' @mouseleave='bgcChange("white")' class='nopadding')  
-            Cube(class="cubeClass" :project='cube.text' :letter='cube.letter' :color1='cubeHovered? faceColor : cube.color1' color2='cube.color2' :image='cube.image' :pattern='cube.pattern' :bgColor='[ light? { "background" : bgc} : {"background" : "black"} ]')
+          b-col(v-for="cube in cubeObject" cols=6 md=4  @mouseenter='bgcChange(cube.color2)' @mouseleave='bgcChange("white")' class='nopadding' v-if="cube.show")  
+            Cube( class="cubeClass" :project='cube.text' :letter='cube.letter' :color1='cubeHovered? faceColor : cube.color1' color2='cube.color2' :image='cube.image' :pattern='cube.pattern' :bgColor='[ light? { "background" : bgc} : {"background" : "black"} ]')
   Footer(class="footerclass")
 </template>
 
@@ -69,13 +69,20 @@ export default {
         }),
         EventBus.$on('playVid', play => {
           if(play){
-            this.videoElement.play();
+            this.videoElement.play()
           }
         }),
         EventBus.$on('pause', play => {
           if(play){
-            this.videoElement.pause();
+            this.videoElement.pause()
           }
+        }),
+        EventBus.$on('volumeChange', vol => {
+            if(vol > 0){
+              this.videoElement.muted = false
+              this.videoElement.volume = vol/100
+            }
+            else this.videoElement.muted = true
         })
   },
   components: {
@@ -230,13 +237,13 @@ body
 }
 
 .show-on-ipad {
-  @media(min-width: 1025px) { 
+  @media(min-width: 1140px) { 
     display: none !important;
   }
 }
 
 .hide-on-ipad {
-  @media(max-width: 1024px) { 
+  @media(max-width: 1139px) { 
     display: none !important;
   }
 }
