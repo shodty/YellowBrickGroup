@@ -16,7 +16,7 @@
             .project-name
                 p {{ project }}
             .icon-container(v-for="(icon, index) in iconObject" @click="colorChanger(icon.name, icon.clicked)")
-                IconBase(v-if="pattern.includes(index)" class="iconbases" :icon-name="icon.name" width="3vw" height="3vw"  :icon-color='icon.clicked? icon.color : baseColor')
+                IconBase(v-if="pattern.includes(index)" class="iconbases" :icon-name="icon.name" width="2.5vw" height="2.5vw"  :icon-color='icon.clicked? icon.color : baseColor')
                     component(:is="icon.name")
         .cube__face.cube__face--bottom
 
