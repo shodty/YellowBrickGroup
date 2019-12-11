@@ -2,18 +2,19 @@
 #jump-main
     CaseLeft(caseTitle='Jump' year='2019' :pattern='patterns.jump' case='jump')
         p(slot="description") 
-            |Drawing inspiration from traditional night markets in Asia, Our Street Night Market is an award-winning, 
-            |one-of-a-kind event conceptualized, branded, curated, and run entirely by YBG. Our Street is a gathering place for all 
-            |Sacramentans to enjoy amazing food prepared by chefs from our booming food scene. From its inception, Our Street has greatly 
-            |exceeded projected attendance,  drawing over 12,000 people to its inaugural event, and reaching upwards of 50,000 attendees by its second year.
+            |Our work with JUMP bikes has given us the opportunity to conceptualize, organize and execute content and events in multiple cities. 
+            |The content we've captured in each city is pursued with a specialized message and goals, and each shoot 
+            |brings it's own unique puzzles to solve in order to achieve those goals. From partnering with local cycling studios, to putting on group 
+            |rides through Sacramanto, San Francisco, and Sanata Cruz, to shooting “Do not throw your bike in the ocean” 
+            |videos, JUMP Bikes has been a constant adventure.
 
     CaseRight(case='jump')
         img(class='case-image' slot='image1' alt='jump1' src='../../assets/img/cases/jump/1.jpg' id='jump1')
-        video(class='case-image' slot='image2' alt='jump2' src='../../assets/img/cases/jump/2.mp4' id='jump2' poster="../../assets/img/posters/jump1.jpg")
-        video(class='case-image' slot='image3' alt='jump3' src='../../assets/img/cases/jump/3.mp4' id='jump3' poster="../../assets/img/posters/jump4.jpg")
-        video(class='case-image' slot='image4' alt='jump4' src='../../assets/img/cases/jump/4.mp4' id='jump4' poster="../../assets/img/posters/jump2.jpg")
+        video(class='case-image' slot='image2' alt='jump2' src='../../assets/img/cases/jump/2.mp4' id='jump2' controls muted loop poster="../../assets/img/posters/jump1.jpg")
+        video(class='case-image' slot='image3' alt='jump3' src='../../assets/img/cases/jump/3.mp4' id='jump3' controls muted loop poster="../../assets/img/posters/jump4.jpg")
+        video(class='case-image' slot='image4' alt='jump4' src='../../assets/img/cases/jump/4.mp4' id='jump4' controls muted loop poster="../../assets/img/posters/jump2.jpg")
         img(class='case-image' slot='image5' alt='jump5' src='../../assets/img/cases/jump/5.jpg' id='jump5')
-        video(class='case-image' slot='image6' alt='jump6' src='../../assets/img/cases/jump/6.mp4' id='jump6' poster="../../assets/img/posters/jump3.jpg")
+        video(class='case-image' slot='image6' alt='jump6' src='../../assets/img/cases/jump/6.mp4' id='jump6' controls muted loop poster="../../assets/img/posters/jump3.jpg")
         img(class='case-image-last' slot='image7' alt='jump7' src='../../assets/img/cases/jump/7.jpg' id='jump7')
 </template>
 

@@ -5,7 +5,8 @@
             |Drawing inspiration from traditional night markets in Asia, Our Street Night Market is an award-winning, 
             |one-of-a-kind event conceptualized, branded, curated, and run entirely by YBG. Our Street is a gathering place for all 
             |Sacramentans to enjoy amazing food prepared by chefs from our booming food scene. From its inception, Our Street has greatly 
-            |exceeded projected attendance,  drawing over 12,000 people to its inaugural event, and reaching upwards of 50,000 attendees by its second year.
+            |exceeded projected attendance, drawing over 12,000 people to its inaugural event, and reaching upwards of 50,000 attendees by its second year.
+            |And we're just getting started.
 
     CaseRight(case='btm')
         img(class='case-image' slot='image1' alt='bottomless1' src='../../assets/img/cases/btm/1.jpg' id='bottomless1')

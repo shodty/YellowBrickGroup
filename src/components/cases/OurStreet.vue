@@ -21,7 +21,7 @@
         img(class='case-image' slot='image0' alt='our-street1' src='../../assets/img/cases/os/1.jpg' id='our-street1')
         video(class='case-image' slot='image2' alt='our-street1' src='../../assets/img/cases/os/2.mp4' id='our-street1' controls muted loop poster="../../assets/img/posters/os2.jpg")
         img(class='case-image' slot='image3' alt='our-street1' src='../../assets/img/cases/os/3.jpg' id='our-street1')
-        img(class='case-image' slot='image4' alt='our-street1' src='../../assets/img/cases/os/4.jpg' id='our-street1')
+        img(class='case-image' slot='image4' alt='our-street1' src='../../assets/img/cases/os/4a.jpg' id='our-street1')
         img(class='case-image' slot='image5' alt='our-street1' src='../../assets/img/cases/os/5.jpg' id='our-street1')
         video(class='case-image' slot='image6' alt='our-street1' src='../../assets/img/cases/os/5.5.mp4' id='our-street1' controls muted loop poster="../../assets/img/posters/os3.jpg")
         img(class='case-image' slot='image7' alt='our-street1' src='../../assets/img/cases/os/6.jpg' id='our-street1')

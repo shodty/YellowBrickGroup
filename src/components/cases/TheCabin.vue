@@ -2,10 +2,11 @@
 #cabin-main
     CaseLeft(caseTitle='The Cabin' year='2018' :pattern='patterns.cabin' case='cabin')
         p(slot="description") 
-            |Drawing inspiration from traditional night markets in Asia, Our Street Night Market is an award-winning, 
-            |one-of-a-kind event conceptualized, branded, curated, and run entirely by YBG. Our Street is a gathering place for all 
-            |Sacramentans to enjoy amazing food prepared by chefs from our booming food scene. From its inception, Our Street has greatly 
-            |exceeded projected attendance,  drawing over 12,000 people to its inaugural event, and reaching upwards of 50,000 attendees by its second year.
+            |When we were approached about this project we immediately fell in love with the idea. 
+            |A bar themed heavily like a rustic cabin you might find nestled up the hill in Tahoe. We worked to 
+            |develop the full brand identity for The Cabin and worked closely with the interior architecture wizards at MTA to make sure our vision 
+            |of the brand matched the aesthetic of the amazing interior. We extended this identity through a unique die-cut menu, 
+            |fun take away items, and even a wood sign that stills hangs in the bar. 
 
     CaseRight(case='cabin')
         img(class='case-image' slot='image1' alt='cabin1' src='../../assets/img/cases/cabin/1.png' id='cabin1')

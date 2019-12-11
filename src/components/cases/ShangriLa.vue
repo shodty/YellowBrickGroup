@@ -2,10 +2,11 @@
 #shangrila-main
     CaseLeft(caseTitle='Shangri-La' year='2018 2019' :pattern='patterns.shangrila' case='shang')
         p(slot="description") 
-            |Drawing inspiration from traditional night markets in Asia, Our Street Night Market is an award-winning, 
-            |one-of-a-kind event conceptualized, branded, curated, and run entirely by YBG. Our Street is a gathering place for all 
-            |Sacramentans to enjoy amazing food prepared by chefs from our booming food scene. From its inception, Our Street has greatly 
-            |exceeded projected attendance,  drawing over 12,000 people to its inaugural event, and reaching upwards of 50,000 attendees by its second year.
+            |Shangri-La was as mystical of a project as the name suggests. They wanted to created a fun and beautiful bar with a large patio that you might find downtown, 
+            |but in old Fair Oaks. From the moment we first met with them about the project we knew it was for us. Taking vibes from vintage Palm Springs and the mid-century modern 
+            |aesthetic that inspires the concept and interior architecture, we created a playful mark that has 
+            |elegance, but doesn’t take itself too seriously. It was so rewarding to see the the branding translated over this beautiful space once it was complete. 
+            |One of our highly recommended places to check out when visiting Sacramento, or are just a local who hasn’t yet made the journey to find Shangri-la.
 
     CaseRight(case='shang')
         hooper( :settings='hooperSettings' slot='image1' class='case-image' style="height: 100%" class='image-slider')
