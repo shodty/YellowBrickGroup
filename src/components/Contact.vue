@@ -5,7 +5,7 @@
   DarkLight
   .text(:class='light? "black" : "white" ')
     h1 (LET’S&nbspWORK TOGETHER!)
-    h2 +1&nbsp916&nbsp123&nbsp4567 
+    //h2 +1&nbsp916&nbsp123&nbsp4567 
     br
     h2 INFO&nbsp
     h3 (AT) 

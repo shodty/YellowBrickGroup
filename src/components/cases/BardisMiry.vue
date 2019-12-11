@@ -2,13 +2,16 @@
 #bardis-miry-main
     CaseLeft(caseTitle='Bardis & Miry' year='2019' :pattern='patterns.bardismiry'  case='bm')
         p(slot="description") 
-            |Drawing inspiration from traditional night markets in Asia, Our Street Night Market is an award-winning, 
-            |one-of-a-kind event conceptualized, branded, curated, and run entirely by YBG. Our Street is a gathering place for all 
-            |Sacramentans to enjoy amazing food prepared by chefs from our booming food scene. From its inception, Our Street has greatly 
-            |exceeded projected attendance,  drawing over 12,000 people to its inaugural event, and reaching upwards of 50,000 attendees by its second year.
+          |As individuals, Bay Miry and Katherine Bardis-Miry are leaders in the Sacramento space. In addition to being partners 
+          |in life, they are now embarking on a new venture as partners in business. We were honored when they approached us to bring 
+          |their vision for their new company to life. Throughout the Bardis & Miry Development identity we sought to accentuate the 
+          |duality inherent in the personality, expertise, and style of the firm. Simple, geometric shapes are paired with spontaneous, 
+          |hand-drawn elements; bold, structural graphic elements contrast with light, elegant line-work; photography of buildings, structures 
+          |and abstract architectural textures are presented alongside photography of people and humanistic elements. This duality infused throughout 
+          |the identity speaks to the strength and symbiosis of Bardis & Miry coming together to create truly unique development projects.
 
     CaseRight(case='bm')
-        img(class='case-image' slot='image0' alt='bardis-miry1' src='../../assets/img/cases/bm/1.jpg' id='bardis-miry1')
+        img(class='case-image' slot='image0' alt='bardis-miry1' src='../../assets/img/cases/bm/1a.jpg' id='bardis-miry1')
         hooper( :settings='hooperSettings' slot='image1' class='case-image' style="height: 100%" class='image-slider')
           slide
             img(class='case-image' alt='bm' src='../../assets/img/cases/bm/slide/s1.png' id='bardis-miry1')

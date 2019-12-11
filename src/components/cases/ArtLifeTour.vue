@@ -2,10 +2,12 @@
 #alt-main
     CaseLeft(caseTitle='Art Life Tour' year='2018' :pattern='patterns.artlife'  case='alt')
         p(slot="description") 
-            |Drawing inspiration from traditional night markets in Asia, Our Street Night Market is an award-winning, 
-            |one-of-a-kind event conceptualized, branded, curated, and run entirely by YBG. Our Street is a gathering place for all 
-            |Sacramentans to enjoy amazing food prepared by chefs from our booming food scene. From its inception, Our Street has greatly 
-            |exceeded projected attendance,  drawing over 12,000 people to its inaugural event, and reaching upwards of 50,000 attendees by its second year.
+            |Renowned Sacramento artist David Garibaldi enlisted our help in creating the identity and promotional materials for his 2019 national 
+            |touring act, Art Life Tour. David's usage of large screens and frenetic visual effects paired with his signature live painting style informed the creation 
+            |of the ALT logo and digital campaign materials. Colorful. Energetic. Engaging. Fun. We launched a national promotional campaign that advertised each show of his tour through printed materials and social media stories & posts. 
+            |We conceptualized and produced a line of merchandise adapting David's prismatic works into 3-color screenprints 
+            |which quickly sold out. Our media production team then shot and edited video content of his act
+            |to capture David's raw passion and incredible talent.
 
     CaseRight(case='alt')
         hooper( :settings='hooperSettings' slot='image2' class='case-image' style="height: 100%" class='image-slider')

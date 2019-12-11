@@ -15,3 +15,5 @@ npm install vue-router
 npm install bootstrap-vue
 
 npm install vuex
+
+npm install hooper

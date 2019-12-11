@@ -2,10 +2,11 @@
 #mastaco-main
     CaseLeft(caseTitle='Mas Taco' year='2018 2019' :pattern='patterns.mastaco' case='mas')
         p(slot="description") 
-            |Drawing inspiration from traditional night markets in Asia, Our Street Night Market is an award-winning, 
-            |one-of-a-kind event conceptualized, branded, curated, and run entirely by YBG. Our Street is a gathering place for all 
-            |Sacramentans to enjoy amazing food prepared by chefs from our booming food scene. From its inception, Our Street has greatly 
-            |exceeded projected attendance,  drawing over 12,000 people to its inaugural event, and reaching upwards of 50,000 attendees by its second year.
+            |Our partnership with Mas Taco began at an exciting time in their trajectory. They were getting ready to open the first location, 
+            |had a logo, but needed a brand story to back it up. From there we hit the ground running with our #MasFamilia and haven’t looked back. 
+            |In addition to running their social accounts and creating all their content, we get to help create unique dining experiences like their 
+            |“Late Night Taco Stand” and Cinco de Mayo festivities. With a fun, vibrant restaurant we get to flex our animation skills throughout 
+            |our promotion, and their menu provides an endless amount of delicious items to photograph. Plus, as an added bonus we get to know the secret tacos months before everyone else.
 
     CaseRight(case='mas')
         video(class='case-image' slot='image1' alt='mastaco1' src='../../assets/img/cases/mas/1.mp4' id='mastaco1' controls muted loop poster="../../assets/img/posters/mas1.jpg")

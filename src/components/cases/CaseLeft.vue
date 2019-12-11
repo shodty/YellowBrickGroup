@@ -178,7 +178,7 @@ p
     -moz-osx-font-smoothing: grayscale
     font-size: 14px
     font-weight: 600
-    line-height: 1.4
+    line-height: 1.5
 
 p {
     @media(min-width: 1140px) { 
