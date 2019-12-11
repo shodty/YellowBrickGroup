@@ -11,7 +11,7 @@
           |the identity speaks to the strength and symbiosis of Bardis & Miry coming together to create truly unique development projects.
 
     CaseRight(case='bm')
-        img(class='case-image' slot='image0' alt='bardis-miry1' src='../../assets/img/cases/bm/1.jpg' id='bardis-miry1')
+        img(class='case-image' slot='image0' alt='bardis-miry1' src='../../assets/img/cases/bm/1a.jpg' id='bardis-miry1')
         hooper( :settings='hooperSettings' slot='image1' class='case-image' style="height: 100%" class='image-slider')
           slide
             img(class='case-image' alt='bm' src='../../assets/img/cases/bm/slide/s1.png' id='bardis-miry1')

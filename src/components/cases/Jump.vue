@@ -3,9 +3,9 @@
     CaseLeft(caseTitle='Jump' year='2019' :pattern='patterns.jump' case='jump')
         p(slot="description") 
             |Our work with JUMP bikes has given us the opportunity to conceptualize, organize and execute content and events in multiple cities. 
-            |The content we've captured in each city is pursued with a specialized message and goals, and each shoot 
-            |brings it's own unique puzzles to solve in order to achieve those goals. From partnering with local cycling studios, to putting on group 
-            |rides through Sacramanto, San Francisco, and Sanata Cruz, to shooting “Do not throw your bike in the ocean” 
+            |The content we've captured in each city is pursued with a specialized message and unique goals, and each shoot 
+            |presents it's own puzzle to solve in order to achieve those goals. From partnering with local cycling studios, to putting on group 
+            |rides through Sacramanto, San Francisco, and Santa Cruz, to shooting “Do not throw your bike in the ocean” 
             |videos, JUMP Bikes has been a constant adventure.
 
     CaseRight(case='jump')
