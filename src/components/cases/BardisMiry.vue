@@ -2,9 +2,8 @@
 #bardis-miry-main
     CaseLeft(caseTitle='Bardis & Miry' year='2019' :pattern='patterns.bardismiry'  case='bm')
         p(slot="description") 
-          |As individuals, Bay Miry and Katherine Bardis-Miry are leaders in the Sacramento space. In addition to being partners 
-          |in life, they are now embarking on a new venture as partners in business. We were honored when they approached us to bring 
-          |their vision for their new company to life. Throughout the Bardis & Miry Development identity we sought to accentuate the 
+          |As individuals, Bay Miry and Katherine Bardis-Miry are leaders in the Sacramento development space. When they chose to launch a new development firm as partners, we were honored that they approached us to bring 
+          |their vision to life. Throughout the Bardis & Miry Development identity we sought to accentuate the 
           |duality inherent in the personality, expertise, and style of the firm. Simple, geometric shapes are paired with spontaneous, 
           |hand-drawn elements; bold, structural graphic elements contrast with light, elegant line-work; photography of buildings, structures 
           |and abstract architectural textures are presented alongside photography of people and humanistic elements. This duality infused throughout 

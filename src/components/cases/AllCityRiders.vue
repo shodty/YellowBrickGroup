@@ -41,7 +41,6 @@ import CaseLeft from './CaseLeft.vue'
 import CaseRight from './CaseRight.vue'
 import { Hooper, Slide, Navigation as HooperNavigation } from 'hooper'
 import 'hooper/dist/hooper.css'
-import Parallax from "vue-parallaxy"
 
 export default {
   name: 'all-city-riders',
@@ -63,8 +62,7 @@ export default {
     CaseRight,
     Hooper,
     Slide,
-    HooperNavigation,
-    Parallax
+    HooperNavigation
   },
   methods: {
 

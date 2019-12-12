@@ -77,7 +77,6 @@ export default {
   methods: {
     goToLink(forward){
         var index = this.cases.indexOf(this.case)
-        console.log(index)
         if(forward)
             if(this.cases.length-1 > index)
                 this.$router.push(this.cases[index+1])
@@ -176,8 +175,9 @@ p
     font-family: 'Open Sans', Helvetica, Arial, sans-serif
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale
-    font-size: 14px
+    font-size: 12px
     font-weight: 600
+    padding-top: 3vw
     line-height: 1.5
 
 p {

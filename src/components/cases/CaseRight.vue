@@ -53,7 +53,6 @@ export default {
   methods: {
       goToLink(forward){
         var index = this.cases.indexOf(this.case)
-        console.log(index)
         if(forward)
             if(this.cases.length-1 > index)
                 this.$router.push(this.cases[index+1])
