@@ -6,7 +6,7 @@
             |had a logo, but needed a brand story to back it up. From there we hit the ground running with our #MasFamilia and haven’t looked back. 
             |In addition to running their social accounts and creating all their content, we get to help create unique dining experiences like their 
             |“Late Night Taco Stand” and Cinco de Mayo festivities. With a fun, vibrant restaurant we get to flex our animation skills throughout 
-            |our promotion, and their menu provides an endless amount of delicious items to photograph. Plus, as an added bonus we get to know the secret tacos months before everyone else.
+            |our promotion, and their menu provides an endless amount of delicious items to photograph.
 
     CaseRight(case='mas')
         video(class='case-image' slot='image1' alt='mastaco1' src='../../assets/img/cases/mas/1.mp4' id='mastaco1' controls muted loop poster="../../assets/img/posters/mas1.jpg")

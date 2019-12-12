@@ -2,8 +2,8 @@
 #bottomless-main
     CaseLeft(caseTitle='Bottomless' year='2019' :pattern='patterns.bottomless'  case='btm')
         p(slot="description") 
-            |Bottomless is an event that we conceived and executed in conjunction with The Mill on Broadway. The Mill approached our team to begin curating event 
-            |concepts to activate their development space. The idea was to create an event that was different from the status quo, and to attract 
+            |Bottomless is an event we conceived and executed in conjunction with The Mill on Broadway. The Mill approached our team to begin curating event 
+            |concepts that were different from the status quo, in an effort to activate the space and attract 
             |a specific younger audience that may be interested in the lifestyle that The Mill on Broadway intends to heighten. From that, we created Bottomless; 
             |Sacramento's Biggest Brunch Party. After branding the event, we launched a robust print and digital campaign that quickly sold the event out
             |and introduced the larger Sacramento community to The Mill's beautiful housing development.

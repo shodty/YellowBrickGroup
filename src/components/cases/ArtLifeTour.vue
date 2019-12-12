@@ -3,10 +3,10 @@
     CaseLeft(caseTitle='Art Life Tour' year='2018' :pattern='patterns.artlife'  case='alt')
         p(slot="description") 
             |Renowned Sacramento artist David Garibaldi enlisted our help in creating the identity and promotional materials for his 2019 national 
-            |touring act, Art Life Tour. David's usage of large screens and frenetic visual effects paired with his signature live painting style informed the creation 
-            |of the ALT logo and digital campaign materials. Colorful. Energetic. Engaging. Fun. We launched a national promotional campaign that advertised each show of his tour through printed materials and social media stories & posts. 
-            |We conceptualized and produced a line of merchandise adapting David's prismatic works into 3-color screenprints 
-            |which quickly sold out. Our media production team then shot and edited video content of his act
+            |touring act, Art Life Tour. David's usage of large screens and visual effects paired with his signature live painting style informed the creation 
+            |of the ALT logo and digital campaign materials. Colorful. Energetic. Engaging. Fun. We launched a national print and digital campaigns and
+            |produced a line of merchandise adapting David's prismatic works into 3-color screenprints. 
+            |Our media production team then shot and edited video content of his act
             |to capture David's raw passion and incredible talent.
 
     CaseRight(case='alt')

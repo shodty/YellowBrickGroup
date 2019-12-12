@@ -4,9 +4,7 @@
         p(slot="description") 
           |As individuals, Bay Miry and Katherine Bardis-Miry are leaders in the Sacramento development space. When they chose to launch a new development firm as partners, we were honored that they approached us to bring 
           |their vision to life. Throughout the Bardis & Miry Development identity we sought to accentuate the 
-          |duality inherent in the personality, expertise, and style of the firm. Simple, geometric shapes are paired with spontaneous, 
-          |hand-drawn elements; bold, structural graphic elements contrast with light, elegant line-work; photography of buildings, structures 
-          |and abstract architectural textures are presented alongside photography of people and humanistic elements. This duality infused throughout 
+          |duality inherent in the personality, expertise, and style of the firm. This duality infused throughout 
           |the identity speaks to the strength and symbiosis of Bardis & Miry coming together to create truly unique development projects.
 
     CaseRight(case='bm')

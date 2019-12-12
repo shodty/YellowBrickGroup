@@ -4,9 +4,8 @@
         p(slot="description") 
             |Shangri-La was as mystical of a project as the name suggests. They wanted to created a fun and beautiful bar with a large patio that you might find downtown, 
             |but in old Fair Oaks. From the moment we first met with them about the project we knew it was for us. Taking vibes from vintage Palm Springs and the mid-century modern 
-            |aesthetic that inspires the concept and interior architecture, we created a playful mark that has 
-            |elegance, but doesn’t take itself too seriously. It was so rewarding to see the the branding translated over this beautiful space once it was complete. 
-            |One of our highly recommended places to check out when visiting Sacramento, or are just a local who hasn’t yet made the journey to find Shangri-la.
+            |aesthetic that inspired the concept, we created a playful mark that has 
+            |elegance, but doesn’t take itself too seriously. It has been so rewarding to see the the branding translated over this beautiful space. 
 
     CaseRight(case='shang')
         hooper( :settings='hooperSettings' slot='image1' class='case-image' style="height: 100%" class='image-slider')

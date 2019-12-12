@@ -175,7 +175,7 @@ p
     font-family: 'Open Sans', Helvetica, Arial, sans-serif
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale
-    font-size: 12px
+    font-size: 13px
     font-weight: 600
     padding-top: 3vw
     line-height: 1.5

@@ -7,9 +7,17 @@
     h1 (LET’S&nbspWORK TOGETHER!)
     //h2 +1&nbsp916&nbsp123&nbsp4567 
     br
-    h2 INFO&nbsp
-    h3 (AT) 
-    h2 YBGROUP.US
+    h2 
+      a(href="mailto:info@ybgroup.us" :class='light? "black" : "white" ') INFO&nbsp
+    h3 
+      a(href="mailto:info@ybgroup.us" :class='light? "black" : "white" ') (AT) 
+    h2 
+      a(href="mailto:info@ybgroup.us" :class='light? "black" : "white" ') YBGROUP.US
+    br
+    br
+    h4 
+      a(href="https://www.instagram.com/yellowbrickgroup/" :class='light? "black" : "white" ') @yellowbrickgroup
+
 </template>
 
 <script>
@@ -40,7 +48,7 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="stylus"> 
 
 *
   margin: 0px
@@ -102,4 +110,19 @@ h3
   @media(max-width: 767px){
     font-size: 6em
   }
+
+h4
+  font-family: 'cardinal_grotesque_condenseBd', sans-serif
+  letter-spacing: 1px
+  font-size: 8em
+  line-height : .9 
+  display: inline;
+  @media(max-width: 767px){
+    font-size: 3em
+  }
+
+h4 a:hover
+  text-decoration none
+
+
 </style>

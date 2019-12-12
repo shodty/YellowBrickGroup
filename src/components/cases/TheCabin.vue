@@ -5,8 +5,7 @@
             |When we were approached about this project we immediately fell in love with the idea. 
             |A bar themed heavily like a rustic cabin you might find nestled up the hill in Tahoe. We worked to 
             |develop the full brand identity for The Cabin and worked closely with the interior architecture wizards at MTA to make sure our vision 
-            |of the brand matched the aesthetic of the amazing interior. We extended this identity through a unique die-cut menu, 
-            |fun take away items, and even a wood sign that stills hangs in the bar. 
+            |of the brand matched the aesthetic of the amazing interior.
 
     CaseRight(case='cabin')
         img(class='case-image' slot='image1' alt='cabin1' src='../../assets/img/cases/cabin/1.png' id='cabin1')
