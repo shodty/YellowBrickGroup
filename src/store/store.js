@@ -151,6 +151,7 @@ export const store = new Vuex.Store({
         },
         cubeFace : 'showFront',
         videoArray : [
+          'cases/ybg/ybg_launch',
           'cases/ourstreet/8',
           'cases/ourstreet/2',
           'cases/ourstreet/5.5',

@@ -8,13 +8,13 @@
             |of the brand matched the aesthetic of the amazing interior.
 
     CaseRight(case='cabin')
-        img(class='case-image' slot='image1' alt='cabin1' src='../../assets/img/cases/cabin/1.png' id='cabin1')
+        img(class='case-image' slot='image1' alt='cabin1' src='../../assets/img/cases/cabin/1.jpg' id='cabin1')
         img(class='case-image' slot='image2' alt='cabin2' src='../../assets/img/cases/cabin/2.jpg' id='cabin2')
         img(class='case-image' slot='image3' alt='cabin3' src='../../assets/img/cases/cabin/3.jpg' id='cabin3')
-        img(class='case-image' slot='image4' alt='cabin4' src='../../assets/img/cases/cabin/4.png' id='cabin4')
+        img(class='case-image' slot='image4' alt='cabin4' src='../../assets/img/cases/cabin/4.jpg' id='cabin4')
         img(class='case-image' slot='image5' alt='cabin5' src='../../assets/img/cases/cabin/5.jpg' id='cabin5')
         img(class='case-image' slot='image6' alt='cabin6' src='../../assets/img/cases/cabin/6.jpg' id='cabin6')
-        img(class='case-image' slot='image7' alt='cabin7' src='../../assets/img/cases/cabin/7.png' id='cabin7')
+        img(class='case-image' slot='image7' alt='cabin7' src='../../assets/img/cases/cabin/7.jpg' id='cabin7')
         img(class='case-image-last' slot='image8' alt='cabin8' src='../../assets/img/cases/cabin/8.gif' id='cabin8')
 
         img( alt='acr1' slot='z1' src='../../assets/img/cases/cabin/z/z1.png' id='z1' class='hide-on-ipad')
