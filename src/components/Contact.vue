@@ -8,11 +8,11 @@
     //h2 +1&nbsp916&nbsp123&nbsp4567 
     br
     h2 
-      a(href="mailto:info@ybgroup.us" :class='light? "black" : "white" ') INFO&nbsp
+      a(href="mailto:contact@ybgroup.us" :class='light? "black" : "white" ') contact&nbsp
     h3 
-      a(href="mailto:info@ybgroup.us" :class='light? "black" : "white" ') (AT) 
+      a(href="mailto:contact@ybgroup.us" :class='light? "black" : "white" ') (AT) 
     h2 
-      a(href="mailto:info@ybgroup.us" :class='light? "black" : "white" ') YBGROUP.US
+      a(href="mailto:contact@ybgroup.us" :class='light? "black" : "white" ') YBGROUP.US
     br
     br
     h4 
