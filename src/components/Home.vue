@@ -6,7 +6,7 @@
   SideBar(class="hide-on-ipad hide-on-desktop")
   MobileMenu
   // header, which contains header imagSe & navbar
-  Header
+  Header(displayNavBar = true)
   // grid of projects inside container div
   //  .main-container
   //    .grid

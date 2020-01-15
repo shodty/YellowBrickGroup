@@ -10,6 +10,7 @@ import TheCabin from './components/cases/TheCabin.vue'
 import ArtLifeTour from './components/cases/ArtLifeTour.vue'
 import BardisMiry from './components/cases/BardisMiry.vue'
 import Tester from './components/Tester.vue'
+import MailService from './components/MailService.vue'
 
 export default [
     { path: '/', component: Home },
@@ -24,4 +25,5 @@ export default [
     { path: '/alt', component: ArtLifeTour},
     { path: '/bm', component: BardisMiry},
     { path: '/tester', component: Tester},
+    { path: '/mailservice', component: MailService},
 ]

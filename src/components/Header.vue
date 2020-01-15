@@ -9,7 +9,7 @@
           img(:src=' light? getImgUrl("ybg_bubbly", ".png") : getImgUrl("ybg_bubbly_white", ".png")'  width="80%")
         .mobile-instructions(class='hide-on-desktop')
           img(:src=' light? getImgUrl("welcome_mobile", ".png") : getImgUrl("welcome_mobile_white", ".png")' width="60%")
-    NavBar(class='hide-on-mobile')
+    NavBar(class='hide-on-mobile' v-if='displayNavBar')
 </template>
 
 <script>
@@ -20,9 +20,10 @@ import { EventBus } from '../event-bus.js'
 
 export default {
   name: 'app-header',
-
+  props: { displayNavBar: Boolean},
   data(){
     return {
+
       activeLink : 'navigation',
       count :0,
       window: {
