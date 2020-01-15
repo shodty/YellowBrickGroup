@@ -11,6 +11,7 @@ import ArtLifeTour from './components/cases/ArtLifeTour.vue'
 import BardisMiry from './components/cases/BardisMiry.vue'
 import Tester from './components/Tester.vue'
 import MailService from './components/MailService.vue'
+import FormTest from './components/FormTest.vue'
 
 export default [
     { path: '/', component: Home },
@@ -26,4 +27,5 @@ export default [
     { path: '/bm', component: BardisMiry},
     { path: '/tester', component: Tester},
     { path: '/mailservice', component: MailService},
+    { path: '/formtest', component: FormTest},
 ]
